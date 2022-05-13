@@ -16,6 +16,7 @@ namespace FFStudio
 
 	[ Title( "Shared Variables" ) ]
 		public SharedReferenceNotifier notifier_reference_camera_main;
+
 #endregion
 
 #region Fields (Private)
@@ -24,6 +25,8 @@ namespace FFStudio
 		private Transform transform_camera_main;
 		private Camera camera_main;
 		private LeanTouch leanTouch;
+
+		Vector2Delegate onFingerDown;
 #endregion
 
 #region Unity API
@@ -43,6 +46,8 @@ namespace FFStudio
 
 			leanTouch         = GetComponent< LeanTouch >();
 			leanTouch.enabled = false;
+
+			onFingerDown = OnFingerDown;
 		}
 #endregion
 		
@@ -57,6 +62,16 @@ namespace FFStudio
 			event_input_tap.eventValue = count;
 
 			event_input_tap.Raise();
+		}
+
+		public void Lean_OnFingerUpdate( Vector2 vector )
+		{
+			onFingerDown( vector );
+		}
+
+		public void Lean_OnFingerUp()
+		{
+			onFingerDown = OnFingerDown;
 		}
 #endregion
 
@@ -76,6 +91,16 @@ namespace FFStudio
 				camera_main           = transform_camera_main.GetComponent< Camera >();
 				leanTouch.enabled    = true;
 			}
+		}
+
+		void OnFingerDown( Vector2 vector )
+		{
+			onFingerDown = OnFingerUpdate;
+		}
+
+		void OnFingerUpdate( Vector2 vector2 )
+		{
+
 		}
 #endregion
     }
