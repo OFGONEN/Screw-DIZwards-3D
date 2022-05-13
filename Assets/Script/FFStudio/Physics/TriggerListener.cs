@@ -6,8 +6,11 @@ namespace FFStudio
 {
 	public abstract class TriggerListener : ColliderListener< TriggerMessage, Collider >
 	{
-#region Fields (Private)
+
+#region Fields
 		private event TriggerMessage triggerEvent;
+		public bool directional;
+		public int direction;
 #endregion
 
 #region Properties
@@ -73,9 +76,14 @@ namespace FFStudio
 #region Implementation
         protected override void InvokeEvent( Collider other )
 		{
-			triggerEvent?.Invoke( other );
 
-			unityEvent.Invoke( other );
+			var localPosition = transform.InverseTransformPoint( other.transform.position );
+
+			if( !directional || ( directional && Mathf.Sign( direction ) == Mathf.Sign( localPosition.y ) ) )
+			{
+				triggerEvent?.Invoke( other );
+				unityEvent.Invoke( other );
+			}
 		}
 #endregion
 
