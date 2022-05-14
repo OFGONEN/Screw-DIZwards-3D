@@ -16,6 +16,7 @@ public class Velocity : ScriptableObject
 #endregion
 
 #region Properties
+    public float CurrentVelocity => velocity_current;
 #endregion
 
 #region Unity API
@@ -38,6 +39,7 @@ public class Velocity : ScriptableObject
         velocity_current = Mathf.Max( velocity_current - GameSettings.Instance.velocity_accelerate * Time.deltaTime, GameSettings.Instance.velocity_min );
     }
 
+    // Editor Call
 	public void OnStop()
 	{
 		velocity_current = 0;
