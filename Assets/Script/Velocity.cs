@@ -40,7 +40,7 @@ public class Velocity : ScriptableObject
     }
 
     // Editor Call
-	public void OnStop()
+	public void Clear()
 	{
 		velocity_current = 0;
 	}
