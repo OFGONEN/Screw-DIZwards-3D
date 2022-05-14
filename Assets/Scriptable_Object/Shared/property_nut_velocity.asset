@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f6706df8858e4744bcb1b27d51bc0db, type: 3}
-  m_Name: notif_input_swipe
+  m_Script: {fileID: 11500000, guid: 8e6717a536afb48b281680025cd43504, type: 3}
+  m_Name: property_nut_velocity
   m_EditorClassIdentifier: 
-  sharedValue: {x: 0, y: 0}
+  notif_input: {fileID: 11400000, guid: 8ef5b7718363347a7a651f2498283409, type: 2}
