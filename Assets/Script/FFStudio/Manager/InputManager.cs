@@ -16,6 +16,7 @@ namespace FFStudio
 
 	[ Title( "Shared Variables" ) ]
 		public SharedReferenceNotifier notifier_reference_camera_main;
+		public SharedVector2Notifier notif_input;
 
 #endregion
 
@@ -60,7 +61,6 @@ namespace FFStudio
 		public void Tapped( int count )
 		{
 			event_input_tap.eventValue = count;
-
 			event_input_tap.Raise();
 		}
 
@@ -72,6 +72,7 @@ namespace FFStudio
 		public void Lean_OnFingerUp()
 		{
 			onFingerDown = OnFingerDown;
+			notif_input.SetValue_DontNotify( Vector2.zero );
 		}
 #endregion
 
@@ -96,11 +97,12 @@ namespace FFStudio
 		void OnFingerDown( Vector2 vector )
 		{
 			onFingerDown = OnFingerUpdate;
+			notif_input.SetValue_NotifyAlways( vector );
 		}
 
-		void OnFingerUpdate( Vector2 vector2 )
+		void OnFingerUpdate( Vector2 vector )
 		{
-
+			notif_input.SetValue_NotifyAlways( vector );
 		}
 #endregion
     }
