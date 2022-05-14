@@ -26,8 +26,12 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
 
-    const char char_prefab_bolt = 'b';
-    const char char_space = 'g';
+    const char char_prefab_bolt        = 'b';
+    const char char_space              = 'g';
+    const char char_prefab_bolt_patrol = 'p';
+    const char char_prefab_bolt_rotate = 'r';
+    const char char_prefab_smasher     = 's';
+    const char char_prefab_collectable = 'c';
 
 	Transform spawnTransform;
 
@@ -203,7 +207,14 @@ public class LevelCreator : ScriptableObject
     bool IsSpecial( int index )
     {
 		var codeChar = level_code[ index ];
-		return codeChar == 'b' || codeChar == 'c' || codeChar == 's' || codeChar == 'e';
+
+		return 
+			codeChar == char_prefab_bolt || 
+			codeChar == char_prefab_bolt_patrol || 
+			codeChar == char_prefab_bolt_rotate || 
+			codeChar == char_prefab_collectable || 
+			codeChar == char_prefab_smasher ||
+			codeChar == char_space;
     }
 #endregion
 
