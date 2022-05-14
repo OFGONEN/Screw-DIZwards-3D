@@ -20,7 +20,8 @@ public class LevelCreator : ScriptableObject
     public int level_start_bolt_length;
     public float level_start_bolt_space;
 
-	[ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt; 
+	// Childs of prefab_bolt: gfx, collider_bottom, collider_upper_in, collider_upper_out
+	[ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_start; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
@@ -59,6 +60,22 @@ public class LevelCreator : ScriptableObject
 		bolt_start.transform.SetParent( spawnTransform );
 
 		PlaceBoltModel( bolt_start, level_start_bolt_length );
+
+		// Place collider bottom
+		var collider_bottom = bolt_start.transform.GetChild( 1 ).GetComponent< BoxCollider >();
+		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height / -2f;
+
+		// Place collider upper in
+		var collider_upper_in = bolt_start.transform.GetChild( 2 ).GetComponent< BoxCollider >();
+		collider_upper_in.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_upper_in.transform.localPosition = Vector3.up * bolt_model_height * level_start_bolt_length + Vector3.up * bolt_model_height / 2f;
+
+		// Place collider upper out
+		var collider_upper_out = bolt_start.transform.GetChild( 3 ).GetComponent< BoxCollider >();
+		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * level_start_bolt_length - Vector3.up * bolt_model_height / 2f;
+
 
 		create_position += level_start_bolt_space + level_start_bolt_length * bolt_model_height;
 		// Place Start Bolt End
@@ -125,6 +142,20 @@ public class LevelCreator : ScriptableObject
 
 		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ) );
 		create_position += create_length * bolt_model_height;
+
+		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
+		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height / -2f;
+
+		// Place collider upper in
+		var collider_upper_in = bolt.transform.GetChild( 2 ).GetComponent< BoxCollider >();
+		collider_upper_in.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_upper_in.transform.localPosition = Vector3.up * bolt_model_height * create_length + Vector3.up * bolt_model_height / 2f;
+
+		// Place collider upper out
+		var collider_upper_out = bolt.transform.GetChild( 3 ).GetComponent< BoxCollider >();
+		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
+		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * create_length - Vector3.up * bolt_model_height / 2f;
 	}
 
     bool IsCodeValid( out int errorIdex )
