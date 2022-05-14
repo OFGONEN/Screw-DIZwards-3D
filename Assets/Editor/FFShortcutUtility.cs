@@ -110,6 +110,13 @@ namespace FFEditor
 			Selection.SetActiveObjectWithContext( playModeSettings, playModeSettings );
 		}
 
+		[ MenuItem( "FFShortcut/Select Level Creator &5" ) ]
+		static private void SelectLevelCreator()
+		{
+			var levelCreator = AssetDatabase.LoadAssetAtPath( "Assets/Editor/level_creator.asset", typeof( ScriptableObject ) );
+			Selection.SetActiveObjectWithContext( levelCreator, levelCreator );
+		}
+
 		[ MenuItem( "FFShortcut/Copy Global Transform &c" ) ]
 		static private void CopyTransform()
 		{
