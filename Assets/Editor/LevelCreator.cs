@@ -26,8 +26,8 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
 
-    const char prefab_bolt_char = 'b';
-    const char space_char = 's';
+    const char char_prefab_bolt = 'b';
+    const char char_space = 'g';
 
 	Transform spawnTransform;
 
@@ -104,13 +104,13 @@ public class LevelCreator : ScriptableObject
 
     void PlaceObject()
     {
-        if( level_code[ create_index ] == 's' ) // Place Space
+        if( level_code[ create_index ] == char_space ) // Place Space
         {
 			create_index++;
 			FindLength();
 			create_position += create_length;
 		}
-        else if( level_code[ create_index ] == 'b' ) // Place Bolt
+        else if( level_code[ create_index ] == char_prefab_bolt ) // Place Bolt
         {
 			create_index++;
 			FindLength();
