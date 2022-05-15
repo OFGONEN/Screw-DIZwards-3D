@@ -47,7 +47,12 @@ public class Movement : ScriptableObject
     // Editor Call
     public void OnFallDownPointChange( SharedReferenceNotifier sharedReferenceNotifier )
     {
-		movement_fallDownPoint = ( sharedReferenceNotifier.SharedValue as Transform ).position.y;
+		var fallDownPoint = sharedReferenceNotifier.SharedValue as Transform;
+
+		if( fallDownPoint )
+			movement_fallDownPoint = fallDownPoint.position.y;
+		else
+			movement_fallDownPoint = 0;
 	}
 
     public void Clear()
