@@ -14,6 +14,7 @@ namespace FFStudio
 		public ScreenPressEvent event_input_screenPress;
 		public IntGameEvent event_input_tap;
 		public GameEvent event_input_fingerDown;
+		public GameEvent event_input_fingerUp;
 
 	[ Title( "Shared Variables" ) ]
 		public SharedReferenceNotifier notifier_reference_camera_main;
@@ -73,6 +74,7 @@ namespace FFStudio
 		{
 			onFingerDown = OnFingerDown;
 			notif_input.SetValue_DontNotify( Vector2.zero );
+			event_input_fingerUp.Raise();
 		}
 #endregion
 
