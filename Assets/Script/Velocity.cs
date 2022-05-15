@@ -31,12 +31,12 @@ public class Velocity : ScriptableObject
 	// Regardless of the velocity's sign, velocity
     public void OnDecrease_Zero()
     {
-		velocity_current = Mathf.Max( 0, Mathf.Abs( velocity_current ) - GameSettings.Instance.velocity_accelerate * Time.deltaTime ) * Mathf.Sign( velocity_current );
+		velocity_current = Mathf.Max( 0, Mathf.Abs( velocity_current ) - GameSettings.Instance.velocity_decelerate * Time.deltaTime ) * Mathf.Sign( velocity_current );
 	}
 
     public void OnDecrease_Min()
     {
-        velocity_current = Mathf.Max( velocity_current - GameSettings.Instance.velocity_accelerate * Time.deltaTime, GameSettings.Instance.velocity_min );
+        velocity_current = Mathf.Max( velocity_current - GameSettings.Instance.velocity_decelerate * Time.deltaTime, GameSettings.Instance.velocity_min );
     }
 
     // Editor Call
