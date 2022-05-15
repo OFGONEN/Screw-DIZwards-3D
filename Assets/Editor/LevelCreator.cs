@@ -26,6 +26,8 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_patrol; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_rotate; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_smasher_obstacle; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_collectable; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
 
     const char char_prefab_bolt        = 'b';
