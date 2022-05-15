@@ -414,5 +414,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedReferenceProperty: {fileID: 11400000, guid: cc3aed6e7541e4b0da150fc7c8d969cc, type: 2}
-  referenceComponent: {fileID: 2947539239775717274}
+  referenceComponent: {fileID: 4080295271887506775}
   setByDefault: 0
