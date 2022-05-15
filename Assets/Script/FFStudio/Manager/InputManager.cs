@@ -97,8 +97,9 @@ namespace FFStudio
 		void OnFingerDown( Vector2 vector )
 		{
 			onFingerDown = OnFingerUpdate;
-			notif_input.SetValue_NotifyAlways( vector );
+
 			event_input_fingerDown.Raise();
+			notif_input.SetValue_NotifyAlways( vector );
 		}
 
 		void OnFingerUpdate( Vector2 vector )
