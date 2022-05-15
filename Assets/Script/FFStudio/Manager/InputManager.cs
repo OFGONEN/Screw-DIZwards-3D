@@ -13,11 +13,11 @@ namespace FFStudio
 		public SwipeInputEvent event_input_swipe;
 		public ScreenPressEvent event_input_screenPress;
 		public IntGameEvent event_input_tap;
+		public GameEvent event_input_fingerDown;
 
 	[ Title( "Shared Variables" ) ]
 		public SharedReferenceNotifier notifier_reference_camera_main;
 		public SharedVector2Notifier notif_input;
-
 #endregion
 
 #region Fields (Private)
@@ -98,6 +98,7 @@ namespace FFStudio
 		{
 			onFingerDown = OnFingerUpdate;
 			notif_input.SetValue_NotifyAlways( vector );
+			event_input_fingerDown.Raise();
 		}
 
 		void OnFingerUpdate( Vector2 vector )
