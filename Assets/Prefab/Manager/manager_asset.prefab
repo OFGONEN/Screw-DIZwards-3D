@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 931464583940335300}
   - component: {fileID: 865722006992881440}
   - component: {fileID: 1654369594515438236}
+  - component: {fileID: 1250702750892494597}
   m_Layer: 0
   m_Name: manager_asset
   m_TagString: Untagged
@@ -167,3 +168,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1250702750892494597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364745634903858522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Boolean,
+            mscorlib
+          m_MethodName: SetValue_NotifyAlways
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
