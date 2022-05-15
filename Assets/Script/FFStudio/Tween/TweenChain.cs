@@ -3,7 +3,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+using Shapes;
+using UnityEditor;
+#endif
 
 namespace FFStudio
 {
@@ -80,12 +85,57 @@ namespace FFStudio
         void ChainNext()
         {
             if( PlayingIndex >= 0 )
+#if UNITY_EDITOR
+			if( PlayingIndex >= 0 )
+				inPlayMode_currentStartPos = transform.position;
+#endif
+			if( PlayingIndex >= 0 )
 				Play( PlayingTweenData.index_nextTweenToChainInto );
 		}
 #endregion
 
 #region EditorOnly
 #if UNITY_EDITOR
+		Vector3 inPlayMode_currentStartPos;
+
+		void DrawMovementTweenGizmo( MovementTweenData tweenData, ref Vector3 lastPos, Vector3 verticalOffset, int tweenNo )
+		{
+			Vector3 startPos = lastPos;
+
+			if( Application.isPlaying )
+				startPos = inPlayMode_currentStartPos;
+
+			Color color = new Color( 1.0f, 0.75f, 0.0f );
+
+			Draw.UseDashes = true;
+			Draw.DashStyle = DashStyle.RelativeDashes( DashType.Basic, 1, 1 );
+
+			var deltaPosition = tweenData.deltaPosition;
+
+			lastPos = startPos + deltaPosition;
+
+			Draw.Line( startPos + verticalOffset, lastPos + verticalOffset, 0.125f, LineEndCap.None, color );
+			var direction = deltaPosition.normalized;
+			var deltaMagnitude = deltaPosition.magnitude;
+			var coneLength = 0.2f;
+			var conePos = Vector3.Lerp( startPos, lastPos, 1.0f - coneLength / deltaMagnitude );
+			Draw.Cone( conePos + verticalOffset, deltaPosition.normalized, 0.2f, 0.2f, color );
+			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description );
+		}
+
+		void OnDrawGizmos()
+		{
+			Vector3 lastPos = transform.position;
+			if( Application.isPlaying )
+			{
+				if( tweenDatas[ PlayingIndex ] is MovementTweenData )
+					DrawMovementTweenGizmo( tweenDatas[ PlayingIndex ] as MovementTweenData, ref lastPos, Vector3.zero, PlayingIndex + 1 );
+			}
+			else
+				for( var i = 0; i < tweenDatas.Count; i++ )
+					if( tweenDatas[ i ] is MovementTweenData )
+						DrawMovementTweenGizmo( tweenDatas[ i ] as MovementTweenData, ref lastPos, Vector3.up * i * 0.3f, i + 1 );
+		}
 #endif
 #endregion
 	}

@@ -3,7 +3,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
-using Shapes;
 
 namespace FFStudio
 {
@@ -18,24 +17,12 @@ namespace FFStudio
 		[ BoxGroup( "Tween" ), PropertyOrder( int.MinValue ) ] public MovementMode movementMode;
 
 		float Duration => Mathf.Abs( deltaPosition.magnitude / velocity );
-		
-		Vector3 startPosition;
-		Vector3 targetPosition;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-		public override void Initialize( Transform transform )
-		{
-			base.Initialize( transform );
-
-			if( movementMode == MovementMode.Local )
-				startPosition = transform.localPosition;
-			else
-				startPosition = transform.position;
-		}
 #endregion
 
 #region API
