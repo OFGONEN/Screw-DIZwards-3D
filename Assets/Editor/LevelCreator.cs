@@ -17,6 +17,7 @@ public class LevelCreator : ScriptableObject
 #region Fields
   [ Title( "Create" ) ]
     public string level_code;
+	public string level_code_collectable; // 10.25-11.00-
   [ Title( "Create" ) ]
     public int level_start_bolt_length;
     public float level_start_bolt_space;
@@ -89,12 +90,11 @@ public class LevelCreator : ScriptableObject
 		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * level_start_bolt_length - Vector3.up * bolt_model_height / 2f;
 
-		var boltData = new BoltData( bolt_start.transform, create_position, 0 );
+		var boltData = new BoltData( bolt_start.transform, create_position, level_start_bolt_length * bolt_model_height );
+		bolt_create_data.Add( boltData );
 
 		create_position += level_start_bolt_space + level_start_bolt_length * bolt_model_height;
 
-		boltData.bolt_point_end = create_position;
-		bolt_create_data.Add( boltData );
 		// Place Start Bolt End
 
 		while( create_index < level_code.Length - 1 )
@@ -102,11 +102,46 @@ public class LevelCreator : ScriptableObject
 			PlaceObject();
 		}
 
+		// Place Collectables
+		PlaceCollectables();
+
 		EditorSceneManager.SaveOpenScenes();
 	}
 #endregion
 
 #region Implementation
+	[ Button() ]
+	void PlaceCollectables()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+		if( level_code_collectable == null || level_code_collectable == string.Empty ) return;
+
+		var collectablePoints = level_code_collectable.Split( '-' );
+
+		for( var i = 0; i < collectablePoints.Length; i++ )
+			PlaceCollectable( float.Parse( collectablePoints[ i ] ) );
+
+		EditorSceneManager.SaveOpenScenes();
+	}
+
+	void PlaceCollectable( float point )
+	{
+		var collectable = PrefabUtility.InstantiatePrefab( prefab_collectable ) as GameObject;
+		collectable.transform.position = Vector3.up * point;
+
+		for( var i = 0; i < bolt_create_data.Count; i++ )
+		{
+			var data = bolt_create_data[ i ];
+			if( data.bolt_point_start <= point && point <= data.bolt_point_end )
+			{
+				collectable.transform.SetParent( data.bolt );
+				return;
+			}
+		}
+
+		collectable.transform.SetParent( spawnTransform );
+	}
+
 	void PlaceBoltModel( GameObject boltObject, int count, bool isStatic )
 	{
 		var parent = boltObject.transform.GetChild( 0 );
@@ -181,13 +216,11 @@ public class LevelCreator : ScriptableObject
 		bolt.transform.position = Vector3.up * create_position;
 		bolt.transform.SetParent( spawnTransform );
 
-		var boltData = new BoltData( bolt.transform, create_position, 0 );
+		var boltData = new BoltData( bolt.transform, create_position, create_position + create_length * bolt_model_height );
+		bolt_create_data.Add( boltData );
 
 		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ), isStatic );
 		create_position += create_length * bolt_model_height;
-
-		boltData.bolt_point_end = create_position;
-		bolt_create_data.Add( boltData );
 
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
 		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
