@@ -22,6 +22,12 @@ public class Nut : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		nut_movement.Clear();
+		nut_velocity.Clear();
+	}
+
     private void Awake()
     {
 		onUpdate = ExtensionMethods.EmptyMethod;
