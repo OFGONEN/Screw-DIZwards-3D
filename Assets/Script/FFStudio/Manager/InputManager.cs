@@ -50,6 +50,7 @@ namespace FFStudio
 			leanTouch.enabled = false;
 
 			onFingerDown = OnFingerDown;
+			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
 		
@@ -73,7 +74,8 @@ namespace FFStudio
 		public void Lean_OnFingerUp()
 		{
 			onFingerDown = OnFingerDown;
-			notif_input.SetValue_DontNotify( Vector2.zero );
+
+			notif_input.SetValue_NotifyAlways( Vector2.zero );
 			event_input_fingerUp.Raise();
 		}
 #endregion
