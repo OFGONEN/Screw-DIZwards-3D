@@ -23,6 +23,8 @@ public class LevelCreator : ScriptableObject
 	// Childs of prefab_bolt: gfx, collider_bottom, collider_upper_in, collider_upper_out
 	[ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_start; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_patrol; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_rotate; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
 
@@ -63,7 +65,7 @@ public class LevelCreator : ScriptableObject
 		bolt_start.transform.position = Vector3.up * create_position;
 		bolt_start.transform.SetParent( spawnTransform );
 
-		PlaceBoltModel( bolt_start, level_start_bolt_length );
+		PlaceBoltModel( bolt_start, level_start_bolt_length, true );
 
 		// Place collider bottom
 		var collider_bottom = bolt_start.transform.GetChild( 1 ).GetComponent< BoxCollider >();
@@ -94,7 +96,7 @@ public class LevelCreator : ScriptableObject
 #endregion
 
 #region Implementation
-	void PlaceBoltModel( GameObject boltObject, int count )
+	void PlaceBoltModel( GameObject boltObject, int count, bool isStatic )
 	{
 		var parent = boltObject.transform.GetChild( 0 );
 
@@ -103,6 +105,8 @@ public class LevelCreator : ScriptableObject
 			var bolt = ( PrefabUtility.InstantiatePrefab( prefab_bolt_model ) as GameObject ).transform ;
 			bolt.SetParent( parent );
 			bolt.localPosition = Vector3.up * i * bolt_model_height;
+
+			bolt.ToggleStaticOfChildren( isStatic );
 		}
 	}
 
@@ -118,7 +122,19 @@ public class LevelCreator : ScriptableObject
         {
 			create_index++;
 			FindLength();
-			PlaceBolt();
+			PlaceBolt( prefab_bolt, true );
+		}
+        else if( level_code[ create_index ] == char_prefab_bolt_patrol ) // Place Bolt Patrol
+        {
+			create_index++;
+			FindLength();
+			PlaceBolt( prefab_bolt_obstacle_patrol, false );
+		}
+        else if( level_code[ create_index ] == char_prefab_bolt_rotate ) // Place Bolt Rotate
+        {
+			create_index++;
+			FindLength();
+			PlaceBolt( prefab_bolt_obstacle_rotate, false );
 		}
     }
 
@@ -138,13 +154,13 @@ public class LevelCreator : ScriptableObject
 		create_length = float.Parse( stringBuilder.ToString() );
 	}
 
-    void PlaceBolt()
+    GameObject PlaceBolt( GameObject prefab, bool isStatic )
     {
-		var bolt = PrefabUtility.InstantiatePrefab( prefab_bolt ) as GameObject;
+		var bolt = PrefabUtility.InstantiatePrefab( prefab ) as GameObject;
 		bolt.transform.position = Vector3.up * create_position;
 		bolt.transform.SetParent( spawnTransform );
 
-		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ) );
+		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ), isStatic );
 		create_position += create_length * bolt_model_height;
 
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
@@ -160,6 +176,8 @@ public class LevelCreator : ScriptableObject
 		var collider_upper_out = bolt.transform.GetChild( 3 ).GetComponent< BoxCollider >();
 		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * create_length - Vector3.up * bolt_model_height / 2f;
+
+		return bolt;
 	}
 
     bool IsCodeValid( out int errorIdex )
