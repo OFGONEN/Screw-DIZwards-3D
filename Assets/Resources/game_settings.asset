@@ -16,6 +16,7 @@ MonoBehaviour:
   velocity_min: -5
   velocity_accelerate: 1
   velocity_decelerate: -2
+  velocity_rotate_cofactor: 1
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1
