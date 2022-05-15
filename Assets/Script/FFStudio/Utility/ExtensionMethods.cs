@@ -406,6 +406,16 @@ namespace FFStudio
 			}
 		}
 
+		public static void ToggleStaticOfChildren( this Transform transform, bool value )
+		{
+			var allChildren = transform.GetComponentsInChildren< Transform >();
+
+			for( var i = 0; i < allChildren.Length; i++ )
+			{
+				allChildren[ i ].gameObject.isStatic = value;
+			}
+		}
+
 		public static void ToggleKinematic( this Rigidbody rb, bool value )
 		{
 			rb.isKinematic = value;
