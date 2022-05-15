@@ -9,6 +9,7 @@ using UnityEditor.SceneManagement;
 using Sirenix.OdinInspector;
 using FFEditor;
 using FFStudio;
+using System;
 
 [ CreateAssetMenu( fileName = "level_creator", menuName = "FFEditor/LevelCreator" ) ]
 public class LevelCreator : ScriptableObject
@@ -30,6 +31,7 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_collectable; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
     [ FoldoutGroup( "Setup" ) ] public float smasher_model_height; 
+    [ FoldoutGroup( "Setup" ) ] public List< BoltData > bolt_create_data; 
 
     const char char_prefab_bolt        = 'b';
     const char char_space              = 'g';
@@ -55,6 +57,8 @@ public class LevelCreator : ScriptableObject
     public void CreateLevel()
     {
 		EditorSceneManager.MarkAllScenesDirty();
+
+		bolt_create_data = new List< BoltData >( 64 );
 
 		spawnTransform = GameObject.FindWithTag( "Respawn" ).transform;
 		spawnTransform.DestoryAllChildren();
@@ -85,8 +89,12 @@ public class LevelCreator : ScriptableObject
 		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * level_start_bolt_length - Vector3.up * bolt_model_height / 2f;
 
+		var boltData = new BoltData( bolt_start.transform, create_position, 0 );
 
 		create_position += level_start_bolt_space + level_start_bolt_length * bolt_model_height;
+
+		boltData.bolt_point_end = create_position;
+		bolt_create_data.Add( boltData );
 		// Place Start Bolt End
 
 		while( create_index < level_code.Length - 1 )
@@ -173,8 +181,13 @@ public class LevelCreator : ScriptableObject
 		bolt.transform.position = Vector3.up * create_position;
 		bolt.transform.SetParent( spawnTransform );
 
+		var boltData = new BoltData( bolt.transform, create_position, 0 );
+
 		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ), isStatic );
 		create_position += create_length * bolt_model_height;
+
+		boltData.bolt_point_end = create_position;
+		bolt_create_data.Add( boltData );
 
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
 		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
@@ -253,4 +266,19 @@ public class LevelCreator : ScriptableObject
 #if UNITY_EDITOR
 #endif
 #endregion
+}
+
+[ Serializable ]
+public struct BoltData
+{
+	public Transform bolt;
+	public float bolt_point_start;
+	public float bolt_point_end;
+
+	public BoltData( Transform transform, float startPoint, float endPoint )
+	{
+		bolt             = transform;
+		bolt_point_start = startPoint;
+		bolt_point_end   = endPoint;
+	}
 }
