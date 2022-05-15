@@ -13,6 +13,7 @@ public class Movement : ScriptableObject
     [ SerializeField ] Velocity velocity;
     [ ShowInInspector, ReadOnly ] float movement_fallDownPoint;
     [ ShowInInspector, ReadOnly ] Transform movement_transform;
+	[ ShowInInspector, ReadOnly ] Transform rotate_transform;
 #endregion
 
 #region Properties
@@ -28,12 +29,19 @@ public class Movement : ScriptableObject
 		    position.y = Mathf.Max( movement_fallDownPoint, position.y + velocity.CurrentVelocity * Time.deltaTime );
 
 		movement_transform.position = position;
+		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
 	}
 
     // Editor Call
     public void OnMovementTransformChange( SharedReferenceNotifier sharedReferenceNotifier )
     {
 		movement_transform = sharedReferenceNotifier.SharedValue as Transform;
+	}
+
+    // Editor Call
+    public void OnRotateTransformChange( SharedReferenceNotifier sharedReferenceNotifier )
+    {
+		rotate_transform = sharedReferenceNotifier.SharedValue as Transform;
 	}
 
     // Editor Call

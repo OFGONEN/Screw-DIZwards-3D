@@ -13,6 +13,8 @@ namespace FFStudio
         public float velocity_max;
         public float velocity_min;
         public float velocity_accelerate;
+        public float velocity_decelerate;
+        public float velocity_rotate_cofactor;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
