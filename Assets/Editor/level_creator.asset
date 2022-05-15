@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504aa149258394273812cc02fd4dba5e, type: 3}
   m_Name: level_creator
   m_EditorClassIdentifier: 
-  level_code: b4g1p4g1r4
+  level_code: b4g1sg1p4g1r4
   level_start_bolt_length: 4
   level_start_bolt_space: 1
   prefab_bolt: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
@@ -23,3 +23,4 @@ MonoBehaviour:
   prefab_smasher_obstacle: {fileID: 3032442728933468474, guid: 7a7392f225f9a4dd18372269af544d7f, type: 3}
   prefab_collectable: {fileID: 3032442728933468474, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
   bolt_model_height: 0.5
+  smasher_model_height: 1

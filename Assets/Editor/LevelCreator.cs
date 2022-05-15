@@ -29,6 +29,7 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_smasher_obstacle; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_collectable; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
+    [ FoldoutGroup( "Setup" ) ] public float smasher_model_height; 
 
     const char char_prefab_bolt        = 'b';
     const char char_space              = 'g';
@@ -137,6 +138,16 @@ public class LevelCreator : ScriptableObject
 			create_index++;
 			FindLength();
 			PlaceBolt( prefab_bolt_obstacle_rotate, false );
+		}
+        else if( level_code[ create_index ] == char_prefab_smasher ) // Place Smasher
+        {
+			create_index++;
+
+			var smasher = PrefabUtility.InstantiatePrefab( prefab_smasher_obstacle ) as GameObject;
+			smasher.transform.position = Vector3.up * create_position;
+			smasher.transform.SetParent( spawnTransform );
+
+			create_position += smasher_model_height;
 		}
     }
 
