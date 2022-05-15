@@ -19,6 +19,7 @@ namespace FFStudio
 
         [ Header( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
+        public SharedBoolNotifier notif_nut_IsOnBolt;
 #endregion
 
 #region UnityAPI
@@ -60,8 +61,8 @@ namespace FFStudio
 
         private void LevelRevealedResponse()
         {
-
-        }
+			notif_nut_IsOnBolt.SetValue_NotifyAlways( true );
+		}
 
         private void LevelStartedResponse()
         {
