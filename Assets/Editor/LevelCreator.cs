@@ -174,13 +174,23 @@ public class LevelCreator : ScriptableObject
         {
 			create_index++;
 			FindLength();
-			PlaceBolt( prefab_bolt_obstacle_patrol, false );
+			var bolt = PlaceBolt( prefab_bolt_obstacle_patrol, false );
+
+			// Place collider upper in
+			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent< BoxCollider >();
+			collider_obstacle.size = new Vector3( 1, bolt_model_height * create_length, 1 );
+			collider_obstacle.transform.localPosition = Vector3.up * bolt_model_height * create_length / 2f;
 		}
         else if( level_code[ create_index ] == char_prefab_bolt_rotate ) // Place Bolt Rotate
         {
 			create_index++;
 			FindLength();
-			PlaceBolt( prefab_bolt_obstacle_rotate, false );
+			var bolt = PlaceBolt( prefab_bolt_obstacle_rotate, false );
+
+			// Place collider upper in
+			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent<BoxCollider>();
+			collider_obstacle.size = new Vector3( 1, bolt_model_height * create_length, 1 );
+			collider_obstacle.transform.localPosition = Vector3.up * bolt_model_height * create_length / 2f;
 		}
         else if( level_code[ create_index ] == char_prefab_smasher ) // Place Smasher
         {
