@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 195936961634297341}
   - component: {fileID: 1545262575613824865}
   - component: {fileID: 6525068108551757694}
-  - component: {fileID: 261099447000238661}
   m_Layer: 30
   m_Name: Cube
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &261099447000238661
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143584408963308436}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6520220514587172865
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +127,6 @@ GameObject:
   - component: {fileID: 4699925681941145683}
   - component: {fileID: 1920852607817112023}
   - component: {fileID: 3932373633506523}
-  - component: {fileID: 5626624561866943950}
   m_Layer: 30
   m_Name: Cube_1
   m_TagString: Untagged
@@ -214,19 +199,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5626624561866943950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6889517661416344922}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8879777075089953866
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +386,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   m_PrefabInstance: {fileID: 4320161309303058688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1461731335840428614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769758971300450170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fdb8b6cc6d04054824a64b30c31a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedDataNotifier: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
+  notify_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6211030373824014635}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3557481442801657780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,35 +446,6 @@ MonoBehaviour:
   index_playOnStart: 0
   tweenDatas: []
   <PlayingIndex>k__BackingField: 0
-  notif: {fileID: 0}
   references:
     version: 2
     RefIds: []
---- !u!114 &1461731335840428614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769758971300450170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fdb8b6cc6d04054824a64b30c31a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedDataNotifier: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
-  notify_event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6211030373824014635}
-        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

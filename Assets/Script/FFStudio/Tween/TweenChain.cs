@@ -141,7 +141,7 @@ namespace FFStudio
 			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description, style );
 		}
 
-		void OnDrawGizmos()
+		void OnDrawGizmosSelected()
 		{
 			style = new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 20 };
 

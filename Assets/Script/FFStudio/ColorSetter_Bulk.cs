@@ -52,7 +52,6 @@ namespace FFStudio
 		[ Button ]
 		public void SetColor()
 		{
-			FFLogger.Log( name + ": Setting color.", this );
 			for( int i = 0; i < renderers.Length; i++ )
 			{
 				var thisRenderer = renderers[ i ];
