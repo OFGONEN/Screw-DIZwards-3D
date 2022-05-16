@@ -18,6 +18,14 @@ MonoBehaviour:
   velocity_decelerate: -10
   velocity_rotate_cofactor: -100
   velocity_movement_cofactor: 0.1
+  endLevelTexts:
+  - endLevelText_percentage: 100
+    endLevelText_text: spectacular
+  - endLevelText_percentage: 50
+    endLevelText_text: Half Way
+  - endLevelText_percentage: 0
+    endLevelText_text: Failed Miserably
+  notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1

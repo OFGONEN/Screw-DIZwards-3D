@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System;
 
 namespace FFStudio
 {
@@ -16,6 +17,11 @@ namespace FFStudio
         public float velocity_decelerate;
         public float velocity_rotate_cofactor;
         [ Range( 0, 1 ) ] public float velocity_movement_cofactor;
+
+
+    [ Title( "Game" ) ]
+        public EndLevelText[] endLevelTexts;
+        public SharedFloatNotifier notif_level_progress;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
@@ -44,6 +50,21 @@ namespace FFStudio
 		public static GameSettings Instance => returnInstance();
 #endregion
 
+#region API
+        public string ReturnEndLevelText()
+        {
+            for( var i = 0; i < endLevelTexts.Length; i++ )
+            {
+                if( notif_level_progress.SharedValue >= ( endLevelTexts[ i ].endLevelText_percentage / 100f ) )
+                {
+					return endLevelTexts[ i ].endLevelText_text;
+                }
+			}
+
+			return endLevelTexts[ 0 ].endLevelText_text;
+		}
+#endregion
+
 #region Implementation
         private static GameSettings LoadInstance()
 		{
@@ -60,5 +81,24 @@ namespace FFStudio
             return instance;
         }
 #endregion
+
+
+#if UNITY_EDITOR
+#region EditorOnly
+        private void OnValidate()
+        {
+			Array.Sort<EndLevelText>( endLevelTexts, new Comparison<EndLevelText>(
+				( i1, i2 ) => i2.endLevelText_percentage.CompareTo( i1.endLevelText_percentage )
+			) );
+        }
+#endregion
+#endif
     }
+}
+
+[ Serializable ]
+public struct EndLevelText
+{
+	public float endLevelText_percentage;
+	public string endLevelText_text;
 }
