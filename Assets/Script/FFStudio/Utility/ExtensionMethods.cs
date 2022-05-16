@@ -389,6 +389,11 @@ namespace FFStudio
 		{
 			return Mathf.Lerp( vector.y, vector.x, progress );
 		}
+		
+		public static bool AreFloatsEqual( float a, float b, float epsilon )
+		{
+			return ( ( a < b ) ? ( b - a ) : ( a - b ) ) <= epsilon;
+		}
 
 		public static void DestoryAllChildren( this Transform transform )
 		{
