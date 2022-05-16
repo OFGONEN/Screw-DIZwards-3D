@@ -11,6 +11,7 @@ public class Movement : ScriptableObject
 {
 #region Fields
     [ SerializeField ] Velocity velocity;
+    [ SerializeField ] SharedFloatNotifier notif_level_progress;
     [ ShowInInspector, ReadOnly ] float movement_fallDownPoint;
     [ ShowInInspector, ReadOnly ] Transform movement_transform;
 	[ ShowInInspector, ReadOnly ] Transform rotate_transform;
@@ -31,6 +32,9 @@ public class Movement : ScriptableObject
 
 		movement_transform.position = position;
 		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * cofactor * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
+
+		// Since level starts at position ZERO
+		notif_level_progress.SharedValue = ( endPoint_transform.position.y - movement_transform.position.y ) / endPoint_transform.position.y;
 	}
 
     // Editor Call
