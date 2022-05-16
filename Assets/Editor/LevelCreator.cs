@@ -9,6 +9,7 @@ using UnityEditor.SceneManagement;
 using Sirenix.OdinInspector;
 using FFEditor;
 using FFStudio;
+using System;
 
 [ CreateAssetMenu( fileName = "level_creator", menuName = "FFEditor/LevelCreator" ) ]
 public class LevelCreator : ScriptableObject
@@ -16,6 +17,7 @@ public class LevelCreator : ScriptableObject
 #region Fields
   [ Title( "Create" ) ]
     public string level_code;
+	public string level_code_collectable; // 10.25-11.00-
   [ Title( "Create" ) ]
     public int level_start_bolt_length;
     public float level_start_bolt_space;
@@ -23,8 +25,14 @@ public class LevelCreator : ScriptableObject
 	// Childs of prefab_bolt: gfx, collider_bottom, collider_upper_in, collider_upper_out
 	[ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_start; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_patrol; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_rotate; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_smasher_obstacle; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_collectable; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
+    [ FoldoutGroup( "Setup" ) ] public float smasher_model_height; 
+    [ FoldoutGroup( "Setup" ) ] public List< BoltData > bolt_create_data; 
 
     const char char_prefab_bolt        = 'b';
     const char char_space              = 'g';
@@ -51,6 +59,8 @@ public class LevelCreator : ScriptableObject
     {
 		EditorSceneManager.MarkAllScenesDirty();
 
+		bolt_create_data = new List< BoltData >( 64 );
+
 		spawnTransform = GameObject.FindWithTag( "Respawn" ).transform;
 		spawnTransform.DestoryAllChildren();
 
@@ -63,7 +73,7 @@ public class LevelCreator : ScriptableObject
 		bolt_start.transform.position = Vector3.up * create_position;
 		bolt_start.transform.SetParent( spawnTransform );
 
-		PlaceBoltModel( bolt_start, level_start_bolt_length );
+		PlaceBoltModel( bolt_start, level_start_bolt_length, true );
 
 		// Place collider bottom
 		var collider_bottom = bolt_start.transform.GetChild( 1 ).GetComponent< BoxCollider >();
@@ -80,8 +90,11 @@ public class LevelCreator : ScriptableObject
 		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * level_start_bolt_length - Vector3.up * bolt_model_height / 2f;
 
+		var boltData = new BoltData( bolt_start.transform, create_position, level_start_bolt_length * bolt_model_height );
+		bolt_create_data.Add( boltData );
 
 		create_position += level_start_bolt_space + level_start_bolt_length * bolt_model_height;
+
 		// Place Start Bolt End
 
 		while( create_index < level_code.Length - 1 )
@@ -89,12 +102,59 @@ public class LevelCreator : ScriptableObject
 			PlaceObject();
 		}
 
+		// Place Collectables
+		PlaceCollectables();
+
 		EditorSceneManager.SaveOpenScenes();
 	}
 #endregion
 
 #region Implementation
-	void PlaceBoltModel( GameObject boltObject, int count )
+	void PlaceCollectables()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+
+		// Destroy All Collectables
+		DestoryAllCollectables();
+
+		if( level_code_collectable == null || level_code_collectable == string.Empty ) return;
+
+		var collectablePoints = level_code_collectable.Split( '-' );
+
+		for( var i = 0; i < collectablePoints.Length; i++ )
+			PlaceCollectable( float.Parse( collectablePoints[ i ] ) );
+
+		EditorSceneManager.SaveOpenScenes();
+	}
+
+	void DestoryAllCollectables()
+	{
+		var collectables = GameObject.FindObjectsOfType< Transform >();
+
+		for( var i = 0; i < collectables.Length; i++ )
+			if( collectables[ i ].name.ToLower() == prefab_collectable.name.ToLower() )
+				DestroyImmediate( collectables[ i ].gameObject );
+	}
+
+	void PlaceCollectable( float point )
+	{
+		var collectable = PrefabUtility.InstantiatePrefab( prefab_collectable ) as GameObject;
+		collectable.transform.position = Vector3.up * point;
+
+		for( var i = 0; i < bolt_create_data.Count; i++ )
+		{
+			var data = bolt_create_data[ i ];
+			if( data.bolt_point_start <= point && point <= data.bolt_point_end )
+			{
+				collectable.transform.SetParent( data.bolt );
+				return;
+			}
+		}
+
+		collectable.transform.SetParent( spawnTransform );
+	}
+
+	void PlaceBoltModel( GameObject boltObject, int count, bool isStatic )
 	{
 		var parent = boltObject.transform.GetChild( 0 );
 
@@ -103,6 +163,8 @@ public class LevelCreator : ScriptableObject
 			var bolt = ( PrefabUtility.InstantiatePrefab( prefab_bolt_model ) as GameObject ).transform ;
 			bolt.SetParent( parent );
 			bolt.localPosition = Vector3.up * i * bolt_model_height;
+
+			bolt.ToggleStaticOfChildren( isStatic );
 		}
 	}
 
@@ -118,7 +180,39 @@ public class LevelCreator : ScriptableObject
         {
 			create_index++;
 			FindLength();
-			PlaceBolt();
+			PlaceBolt( prefab_bolt, true );
+		}
+        else if( level_code[ create_index ] == char_prefab_bolt_patrol ) // Place Bolt Patrol
+        {
+			create_index++;
+			FindLength();
+			var bolt = PlaceBolt( prefab_bolt_obstacle_patrol, false );
+
+			// Place collider upper in
+			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent< BoxCollider >();
+			collider_obstacle.size = new Vector3( 1, bolt_model_height * create_length, 1 );
+			collider_obstacle.transform.localPosition = Vector3.up * bolt_model_height * create_length / 2f;
+		}
+        else if( level_code[ create_index ] == char_prefab_bolt_rotate ) // Place Bolt Rotate
+        {
+			create_index++;
+			FindLength();
+			var bolt = PlaceBolt( prefab_bolt_obstacle_rotate, false );
+
+			// Place collider upper in
+			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent<BoxCollider>();
+			collider_obstacle.size = new Vector3( 1, bolt_model_height * create_length, 1 );
+			collider_obstacle.transform.localPosition = Vector3.up * bolt_model_height * create_length / 2f;
+		}
+        else if( level_code[ create_index ] == char_prefab_smasher ) // Place Smasher
+        {
+			create_index++;
+
+			var smasher = PrefabUtility.InstantiatePrefab( prefab_smasher_obstacle ) as GameObject;
+			smasher.transform.position = Vector3.up * create_position;
+			smasher.transform.SetParent( spawnTransform );
+
+			create_position += smasher_model_height;
 		}
     }
 
@@ -138,13 +232,16 @@ public class LevelCreator : ScriptableObject
 		create_length = float.Parse( stringBuilder.ToString() );
 	}
 
-    void PlaceBolt()
+    GameObject PlaceBolt( GameObject prefab, bool isStatic )
     {
-		var bolt = PrefabUtility.InstantiatePrefab( prefab_bolt ) as GameObject;
+		var bolt = PrefabUtility.InstantiatePrefab( prefab ) as GameObject;
 		bolt.transform.position = Vector3.up * create_position;
 		bolt.transform.SetParent( spawnTransform );
 
-		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ) );
+		var boltData = new BoltData( bolt.transform, create_position, create_position + create_length * bolt_model_height );
+		bolt_create_data.Add( boltData );
+
+		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ), isStatic );
 		create_position += create_length * bolt_model_height;
 
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
@@ -160,6 +257,8 @@ public class LevelCreator : ScriptableObject
 		var collider_upper_out = bolt.transform.GetChild( 3 ).GetComponent< BoxCollider >();
 		collider_upper_out.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_upper_out.transform.localPosition = Vector3.up * bolt_model_height * create_length - Vector3.up * bolt_model_height / 2f;
+
+		return bolt;
 	}
 
     bool IsCodeValid( out int errorIdex )
@@ -222,4 +321,19 @@ public class LevelCreator : ScriptableObject
 #if UNITY_EDITOR
 #endif
 #endregion
+}
+
+[ Serializable ]
+public struct BoltData
+{
+	public Transform bolt;
+	public float bolt_point_start;
+	public float bolt_point_end;
+
+	public BoltData( Transform transform, float startPoint, float endPoint )
+	{
+		bolt             = transform;
+		bolt_point_start = startPoint;
+		bolt_point_end   = endPoint;
+	}
 }

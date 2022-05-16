@@ -8,24 +8,22 @@ namespace FFStudio
 {
 	public class ColorSetter : MonoBehaviour
 	{
-#region Fields (Inspector Interface)
-		[ TitleGroup( "Setup" ), SerializeField ] private Color color;
-#endregion
+#region Fields
+		[ TitleGroup( "Setup" ), SerializeField ] Color color;
 
-#region Fields (Private)
-		private static int SHADER_ID_COLOR = Shader.PropertyToID( "_BaseColor" );
+		static int SHADER_ID_COLOR = Shader.PropertyToID( "_BaseColor" );
 
-		private Renderer _renderer;
-		private MaterialPropertyBlock propertyBlock;
+		Renderer _renderer;
+		MaterialPropertyBlock propertyBlock;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-		private void Awake()
+		void Awake()
 		{
-			_renderer = GetComponent<Renderer>();
+			_renderer = GetComponent< Renderer >();
 
 			propertyBlock = new MaterialPropertyBlock();
 		}
@@ -39,8 +37,8 @@ namespace FFStudio
 			SetColor();
 		}
 
-		[Button]
-		public void SetColor() // Info: This may be more "Unity-Event-friendly".
+		[ Button ]
+		public void SetColor()
 		{
 			_renderer.GetPropertyBlock( propertyBlock );
 			propertyBlock.SetColor( SHADER_ID_COLOR, color );
