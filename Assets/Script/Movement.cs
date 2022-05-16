@@ -14,6 +14,7 @@ public class Movement : ScriptableObject
     [ ShowInInspector, ReadOnly ] float movement_fallDownPoint;
     [ ShowInInspector, ReadOnly ] Transform movement_transform;
 	[ ShowInInspector, ReadOnly ] Transform rotate_transform;
+	[ ShowInInspector, ReadOnly ] Transform endPoint_transform;
 #endregion
 
 #region Properties
@@ -53,6 +54,12 @@ public class Movement : ScriptableObject
 			movement_fallDownPoint = fallDownPoint.position.y;
 		else
 			movement_fallDownPoint = 0;
+	}
+
+    // Editor Call
+    public void OnEndPointTransformChange( SharedReferenceNotifier sharedReferenceNotifier )
+    {
+		endPoint_transform = sharedReferenceNotifier.SharedValue as Transform;
 	}
 
     public void Clear()
