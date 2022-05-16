@@ -20,6 +20,7 @@ MonoBehaviour:
   velocity_movement_cofactor: 0.1
   camera_velocity: 5
   camera_offset: {x: 0, y: 1, z: -10}
+  camera_offset_start: {x: 0, y: 0, z: -7.5}
   camera_shake_duration: 0.75
   camera_shake_strength: 0.1
   ui_PopUp_In_ease: 1

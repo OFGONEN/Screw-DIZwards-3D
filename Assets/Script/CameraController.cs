@@ -26,6 +26,8 @@ public class CameraController : MonoBehaviour
 	private void Awake()
 	{
 		onUpdateMethod = ExtensionMethods.EmptyMethod;
+
+		transform.position = GameSettings.Instance.camera_offset_start;
 	}
 
 	private void OnDisable()

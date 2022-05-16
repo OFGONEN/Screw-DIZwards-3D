@@ -22,6 +22,7 @@ namespace FFStudio
     [ Title( "Pop Up UI" ) ]
         public float camera_velocity;
         public Vector3 camera_offset;
+        public Vector3 camera_offset_start;
         public float camera_shake_duration;
         public float camera_shake_strength = 1f;
 
