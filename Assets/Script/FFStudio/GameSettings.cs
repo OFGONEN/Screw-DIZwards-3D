@@ -20,6 +20,12 @@ namespace FFStudio
         [ Range( 0, 1 ) ] public float velocity_movement_cofactor;
 
     [ Title( "Pop Up UI" ) ]
+        public float camera_velocity;
+        public Vector3 camera_offset;
+        public float camera_shake_duration;
+        public float camera_shake_strength = 1f;
+
+    [ Title( "Pop Up UI" ) ]
 		[ Tooltip( "Pop Up Text Pop In Ease"   ) ] public Ease ui_PopUp_In_ease;
 		[ Tooltip( "Pop Up Text Pop Out Ease"  ) ] public Ease ui_PopUp_Out_ease;
 		[ Tooltip( "Pop Up Text duration"      ) ] public float ui_PopUp_duration;
