@@ -114,6 +114,10 @@ public class LevelCreator : ScriptableObject
 	void PlaceCollectables()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
+
+		// Destroy All Collectables
+		DestoryAllCollectables();
+
 		if( level_code_collectable == null || level_code_collectable == string.Empty ) return;
 
 		var collectablePoints = level_code_collectable.Split( '-' );
@@ -122,6 +126,15 @@ public class LevelCreator : ScriptableObject
 			PlaceCollectable( float.Parse( collectablePoints[ i ] ) );
 
 		EditorSceneManager.SaveOpenScenes();
+	}
+
+	void DestoryAllCollectables()
+	{
+		var collectables = GameObject.FindObjectsOfType< Transform >();
+
+		for( var i = 0; i < collectables.Length; i++ )
+			if( collectables[ i ].name.ToLower() == prefab_collectable.name.ToLower() )
+				DestroyImmediate( collectables[ i ].gameObject );
 	}
 
 	void PlaceCollectable( float point )
