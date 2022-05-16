@@ -1,8 +1,9 @@
 ﻿/* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
-using Sirenix.OdinInspector;
+using DG.Tweening;
 using System;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
@@ -18,6 +19,11 @@ namespace FFStudio
         public float velocity_rotate_cofactor;
         [ Range( 0, 1 ) ] public float velocity_movement_cofactor;
 
+    [ Title( "Pop Up UI" ) ]
+		[ Tooltip( "Pop Up Text Pop In Ease"   ) ] public Ease ui_PopUp_In_ease;
+		[ Tooltip( "Pop Up Text Pop Out Ease"  ) ] public Ease ui_PopUp_Out_ease;
+		[ Tooltip( "Pop Up Text duration"      ) ] public float ui_PopUp_duration;
+		[ Tooltip( "Pop Up Text wait duration" ) ] public float ui_PopUp_wait;
 
     [ Title( "Game" ) ]
         public EndLevelText[] endLevelTexts;
@@ -33,9 +39,7 @@ namespace FFStudio
 		[ FoldoutGroup( "UI Settings" ), Tooltip( "Duration of the scaling for ui element"           ) ] public float ui_Entity_Scale_TweenDuration;
 		[ FoldoutGroup( "UI Settings" ), Tooltip( "Duration of the movement for floating ui element" ) ] public float ui_Entity_FloatingMove_TweenDuration;
 		[ FoldoutGroup( "UI Settings" ), Tooltip( "Joy Stick"                                        ) ] public float ui_Entity_JoyStick_Gap;
-		[ FoldoutGroup( "UI Settings" ), Tooltip( "Pop Up Text relative float height"                ) ] public float ui_PopUp_height;
-		[ FoldoutGroup( "UI Settings" ), Tooltip( "Pop Up Text float duration"                       ) ] public float ui_PopUp_duration;
-        [ FoldoutGroup( "UI Settings" ), Tooltip( "Percentage of the screen to register a swipe"     ) ] public int swipeThreshold;
+       [ FoldoutGroup( "UI Settings" ), Tooltip( "Percentage of the screen to register a swipe"     ) ] public int swipeThreshold;
 
         [ FoldoutGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ FoldoutGroup( "Debug" ) ] public float debug_ui_text_float_duration;
