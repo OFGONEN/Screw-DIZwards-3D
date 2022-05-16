@@ -3,46 +3,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using DG.Tweening;
+using TMPro;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
 	public class UIPopUpText : MonoBehaviour
 	{
 #region Fields
-		private UI_Float ui_float;
-		private UI_Fade_Text ui_text;
+		[ SerializeField ] UnityEvent onSequenceComplete;
+		[ SerializeField ] TextMeshProUGUI ui_text;
 
-		private Vector3 ui_start_scale;
+		RecycledSequence recycledSequence = new RecycledSequence();
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-		private void Awake()
-		{
-			ui_float = GetComponentInChildren<UI_Float>();
-			ui_text = GetComponentInChildren<UI_Fade_Text>();
-
-			ui_start_scale = ui_float.UI_RectTransform.localScale;
-		}
 #endregion
 
 #region API
+		[ Button() ]
 		public void Spawn( Vector3 position, string text, float size, Color color )
 		{
 			gameObject.SetActive( true );
-			transform.position = position;
+			transform.position   = position;
+			transform.localScale = Vector3.zero;
 
-			ui_float.DoFloat( GameSettings.Instance.ui_PopUp_height,
-				GameSettings.Instance.ui_PopUp_duration );
+			var sequence = recycledSequence.Recycle( onSequenceComplete.Invoke );
 
-			ui_text.DoFade( 0, GameSettings.Instance.ui_PopUp_duration );
+			sequence.Append( transform.DOScale( size * Vector3.one, GameSettings.Instance.ui_PopUp_duration ).SetEase( GameSettings.Instance.ui_PopUp_In_ease ) );
+			sequence.AppendInterval( GameSettings.Instance.ui_PopUp_wait );
+			sequence.Append( transform.DOScale( Vector3.zero, GameSettings.Instance.ui_PopUp_duration ).SetEase( GameSettings.Instance.ui_PopUp_Out_ease ) );
 
-			ui_float.UI_RectTransform.localScale = ui_start_scale * size;
-
-			ui_text.UI_Text.text = text;
-			ui_text.UI_Text.color = color;
+			ui_text.text  = text;
+			ui_text.color = color;
 		}
 #endregion
 
