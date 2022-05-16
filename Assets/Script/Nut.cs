@@ -15,7 +15,7 @@ public class Nut : MonoBehaviour
 
     // Delegates
     UnityMessage onUpdate;
-    UnityMessage onInput;
+    Vector2Delegate onInput;
 #endregion
 
 #region Properties
@@ -35,39 +35,65 @@ public class Nut : MonoBehaviour
 #endregion
 
 #region API
-    public void OnInputChange()
+	// EditorCall
+    public void OnInputChange( Vector2 vector )
     {
-		onInput();
+		onInput( vector );
 	}
 
+	// EditorCall
     public void OnIsNutOnBoltChange( bool value )
     {
         if( value )
         {
-			onInput  = IncreaseVelocity;
+			FFLogger.Log( "Nut On Bolt: TRUE" );
+			onInput  = ExtensionMethods.EmptyMethod;
 			onUpdate = MovementOnBolt;
 		}
 		else
 		{
+			FFLogger.Log( "Nut On Bolt: FALSE" );
 			onInput  = ExtensionMethods.EmptyMethod;
 			onUpdate = MovementOnAir;
 		}
 	}
 
+	// EditorCall
 	public void OnFingerDown()
 	{
+		FFLogger.Log( "Finger Down" );
 		nut_velocity.Clear();
+
+		onInput  = IncreaseVelocity;
+		onUpdate = ExtensionMethods.EmptyMethod;
 	}
 
+	// EditorCall
 	public void OnFingerUp()
 	{
+		FFLogger.Log( "Finger UP" );
+		onInput = ExtensionMethods.EmptyMethod;
+		onUpdate = MovementOnBolt; // buralari delegate ile ayirmam lazim
+	}
+
+	// EditorCall
+	public void OnLevelStarted()
+	{
+		onInput  = IncreaseVelocity;
+		onUpdate = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
 #region Implementation
-    void IncreaseVelocity()
+    void IncreaseVelocity( Vector2 vector )
     {
-		nut_velocity.OnIncrease();
+		if( Mathf.Approximately( 0, vector.x ) )
+			nut_velocity.Clear();
+		else
+		{
+			nut_velocity.OnIncrease();
+			nut_movement.OnMovement( GameSettings.Instance.velocity_movement_cofactor );
+		}
 	}
 
     void MovementOnBolt()

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity_max: 10
   velocity_min: -5
-  velocity_accelerate: 1
-  velocity_decelerate: -2
-  velocity_rotate_cofactor: 1
+  velocity_accelerate: 6
+  velocity_decelerate: -10
+  velocity_rotate_cofactor: -100
+  velocity_movement_cofactor: 0.1
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1

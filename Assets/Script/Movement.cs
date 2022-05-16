@@ -23,13 +23,13 @@ public class Movement : ScriptableObject
 #endregion
 
 #region API
-    public void OnMovement()
+    public void OnMovement( float cofactor = 1f )
     {
 		var position   = movement_transform.position;
-		    position.y = Mathf.Max( movement_fallDownPoint, position.y + velocity.CurrentVelocity * Time.deltaTime );
+		    position.y = Mathf.Max( movement_fallDownPoint, position.y + velocity.CurrentVelocity * cofactor * Time.deltaTime );
 
 		movement_transform.position = position;
-		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
+		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * cofactor * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
 	}
 
     // Editor Call
