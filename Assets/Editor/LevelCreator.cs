@@ -110,7 +110,6 @@ public class LevelCreator : ScriptableObject
 #endregion
 
 #region Implementation
-	[ Button() ]
 	void PlaceCollectables()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
