@@ -25,7 +25,7 @@ public class Velocity : ScriptableObject
 #region API
 	public void OnIncrease()
     {
-        velocity_current = Mathf.Min( velocity_current + GameSettings.Instance.velocity_accelerate * notif_input.sharedValue.x * Time.deltaTime, GameSettings.Instance.velocity_max );
+        velocity_current = Mathf.Clamp( velocity_current + GameSettings.Instance.velocity_accelerate * notif_input.sharedValue.x * Time.deltaTime, -GameSettings.Instance.velocity_max, GameSettings.Instance.velocity_max );
     }
 
 	// Regardless of the velocity's sign, velocity
