@@ -14,18 +14,22 @@ public class Nut : MonoBehaviour
     [ SerializeField ] Movement nut_movement;
 
     // Delegates
-    UnityMessage onUpdate;
     Vector2Delegate onInput;
+    UnityMessage onInput_FingerDown;
+    UnityMessage onUpdate;
 #endregion
 
 #region Properties
 #endregion
+    UnityMessage onInput_FingerUp;
 
 #region Unity API
     private void Awake()
     {
-		onUpdate = ExtensionMethods.EmptyMethod;
-		onInput  = ExtensionMethods.EmptyMethod;
+		onUpdate           = ExtensionMethods.EmptyMethod;
+		onInput            = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp   = ExtensionMethods.EmptyMethod;
+		onInput_FingerDown = ExtensionMethods.EmptyMethod;
 	}
 
     private void Update()
@@ -47,44 +51,59 @@ public class Nut : MonoBehaviour
         if( value )
         {
 			FFLogger.Log( "Nut On Bolt: TRUE" );
-			onInput  = ExtensionMethods.EmptyMethod;
-			onUpdate = MovementOnBolt;
+			onInput_FingerUp   = ExtensionMethods.EmptyMethod;
+			onInput_FingerDown = FingerDown;
+			onInput            = ExtensionMethods.EmptyMethod;
+			onUpdate           = MovementOnBolt;
 		}
 		else
 		{
 			FFLogger.Log( "Nut On Bolt: FALSE" );
-			onInput  = ExtensionMethods.EmptyMethod;
-			onUpdate = MovementOnAir;
+			onInput_FingerUp   = ExtensionMethods.EmptyMethod;
+			onInput_FingerDown = ExtensionMethods.EmptyMethod;
+			onInput            = ExtensionMethods.EmptyMethod;
+			onUpdate           = MovementOnAir;
 		}
-	}
-
-	// EditorCall
-	public void OnFingerDown()
-	{
-		FFLogger.Log( "Finger Down" );
-		nut_velocity.Clear();
-
-		onInput  = IncreaseVelocity;
-		onUpdate = ExtensionMethods.EmptyMethod;
 	}
 
 	// EditorCall
 	public void OnFingerUp()
 	{
-		FFLogger.Log( "Finger UP" );
-		onInput = ExtensionMethods.EmptyMethod;
-		onUpdate = MovementOnBolt; // buralari delegate ile ayirmam lazim
+		onInput_FingerUp();
+	}
+
+	// EditorCall
+	public void OnFingerDown()
+	{
+		onInput_FingerDown();
 	}
 
 	// EditorCall
 	public void OnLevelStarted()
 	{
-		onInput  = IncreaseVelocity;
-		onUpdate = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp   = ExtensionMethods.EmptyMethod;
+		onInput_FingerDown = FingerDown;
 	}
 #endregion
 
 #region Implementation
+	void FingerUp()
+	{
+		FFLogger.Log( "Finger UP" );
+		onInput  = ExtensionMethods.EmptyMethod;
+		onUpdate = MovementOnBolt;                // buralari delegate ile ayirmam lazim
+	}
+
+	void FingerDown()
+	{
+		FFLogger.Log( "Finger Down" );
+		nut_velocity.Clear();
+
+		onInput          = IncreaseVelocity;
+		onUpdate         = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp = FingerUp;
+	}
+
     void IncreaseVelocity( Vector2 vector )
     {
 		if( Mathf.Approximately( 0, vector.x ) )
