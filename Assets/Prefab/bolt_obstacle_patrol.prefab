@@ -87,6 +87,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 2650537420494015937}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: ResetLocalPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: playOnStart
       value: 1

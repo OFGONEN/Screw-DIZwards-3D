@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bolt_obstacle_patrol
       objectReference: {fileID: 0}
+    - target: {fileID: 6091878903222938512, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8191713153671141565, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
       propertyPath: m_RootOrder
       value: 7
