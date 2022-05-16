@@ -75,8 +75,8 @@ namespace FFStudio
 		{
 			onFingerDown = OnFingerDown;
 
-			notif_input.SetValue_NotifyAlways( Vector2.zero );
 			event_input_fingerUp.Raise();
+			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
 
@@ -111,5 +111,15 @@ namespace FFStudio
 			notif_input.SetValue_NotifyAlways( vector );
 		}
 #endregion
+
+
+#if UNITY_EDITOR
+#region EditorOnly
+		void OnGUI()
+		{
+			GUI.Label( new Rect( 25, 25, 100, 50 ), "Input: " + notif_input.sharedValue );
+		}
+#endregion
+#endif
     }
 }
