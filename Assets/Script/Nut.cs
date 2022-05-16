@@ -50,7 +50,6 @@ public class Nut : MonoBehaviour
     {
         if( value )
         {
-			FFLogger.Log( "Nut On Bolt: TRUE" );
 			onInput_FingerUp   = ExtensionMethods.EmptyMethod;
 			onInput_FingerDown = FingerDown;
 			onInput            = ExtensionMethods.EmptyMethod;
@@ -58,7 +57,6 @@ public class Nut : MonoBehaviour
 		}
 		else
 		{
-			FFLogger.Log( "Nut On Bolt: FALSE" );
 			onInput_FingerUp   = ExtensionMethods.EmptyMethod;
 			onInput_FingerDown = ExtensionMethods.EmptyMethod;
 			onInput            = ExtensionMethods.EmptyMethod;
@@ -89,14 +87,12 @@ public class Nut : MonoBehaviour
 #region Implementation
 	void FingerUp()
 	{
-		FFLogger.Log( "Finger UP" );
 		onInput  = ExtensionMethods.EmptyMethod;
 		onUpdate = MovementOnBolt;                // buralari delegate ile ayirmam lazim
 	}
 
 	void FingerDown()
 	{
-		FFLogger.Log( "Finger Down" );
 		nut_velocity.Clear();
 
 		onInput          = IncreaseVelocity;
