@@ -102,7 +102,6 @@ namespace FFStudio
 #region Implementation
         void ChainNext()
         {
-            if( PlayingIndex >= 0 )
 #if UNITY_EDITOR
 			if( PlayingIndex >= 0 )
 				inPlayMode_currentStartPos = transform.position;
