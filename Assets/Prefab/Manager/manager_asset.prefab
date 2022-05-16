@@ -10,10 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4364745634903858525}
   - component: {fileID: 4364745634903858524}
-  - component: {fileID: 931464583940335300}
-  - component: {fileID: 865722006992881440}
   - component: {fileID: 1654369594515438236}
-  - component: {fileID: 1250702750892494597}
   m_Layer: 0
   m_Name: manager_asset
   m_TagString: Untagged
@@ -84,62 +81,6 @@ MonoBehaviour:
   gameSettings: {fileID: 11400000, guid: 109113abc7450a64db67bb41e0cc2dc0, type: 2}
   currentLevelData: {fileID: 11400000, guid: d35c98ef4c868d94f85bf38a98066033, type: 2}
   pool_UIPopUpText: {fileID: 11400000, guid: eaaacbd90b1464ad2b2a3a962a8a84b2, type: 2}
---- !u!114 &931464583940335300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4364745634903858522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b8175403d7f4a188949ee964f21f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedDataNotifier: {fileID: 11400000, guid: 3a931acc78d9a4dde92e364eca1b4a15, type: 2}
-  notify_event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f65946825251247b99700f1aa18de89f, type: 2}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: OnMovementTransformChange
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 3a931acc78d9a4dde92e364eca1b4a15, type: 2}
-          m_ObjectArgumentAssemblyTypeName: FFStudio.SharedReferenceNotifier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &865722006992881440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4364745634903858522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b8175403d7f4a188949ee964f21f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedDataNotifier: {fileID: 11400000, guid: 4e33b66939bee42338bde9facac56ae4, type: 2}
-  notify_event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: f65946825251247b99700f1aa18de89f, type: 2}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: OnRotateTransformChange
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4e33b66939bee42338bde9facac56ae4, type: 2}
-          m_ObjectArgumentAssemblyTypeName: FFStudio.SharedReferenceNotifier, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1654369594515438236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,35 +109,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1250702750892494597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4364745634903858522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPairs:
-  - eventListener:
-      gameEvents:
-      - {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
-          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Boolean,
-            mscorlib
-          m_MethodName: SetValue_NotifyAlways
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
