@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 394194120949725476}
   - component: {fileID: 2144150310371001075}
   - component: {fileID: 5791178729918765680}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: nut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,6 +246,14 @@ PrefabInstance:
     - target: {fileID: 2271788288054299817, guid: 50b37e69b26af402e881b6d9a3d9c4d2, type: 3}
       propertyPath: m_Name
       value: gfx_nut
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271788288054299817, guid: 50b37e69b26af402e881b6d9a3d9c4d2, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765224492757220571, guid: 50b37e69b26af402e881b6d9a3d9c4d2, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5797498786375188360, guid: 50b37e69b26af402e881b6d9a3d9c4d2, type: 3}
       propertyPath: m_RootOrder
