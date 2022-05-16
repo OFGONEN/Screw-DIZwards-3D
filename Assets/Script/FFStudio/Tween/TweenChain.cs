@@ -23,6 +23,9 @@ namespace FFStudio
 	[ TableList( ShowIndexLabels = true ) ]
 	[ SerializeReference ]
         public List< TweenData > tweenDatas = new List< TweenData >();
+		
+		Vector3 localPosition_original;
+		Vector3 localRotation_original;
 #endregion
 
 #region Properties
@@ -41,6 +44,9 @@ namespace FFStudio
 			
 			foreach( var tweenData in tweenDatas )
 				tweenData.Initialize( transform );
+
+			localPosition_original = transform.localPosition;
+			localRotation_original = transform.localRotation.eulerAngles;
 		}
 
         void Start()
@@ -79,6 +85,18 @@ namespace FFStudio
 
 			PlayingIndex = -1;
         }
+		
+		public void ResetLocalPosition()
+		{
+			transform.localPosition = localPosition_original;
+		}
+		
+		public void ResetLocalRotation()
+		{
+			var localRotation		  = transform.localRotation;
+			localRotation.eulerAngles = localRotation_original;
+			transform.localRotation   = localRotation;
+		}
 #endregion
 
 #region Implementation
@@ -131,6 +149,9 @@ namespace FFStudio
 			Vector3 lastPos = transform.position;
 			if( Application.isPlaying )
 			{
+				if( PlayingIndex < 0 )
+					return;
+
 				if( tweenDatas[ PlayingIndex ] is MovementTweenData )
 					DrawMovementTweenGizmo( tweenDatas[ PlayingIndex ] as MovementTweenData, ref lastPos, Vector3.zero, PlayingIndex + 1 );
 			}

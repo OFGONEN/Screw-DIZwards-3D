@@ -51,6 +51,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2650537420494015937}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetLocalPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FFStudio.TweenChain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461731335840428614, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: notify_event.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2769758971300450170, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: m_Name
       value: bolt_obstacle_patrol
@@ -1290,6 +1318,17 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 6227659015142184298, guid: 731af247043564c9586bc423a65aa083, type: 3}
   m_PrefabInstance: {fileID: 8285104382343390442}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2650537420494015937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+  m_PrefabInstance: {fileID: 8285104382343390442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &4685615322879173467 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3745935809535739825, guid: 731af247043564c9586bc423a65aa083, type: 3}
