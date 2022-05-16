@@ -23,6 +23,9 @@ namespace FFStudio
 	[ TableList( ShowIndexLabels = true ) ]
 	[ SerializeReference ]
         public List< TweenData > tweenDatas = new List< TweenData >();
+		
+		Vector3 localPosition_original;
+		Vector3 localRotation_original;
 #endregion
 
 #region Properties
@@ -41,6 +44,9 @@ namespace FFStudio
 			
 			foreach( var tweenData in tweenDatas )
 				tweenData.Initialize( transform );
+
+			localPosition_original = transform.localPosition;
+			localRotation_original = transform.localRotation.eulerAngles;
 		}
 
         void Start()
@@ -79,12 +85,23 @@ namespace FFStudio
 
 			PlayingIndex = -1;
         }
+		
+		public void ResetLocalPosition()
+		{
+			transform.localPosition = localPosition_original;
+		}
+		
+		public void ResetLocalRotation()
+		{
+			var localRotation		  = transform.localRotation;
+			localRotation.eulerAngles = localRotation_original;
+			transform.localRotation   = localRotation;
+		}
 #endregion
 
 #region Implementation
         void ChainNext()
         {
-            if( PlayingIndex >= 0 )
 #if UNITY_EDITOR
 			if( PlayingIndex >= 0 )
 				inPlayMode_currentStartPos = transform.position;
@@ -97,6 +114,7 @@ namespace FFStudio
 #region EditorOnly
 #if UNITY_EDITOR
 		Vector3 inPlayMode_currentStartPos;
+		GUIStyle style;
 
 		void DrawMovementTweenGizmo( MovementTweenData tweenData, ref Vector3 lastPos, Vector3 verticalOffset, int tweenNo )
 		{
@@ -114,20 +132,25 @@ namespace FFStudio
 
 			lastPos = startPos + deltaPosition;
 
-			Draw.Line( startPos + verticalOffset, lastPos + verticalOffset, 0.125f, LineEndCap.None, color );
+			Draw.Line( startPos + verticalOffset, lastPos + verticalOffset, 0.1f, LineEndCap.None, color );
 			var direction = deltaPosition.normalized;
 			var deltaMagnitude = deltaPosition.magnitude;
 			var coneLength = 0.2f;
 			var conePos = Vector3.Lerp( startPos, lastPos, 1.0f - coneLength / deltaMagnitude );
-			Draw.Cone( conePos + verticalOffset, deltaPosition.normalized, 0.2f, 0.2f, color );
-			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description );
+			Draw.Cone( conePos + verticalOffset, deltaPosition.normalized, 0.1f, 0.2f, color );
+			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description, style );
 		}
 
-		void OnDrawGizmos()
+		void OnDrawGizmosSelected()
 		{
+			style = new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 20 };
+
 			Vector3 lastPos = transform.position;
 			if( Application.isPlaying )
 			{
+				if( PlayingIndex < 0 )
+					return;
+
 				if( tweenDatas[ PlayingIndex ] is MovementTweenData )
 					DrawMovementTweenGizmo( tweenDatas[ PlayingIndex ] as MovementTweenData, ref lastPos, Vector3.zero, PlayingIndex + 1 );
 			}

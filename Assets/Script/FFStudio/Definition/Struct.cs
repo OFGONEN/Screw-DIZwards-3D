@@ -135,16 +135,6 @@ namespace FFStudio
 	}
 	
 	[ System.Serializable ]
-	public struct TweenEventData
-	{
-		[ LabelText( "Use %" ) ] public bool isPercentage;
-        [ ShowIf( "isPercentage" ), LabelText( "Delay" ), SuffixLabel( "%" ) ] public NormalizedValue delay_percentage;
-        [ HideIf( "isPercentage" ), LabelText( "Delay" ), SuffixLabel( "seconds" ), Min( 0 ) ] public float delay_seconds;
-        public UnityEvent onElapseComplete;
-		[ HideInEditorMode ] public bool isInvoked;
-	}
-	
-	[ System.Serializable ]
     public struct NormalizedValue
     {
         public NormalizedValue( float val )
