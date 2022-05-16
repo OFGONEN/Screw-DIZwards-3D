@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 0
+  playOnStart: 1
   index_playOnStart: 0
   tweenDatas:
   - rid: 5854463290785136644

@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 0
+  playOnStart: 1
   index_playOnStart: 0
   tweenDatas:
   - rid: 5854463291346649088
@@ -207,7 +207,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2898940839799277947}
-  - component: {fileID: 1880492084499212695}
   m_Layer: 0
   m_Name: smasher_obstacle
   m_TagString: Untagged
@@ -232,49 +231,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1880492084499212695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032442728933468474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPairs:
-  - eventListener:
-      gameEvents:
-      - {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3630977861677798186}
-          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3570017317956497126}
-          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &3641719868005686152
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 0
+  playOnStart: 1
   index_playOnStart: 0
   tweenDatas:
   - rid: 5854463291346649089
