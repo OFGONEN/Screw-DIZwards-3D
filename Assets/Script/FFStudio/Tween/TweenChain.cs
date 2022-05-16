@@ -97,6 +97,7 @@ namespace FFStudio
 #region EditorOnly
 #if UNITY_EDITOR
 		Vector3 inPlayMode_currentStartPos;
+		GUIStyle style;
 
 		void DrawMovementTweenGizmo( MovementTweenData tweenData, ref Vector3 lastPos, Vector3 verticalOffset, int tweenNo )
 		{
@@ -114,17 +115,19 @@ namespace FFStudio
 
 			lastPos = startPos + deltaPosition;
 
-			Draw.Line( startPos + verticalOffset, lastPos + verticalOffset, 0.125f, LineEndCap.None, color );
+			Draw.Line( startPos + verticalOffset, lastPos + verticalOffset, 0.1f, LineEndCap.None, color );
 			var direction = deltaPosition.normalized;
 			var deltaMagnitude = deltaPosition.magnitude;
 			var coneLength = 0.2f;
 			var conePos = Vector3.Lerp( startPos, lastPos, 1.0f - coneLength / deltaMagnitude );
-			Draw.Cone( conePos + verticalOffset, deltaPosition.normalized, 0.2f, 0.2f, color );
-			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description );
+			Draw.Cone( conePos + verticalOffset, deltaPosition.normalized, 0.1f, 0.2f, color );
+			Handles.Label( ( lastPos + startPos ) / 2 + verticalOffset, tweenNo.ToString() + ": " + tweenData.description, style );
 		}
 
 		void OnDrawGizmos()
 		{
+			style = new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 20 };
+
 			Vector3 lastPos = transform.position;
 			if( Application.isPlaying )
 			{
