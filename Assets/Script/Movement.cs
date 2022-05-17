@@ -40,6 +40,17 @@ public class Movement : ScriptableObject
 		notif_level_progress.SharedValue = movement_transform.position.y / endBolt_Start;
 	}
 
+	public bool OnMovementEndBolt()
+	{
+		var position   = movement_transform.position;
+		    position.y = Mathf.Min( endBolt_End, position.y + velocity.CurrentVelocity * Time.deltaTime );
+
+		movement_transform.position = position;
+		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
+
+		return Mathf.Approximately( position.y, endBolt_End );
+	}
+
     // Editor Call
     public void OnMovementTransformChange( SharedReferenceNotifier sharedReferenceNotifier )
     {
@@ -68,7 +79,7 @@ public class Movement : ScriptableObject
     {
 		endPoint_transform = sharedReferenceNotifier.SharedValue as Transform;
 		endBolt_Start      = endPoint_transform.position.y;
-		endBolt_End        = endBolt_Start + GameSettings.Instance.endBolt_height;
+		endBolt_End        = endBolt_Start + GameSettings.Instance.endBolt_height - /*Bolt Height*/0.5f;
 	}
 
     public void Clear()

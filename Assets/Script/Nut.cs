@@ -12,6 +12,7 @@ public class Nut : MonoBehaviour
   [ Title( "Shared Variables" ) ]
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
+    [ SerializeField ] GameEvent event_level_complete;
 
     // Delegates
     Vector2Delegate onInput;
@@ -24,12 +25,14 @@ public class Nut : MonoBehaviour
     UnityMessage onInput_FingerUp;
 
 #region Unity API
+	private void OnDisable()
+	{
+		EmptyDelegates();
+	}
+
     private void Awake()
     {
-		onUpdate           = ExtensionMethods.EmptyMethod;
-		onInput            = ExtensionMethods.EmptyMethod;
-		onInput_FingerUp   = ExtensionMethods.EmptyMethod;
-		onInput_FingerDown = ExtensionMethods.EmptyMethod;
+		EmptyDelegates();
 	}
 
     private void Update()
@@ -82,6 +85,13 @@ public class Nut : MonoBehaviour
 		onInput_FingerUp   = ExtensionMethods.EmptyMethod;
 		onInput_FingerDown = FingerDown;
 	}
+
+	// EditorCall: event_bolt_end
+	public void OnLevelEndBolt()
+	{
+		EmptyDelegates();
+		onUpdate = MovementOnEndBolt;
+	}
 #endregion
 
 #region Implementation
@@ -121,6 +131,26 @@ public class Nut : MonoBehaviour
     {
 		nut_movement.OnMovement();
 		nut_velocity.OnDecrease_Min();
+	}
+
+	void MovementOnEndBolt()
+	{
+		nut_velocity.OnDecrease_Zero();
+		var onEndPoint = nut_movement.OnMovementEndBolt();
+
+		if( onEndPoint || Mathf.Approximately( nut_velocity.CurrentVelocity, 0 ) )
+		{
+			EmptyDelegates();
+			event_level_complete.Raise();
+		}
+	}
+
+	void EmptyDelegates()
+	{
+		onUpdate           = ExtensionMethods.EmptyMethod;
+		onInput            = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp   = ExtensionMethods.EmptyMethod;
+		onInput_FingerDown = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 

@@ -2002,8 +2002,75 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7368118339395344857}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4326086373202115902}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7637691970958702083}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetReference
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FFStudio.ParticleSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FFStudio.SharedReferenceSetter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+--- !u!114 &4326086373202115902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7904080362660672701, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+  m_PrefabInstance: {fileID: 5888939836510374275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8b9286af946534c832e5352b9db9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5493781706381768697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
@@ -2077,5 +2144,10 @@ MonoBehaviour:
 --- !u!4 &7573270593631847636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4080295271887506775, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+  m_PrefabInstance: {fileID: 5888939836510374275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7637691970958702083 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4055280311808933760, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   m_PrefabInstance: {fileID: 5888939836510374275}
   m_PrefabAsset: {fileID: 0}
