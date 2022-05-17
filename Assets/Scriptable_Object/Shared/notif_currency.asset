@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb853e8cafff9645acad29d74008d50, type: 3}
   m_Name: notif_currency
   m_EditorClassIdentifier: 
-  sharedValue: 4.61
+  sharedValue: 0
