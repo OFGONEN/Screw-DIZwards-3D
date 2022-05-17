@@ -14,6 +14,7 @@ public class Nut : MonoBehaviour
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
     [ SerializeField ] GameEvent event_level_complete;
+    [ SerializeField ] GameEvent event_level_failed;
 
     // Delegates
     Vector2Delegate onInput;
@@ -98,11 +99,14 @@ public class Nut : MonoBehaviour
 	{
 		EmptyDelegates();
 
+		gameObject.SetActive( false );
+
 		var shatter = pool_random_shatter.GetRandomEntity();
 
 		shatter.transform.position = transform.position;
 		shatter.DoShatter();
 
+		event_level_failed.Raise();
 	}
 #endregion
 
