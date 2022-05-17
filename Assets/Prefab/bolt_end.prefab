@@ -123,8 +123,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  directional: 0
-  direction: 0
+  directional: 1
+  direction: 1
 --- !u!114 &5431543709641452221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,8 +254,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  directional: 0
-  direction: 0
+  directional: 1
+  direction: 1
 --- !u!114 &5666646248412055447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,8 +390,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  directional: 0
-  direction: 0
+  directional: 1
+  direction: 1
 --- !u!114 &26597073925359683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,8 +526,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  directional: 0
-  direction: 0
+  directional: 1
+  direction: 1
 --- !u!114 &7375947422211706380
 MonoBehaviour:
   m_ObjectHideFlags: 0

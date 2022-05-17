@@ -37,7 +37,7 @@ public class Movement : ScriptableObject
 		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * cofactor * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
 
 		// Since level starts at position ZERO
-		notif_level_progress.SharedValue = ( endBolt_Start - movement_transform.position.y ) / endBolt_Start;
+		notif_level_progress.SharedValue = movement_transform.position.y / endBolt_Start;
 	}
 
     // Editor Call
