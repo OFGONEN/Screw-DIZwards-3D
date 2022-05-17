@@ -4866,7 +4866,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5309,7 +5309,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -9640,7 +9640,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10083,7 +10083,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -14424,6 +14424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 15
       objectReference: {fileID: 0}
@@ -14446,6 +14450,10 @@ PrefabInstance:
     - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
       propertyPath: InitialModule.startColor.minColor.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 19904194, guid: f25d354741d15a441ae76814608c1b72, type: 3}
       propertyPath: m_LengthScale
@@ -14515,6 +14523,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19866620, guid: f25d354741d15a441ae76814608c1b72, type: 3}
