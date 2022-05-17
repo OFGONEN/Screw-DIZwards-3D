@@ -20,7 +20,8 @@ namespace FFStudio
 		[ SerializeField ] CurrentLevelData currentLevelData;
 
 	[ Title( "Pool" ) ]
-		[SerializeField ] Pool_UIPopUpText pool_UIPopUpText;
+		[ SerializeField ] Pool_UIPopUpText pool_UIPopUpText;
+		[ SerializeField ] ShatterPool[] pool_shatter;
 #endregion
 
 #region Implementation
@@ -33,6 +34,11 @@ namespace FFStudio
 		{
 			pool_UIPopUpText.InitPool( transform, false );
 
+			for( var i = 0; i < pool_shatter.Length; i++ )
+			{
+				pool_shatter[ i ].InitPool( transform, false );
+			}
+			
 			onAwakeEvent.Invoke();
 		}
 

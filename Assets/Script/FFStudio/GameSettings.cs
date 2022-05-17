@@ -19,7 +19,14 @@ namespace FFStudio
         public float velocity_rotate_cofactor;
         [ Range( 0, 1 ) ] public float velocity_movement_cofactor;
 
-    [ Title( "Pop Up UI" ) ]
+
+    [ Title( "Velocity" ) ]
+        public Vector2 shatter_force;
+        public Vector2 shatter_force_up;
+        public Vector2 shatter_torque;
+        public float shatter_duration;
+
+    [ Title( "Camera" ) ]
         public float camera_velocity;
         public Vector3 camera_offset;
         public Vector3 camera_offset_start;
