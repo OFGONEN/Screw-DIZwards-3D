@@ -13,9 +13,12 @@ namespace FFStudio
 		public SwipeInputEvent event_input_swipe;
 		public ScreenPressEvent event_input_screenPress;
 		public IntGameEvent event_input_tap;
+		public GameEvent event_input_fingerDown;
+		public GameEvent event_input_fingerUp;
 
 	[ Title( "Shared Variables" ) ]
 		public SharedReferenceNotifier notifier_reference_camera_main;
+		public SharedVector2Notifier notif_input;
 #endregion
 
 #region Fields (Private)
@@ -24,6 +27,8 @@ namespace FFStudio
 		private Transform transform_camera_main;
 		private Camera camera_main;
 		private LeanTouch leanTouch;
+
+		Vector2Delegate onFingerDown;
 #endregion
 
 #region Unity API
@@ -43,6 +48,9 @@ namespace FFStudio
 
 			leanTouch         = GetComponent< LeanTouch >();
 			leanTouch.enabled = false;
+
+			onFingerDown = OnFingerDown;
+			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
 		
@@ -55,8 +63,20 @@ namespace FFStudio
 		public void Tapped( int count )
 		{
 			event_input_tap.eventValue = count;
-
 			event_input_tap.Raise();
+		}
+
+		public void Lean_OnFingerUpdate( Vector2 vector )
+		{
+			onFingerDown( vector );
+		}
+
+		public void Lean_OnFingerUp()
+		{
+			onFingerDown = OnFingerDown;
+
+			event_input_fingerUp.Raise();
+			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
 
@@ -77,6 +97,29 @@ namespace FFStudio
 				leanTouch.enabled    = true;
 			}
 		}
+
+		void OnFingerDown( Vector2 vector )
+		{
+			onFingerDown = OnFingerUpdate;
+
+			event_input_fingerDown.Raise();
+			notif_input.SetValue_NotifyAlways( vector );
+		}
+
+		void OnFingerUpdate( Vector2 vector )
+		{
+			notif_input.SetValue_NotifyAlways( vector );
+		}
 #endregion
+
+
+#if UNITY_EDITOR
+#region EditorOnly
+		void OnGUI()
+		{
+			GUI.Label( new Rect( 25, 25, 100, 50 ), "Input: " + notif_input.sharedValue );
+		}
+#endregion
+#endif
     }
 }

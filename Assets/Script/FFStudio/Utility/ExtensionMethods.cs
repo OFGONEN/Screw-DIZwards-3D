@@ -154,6 +154,11 @@ namespace FFStudio
 			/* Intentionally empty, by definition. */
 		}
 
+		public static void EmptyMethod( Vector2 vector )
+		{
+			/* Intentionally empty, by definition. */
+		}
+
 		public static Vector2 Clamp( this Vector2 value, Vector2 min, Vector2 max )
 		{
 			value.x = Mathf.Clamp( value.x, min.x, max.x );
@@ -389,6 +394,11 @@ namespace FFStudio
 		{
 			return Mathf.Lerp( vector.y, vector.x, progress );
 		}
+		
+		public static bool AreFloatsEqual( float a, float b, float epsilon )
+		{
+			return ( ( a < b ) ? ( b - a ) : ( a - b ) ) <= epsilon;
+		}
 
 		public static void DestoryAllChildren( this Transform transform )
 		{
@@ -403,6 +413,16 @@ namespace FFStudio
 			for( var i = 0; i < childCount; i++ )
 			{
 				GameObject.DestroyImmediate( childs[ i ].gameObject );
+			}
+		}
+
+		public static void ToggleStaticOfChildren( this Transform transform, bool value )
+		{
+			var allChildren = transform.GetComponentsInChildren< Transform >();
+
+			for( var i = 0; i < allChildren.Length; i++ )
+			{
+				allChildren[ i ].gameObject.isStatic = value;
 			}
 		}
 

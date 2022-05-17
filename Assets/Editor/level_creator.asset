@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504aa149258394273812cc02fd4dba5e, type: 3}
+  m_Name: level_creator
+  m_EditorClassIdentifier: 
+  level_code: b8g1b8g1b8g1b8
+  level_code_collectable: 
+  level_start_bolt_length: 8
+  level_start_bolt_space: 1
+  prefab_bolt: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+  prefab_bolt_start: {fileID: 7303843996689885329, guid: e938971f5a85c4916b8223bd5a86aec8, type: 3}
+  prefab_bolt_obstacle_patrol: {fileID: 6091878903222938512, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
+  prefab_bolt_obstacle_rotate: {fileID: 6091878903222938512, guid: 8e7718cb3b7ce4c66b4bc93391896e85, type: 3}
+  prefab_bolt_model: {fileID: 534677404287187449, guid: ced39419f0d814485852d5d2f17cc7e1, type: 3}
+  prefab_smasher_obstacle: {fileID: 3032442728933468474, guid: 7a7392f225f9a4dd18372269af544d7f, type: 3}
+  prefab_collectable: {fileID: 3032442728933468474, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+  bolt_model_height: 0.5
+  smasher_model_height: 1
