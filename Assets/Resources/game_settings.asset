@@ -35,6 +35,7 @@ MonoBehaviour:
   - endLevelText_percentage: 0
     endLevelText_text: Failed Miserably
   notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
+  endBolt_height: 12
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1

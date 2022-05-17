@@ -16,6 +16,9 @@ public class Movement : ScriptableObject
     [ ShowInInspector, ReadOnly ] Transform movement_transform;
 	[ ShowInInspector, ReadOnly ] Transform rotate_transform;
 	[ ShowInInspector, ReadOnly ] Transform endPoint_transform;
+
+	float endBolt_Start;
+	float endBolt_End;
 #endregion
 
 #region Properties
@@ -34,7 +37,7 @@ public class Movement : ScriptableObject
 		rotate_transform.Rotate( Vector3.up * velocity.CurrentVelocity * cofactor * Time.deltaTime * GameSettings.Instance.velocity_rotate_cofactor, Space.Self );
 
 		// Since level starts at position ZERO
-		// notif_level_progress.SharedValue = ( endPoint_transform.position.y - movement_transform.position.y ) / endPoint_transform.position.y;
+		notif_level_progress.SharedValue = ( endBolt_Start - movement_transform.position.y ) / endBolt_Start;
 	}
 
     // Editor Call
@@ -64,6 +67,8 @@ public class Movement : ScriptableObject
     public void OnEndPointTransformChange( SharedReferenceNotifier sharedReferenceNotifier )
     {
 		endPoint_transform = sharedReferenceNotifier.SharedValue as Transform;
+		endBolt_Start      = endPoint_transform.position.y;
+		endBolt_End        = endBolt_Start + GameSettings.Instance.endBolt_height;
 	}
 
     public void Clear()
