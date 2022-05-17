@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity_max: 13
   velocity_min: -7
-  velocity_accelerate: 6
+  velocity_accelerate: 1.3333334
   velocity_decelerate: -10
   velocity_rotate_cofactor: -100
-  velocity_movement_cofactor: 0.1
+  velocity_movement_cofactor: 0.45
   camera_velocity: 5
   camera_offset: {x: 0, y: 1, z: -10}
   camera_offset_start: {x: 0, y: 0, z: -7.5}
