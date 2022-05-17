@@ -18,8 +18,8 @@ MonoBehaviour:
   velocity_decelerate: -10
   velocity_rotate_cofactor: -100
   velocity_movement_cofactor: 0.9
-  shatter_force: {x: 0, y: 0.1}
-  shatter_force_up: {x: 6.2, y: 20.3}
+  shatter_force: {x: 6.2, y: 20.3}
+  shatter_force_up: {x: 0, y: 0.1}
   shatter_torque: {x: 6.7, y: 15.2}
   shatter_duration: 0.75
   camera_velocity: 5
