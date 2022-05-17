@@ -314,14 +314,17 @@ namespace FFStudio
                 if( fieldType == typeof( int ) )
                 {
 				    fieldInfo.SetValue( source, int.Parse( value ) );
+					FFLogger.Log( "Setting Int: " + fieldName + " Value: " + int.Parse( value ) );
                 }
                 else if( fieldType == typeof( float ) )
                 {
 				    fieldInfo.SetValue( source, float.Parse( value, CultureInfo.InvariantCulture ) );
+					FFLogger.Log( "Setting Float: " + fieldName + " Value: " + float.Parse( value, CultureInfo.InvariantCulture ) );
                 }
                 else if( fieldType == typeof( string ) )
                 {
 				    fieldInfo.SetValue( source, value );
+					FFLogger.Log( "Setting String: " + fieldName + " Value: " + value );
                 }
 		}
 
