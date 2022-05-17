@@ -30,7 +30,7 @@ public class Shatter : MonoBehaviour
 
 #region API
 	[ Button() ]
-	public void DoShatter( float rustProgress )
+	public void DoShatter()
 	{
 		gameObject.SetActive( true );
 

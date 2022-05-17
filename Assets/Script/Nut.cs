@@ -10,6 +10,7 @@ public class Nut : MonoBehaviour
 {
 #region Fields
   [ Title( "Shared Variables" ) ]
+    [ SerializeField ] RandomShatterPool pool_random_shatter;
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
     [ SerializeField ] GameEvent event_level_complete;
@@ -91,6 +92,17 @@ public class Nut : MonoBehaviour
 	{
 		EmptyDelegates();
 		onUpdate = MovementOnEndBolt;
+	}
+
+	public void OnCollisionObstacle()
+	{
+		EmptyDelegates();
+
+		var shatter = pool_random_shatter.GetRandomEntity();
+
+		shatter.transform.position = transform.position;
+		shatter.DoShatter();
+
 	}
 #endregion
 
