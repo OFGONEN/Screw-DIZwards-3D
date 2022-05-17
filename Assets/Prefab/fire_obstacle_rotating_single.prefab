@@ -12,6 +12,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1207277361719201257, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207277361719201257, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -78,12 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 1
-  index_playOnStart: 0
+  indices_toPlayOnStart: 00000000
   tweenDatas:
   - rid: 5854463290785136644
   - rid: 5854463290785136645
-  <PlayingIndex>k__BackingField: 0
   references:
     version: 2
     RefIds:
@@ -91,8 +93,7 @@ MonoBehaviour:
       type: {class: DelayedCallTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Delay
-        chain: 1
-        index_nextTweenToChainInto: 1
+        indices_nextUp: 01000000
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []
@@ -107,8 +108,7 @@ MonoBehaviour:
       type: {class: RotationTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Rotate (Loop)
-        chain: 0
-        index_nextTweenToChainInto: 0
+        indices_nextUp: 
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []

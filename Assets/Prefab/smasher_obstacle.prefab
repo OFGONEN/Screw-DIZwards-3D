@@ -59,13 +59,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 1
-  index_playOnStart: 0
+  indices_toPlayOnStart: 
   tweenDatas:
   - rid: 5854463291346649088
   - rid: 5854463291346649090
   - rid: 5854463291346649092
-  <PlayingIndex>k__BackingField: 0
   references:
     version: 2
     RefIds:
@@ -73,8 +71,7 @@ MonoBehaviour:
       type: {class: DelayedCallTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Delay
-        chain: 1
-        index_nextTweenToChainInto: 1
+        indices_nextUp: 01000000
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []
@@ -89,8 +86,7 @@ MonoBehaviour:
       type: {class: MovementTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Smash!
-        chain: 1
-        index_nextTweenToChainInto: 2
+        indices_nextUp: 02000000
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []
@@ -104,8 +100,7 @@ MonoBehaviour:
       type: {class: MovementTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Retreat
-        chain: 1
-        index_nextTweenToChainInto: 1
+        indices_nextUp: 01000000
         hasDelay: 1
         delayAmount: 0.2
         tweenEventDatas: []
@@ -290,13 +285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnStart: 1
-  index_playOnStart: 0
+  indices_toPlayOnStart: 
   tweenDatas:
   - rid: 5854463291346649089
   - rid: 5854463291346649091
   - rid: 5854463291346649093
-  <PlayingIndex>k__BackingField: 0
   references:
     version: 2
     RefIds:
@@ -304,8 +297,7 @@ MonoBehaviour:
       type: {class: DelayedCallTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Delay
-        chain: 1
-        index_nextTweenToChainInto: 1
+        indices_nextUp: 01000000
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []
@@ -320,8 +312,7 @@ MonoBehaviour:
       type: {class: MovementTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Smash!
-        chain: 1
-        index_nextTweenToChainInto: 2
+        indices_nextUp: 02000000
         hasDelay: 0
         delayAmount: 0
         tweenEventDatas: []
@@ -335,8 +326,7 @@ MonoBehaviour:
       type: {class: MovementTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
         description: Retreat
-        chain: 1
-        index_nextTweenToChainInto: 1
+        indices_nextUp: 01000000
         hasDelay: 1
         delayAmount: 0.2
         tweenEventDatas: []

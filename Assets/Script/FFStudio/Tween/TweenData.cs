@@ -13,8 +13,7 @@ namespace FFStudio
 		[ BoxGroup( "Other", false ) ] public string description;
 		
 	[ Title( "Chain" ) ]
-		[ BoxGroup( "Other", false ),  ] public bool chain = false;
-		[ BoxGroup( "Other", false ), ShowIf( "chain" ), LabelText( "Next Index" ) ] public int index_nextTweenToChainInto = 0;
+		[ BoxGroup( "Other", false ), LabelText( "Next Indices To Play" ) ] public int[] indices_nextUp;
 
 	[ Title( "Start" ) ]
 		[ BoxGroup( "Other", false ), LabelText( "Delay" ) ] public bool hasDelay;
