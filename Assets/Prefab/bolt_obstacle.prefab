@@ -100,6 +100,10 @@ PrefabInstance:
       value: bolt_obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -274,7 +278,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6211030373824014635}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
