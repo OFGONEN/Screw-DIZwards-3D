@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 2738289260498612035}
   indices_toPlayOnStart: 
   tweenDatas: []
   references:
