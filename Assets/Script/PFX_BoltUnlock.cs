@@ -10,7 +10,6 @@ public class PFX_BoltUnlock : MonoBehaviour
 #region Fields
     [ SerializeField ] ParticleEffectPool pool_pfx;
     [ SerializeField ] Transform parent_gfx;
-    [ SerializeField ] bool fixPosition = false;
 #endregion
 
 #region Properties

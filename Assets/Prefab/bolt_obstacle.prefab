@@ -334,7 +334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool_pfx: {fileID: 11400000, guid: 0032e1ed05707494aab9a174905f5159, type: 2}
   parent_gfx: {fileID: 2738289260498612035}
-  fixPosition: 0
 --- !u!114 &6211030373824014635
 MonoBehaviour:
   m_ObjectHideFlags: 0

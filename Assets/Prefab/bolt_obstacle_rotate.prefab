@@ -55,10 +55,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: bolt_obstacle_rotate
       objectReference: {fileID: 0}
-    - target: {fileID: 5821344205356253269, guid: 731af247043564c9586bc423a65aa083, type: 3}
-      propertyPath: fixPosition
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: playOnStart
       value: 1
