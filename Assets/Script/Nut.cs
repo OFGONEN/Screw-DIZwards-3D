@@ -165,7 +165,7 @@ public class Nut : MonoBehaviour
 
 	void MovementOnEndBolt()
 	{
-		nut_velocity.OnDecrease_Zero();
+		nut_velocity.OnDecrease_Zero( GameSettings.Instance.velocity_decelerate_endBold );
 		var onEndPoint = nut_movement.OnMovementEndBolt();
 
 		if( onEndPoint || Mathf.Approximately( nut_velocity.CurrentVelocity, 0 ) )

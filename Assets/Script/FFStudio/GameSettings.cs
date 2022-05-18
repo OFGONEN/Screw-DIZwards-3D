@@ -16,6 +16,7 @@ namespace FFStudio
         public float velocity_min;
         public float velocity_accelerate;
         public float velocity_decelerate;
+        [ Range( 0, 1 ) ] public float velocity_decelerate_endBold = 0.5f;
         public float velocity_rotate_cofactor;
         [ Range( 0, 1 ) ] public float velocity_movement_cofactor;
 
