@@ -11,8 +11,6 @@ public class PFX_BoltUnlock : MonoBehaviour
     [ SerializeField ] ParticleEffectPool pool_pfx;
     [ SerializeField ] Transform parent_gfx;
     [ SerializeField ] bool fixPosition = false;
-
-    Vector3 positionDelta;
 #endregion
 
 #region Properties
@@ -25,13 +23,16 @@ public class PFX_BoltUnlock : MonoBehaviour
         if( fixPosition )
         {
 			var childCount    = parent_gfx.childCount;
-			    positionDelta = Vector3.up * childCount * 0.5f / 2f;
+			var positionDelta = Vector3.up * childCount * 0.5f / 2f;
 
-			parent_gfx.localPosition = -positionDelta;
-			transform.position       = transform.position + positionDelta;
+			parent_gfx.localPosition = positionDelta;
+
+            for( var i = 0; i < childCount; i++ )
+            {
+				var child = parent_gfx.GetChild( i );
+				child.position = child.position - positionDelta;
+			}
 		}
-        else
-			positionDelta = Vector3.zero;
 	}
 #endregion
 
@@ -41,8 +42,7 @@ public class PFX_BoltUnlock : MonoBehaviour
 		var childCount = parent_gfx.childCount;
 
 		var particle = pool_pfx.GetEntity();
-        FFLogger.Log( "ParticleSpawned", particle );
-		particle.PlayParticle( transform.position - positionDelta, new Vector3( 1, childCount, 1 ) );
+		particle.PlayParticle( transform.position, new Vector3( 1, childCount, 1 ) );
 	}
 #endregion
 
