@@ -49,7 +49,7 @@ MonoBehaviour:
   endBolt_height: 11.75
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
-  maxLevelCount: 1
+  maxLevelCount: 20
   ui_Entity_Move_TweenDuration: 0.5
   ui_Entity_Fade_TweenDuration: 0.5
   ui_Entity_Scale_TweenDuration: 0.5
