@@ -1763,6 +1763,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4685615322879173467, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5991713857741982670, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
       propertyPath: m_Size.y
       value: 0.5
