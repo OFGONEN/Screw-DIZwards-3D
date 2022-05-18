@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using FFStudio;
 using System.Reflection;
+using UnityEditor.SceneManagement;
 
 namespace FFEditor
 {
@@ -97,6 +98,7 @@ namespace FFEditor
 		[ MenuItem( "FFShortcut/Select App Scene &3" ) ]
 		static private void SelectAppScene()
 		{
+			EditorSceneManager.OpenScene( "Assets/Scenes/app.unity" );
 			var appScene = AssetDatabase.LoadAssetAtPath( "Assets/Scenes/app.unity", typeof( SceneAsset ) );
 
 			Selection.SetActiveObjectWithContext( appScene, appScene );
