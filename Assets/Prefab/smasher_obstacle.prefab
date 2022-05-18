@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4429673885721342837}
   - component: {fileID: 9158861431263940533}
   - component: {fileID: 3570017317956497126}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: collider_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62304325887022375}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4244580299199286811}
   - component: {fileID: 3580112004175167815}
   - component: {fileID: 5521495112582402261}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: test_gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2898940839799277947}
   - component: {fileID: 9141314555054479905}
-  m_Layer: 0
+  - component: {fileID: 459549793956208414}
+  m_Layer: 29
   m_Name: smasher_obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,6 +281,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &459549793956208414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f753b2c2b78147c181c65650f11a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDatas:
+  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
+    alias: obstacle_smash
+    parent: 0
+    offset: {x: 0, y: 0, z: 0}
+    size: 1
 --- !u!1 &3641719868005686152
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +310,7 @@ GameObject:
   - component: {fileID: 4376462073740960143}
   - component: {fileID: 5413817107317801275}
   - component: {fileID: 3630977861677798186}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: collider_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +341,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3641719868005686152}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -410,7 +429,7 @@ GameObject:
   - component: {fileID: 7542382193485731309}
   - component: {fileID: 5116117955667597319}
   - component: {fileID: 1723065001241504976}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: test_gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
