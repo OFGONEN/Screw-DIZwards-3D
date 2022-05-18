@@ -175,7 +175,7 @@ public class LevelCreator : ScriptableObject
 			var bolt_bottom_end = bolt_bottom.transform.position.y + bolt_bottom.transform.GetChild( 0 ).childCount * 0.5f;
 
 			if( Mathf.Approximately( bolt_bottom_end, bolt_up.transform.position.y ) ) // Consecutive
-				bolt_bottom.transform.GetChild( 3 ).GetComponent< Collider >().enabled = false; // Disable collider_out object
+				bolt_bottom.transform.GetChild( 3 ).gameObject.SetActive( false ); // Disable collider_out object
 		}
 
 		EditorSceneManager.SaveOpenScenes();
