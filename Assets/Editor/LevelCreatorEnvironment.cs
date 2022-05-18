@@ -18,6 +18,7 @@ public class LevelCreatorEnvironment : ScriptableObject
 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_ground;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_background;
+    [ FoldoutGroup( "Setup" ) ] public float environment_offset;
     [ FoldoutGroup( "Setup" ) ] public float prefab_background_depth;
     [ FoldoutGroup( "Setup" ) ] public float prefab_background_height;
 #endregion
@@ -45,7 +46,7 @@ public class LevelCreatorEnvironment : ScriptableObject
 			// environmentData[ i ] = data;
 
 			var data = environmentData[ i ];
-			data.level_height = 300;
+			data.level_height = 350;
 			environmentData[ i ] = data;
 		}
 	}
@@ -90,6 +91,8 @@ public class LevelCreatorEnvironment : ScriptableObject
 			background.transform.localPosition = i * Vector3.up + Vector3.forward * prefab_background_depth;
 			background.transform.localEulerAngles = Vector3.zero;
 		}
+
+		environmentParent.transform.position = Vector3.up * environment_offset;
 
 		EditorSceneManager.SaveOpenScenes();
 	}
