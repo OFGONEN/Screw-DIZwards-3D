@@ -21,10 +21,12 @@ public class LevelCreator : ScriptableObject
   [ Title( "Create" ) ]
     public int level_start_bolt_length;
     public float level_start_bolt_space;
+    public float level_end_bolt_space;
 
 	// Childs of prefab_bolt: gfx, collider_bottom, collider_upper_in, collider_upper_out
 	[ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_start; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_end; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_patrol; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_obstacle_rotate; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
@@ -101,6 +103,11 @@ public class LevelCreator : ScriptableObject
         {
 			PlaceObject();
 		}
+
+		// Place End Level Bolt
+		var endBolt = PrefabUtility.InstantiatePrefab( prefab_bolt_end ) as GameObject;
+		endBolt.transform.position = Vector3.up * ( create_position + level_end_bolt_space );
+		endBolt.transform.SetParent( spawnTransform );
 
 		// Place Collectables
 		PlaceCollectables();
