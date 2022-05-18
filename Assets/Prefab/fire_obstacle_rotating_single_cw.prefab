@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_LocalScale.y
@@ -186,6 +186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6459131397021530030}
     m_Modifications:
+    - target: {fileID: 1858531220849664107, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1858531220864762065, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
