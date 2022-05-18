@@ -33,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 239910396996795479, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 239910396996795479, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 239910396996795479, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: m_LocalRotation.w
@@ -142,6 +142,10 @@ PrefabInstance:
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: tweenDatas.Array.data[1]
       value: 5854463291346649094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: indices_toPlayOnStart.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946]
@@ -304,6 +308,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924946].indices_nextUp.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[5854463291346649094].indices_nextUp.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].index_nextTweenToChainInto
       value: 1
       objectReference: {fileID: 0}
@@ -318,6 +330,14 @@ PrefabInstance:
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].tweenEventDatas.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924946].indices_nextUp.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[5854463291346649094].indices_nextUp.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].tweenEventDatas.Array.data[0]

@@ -16,8 +16,7 @@ namespace FFStudio
     {
 #region Fields (Inspector Interface)
     [ Title( "Start Options" ) ]
-		public bool playOnStart;
-        [ ShowIf( "playOnStart" ), LabelText( "Index to Play on Start" ) ] public int index_playOnStart = 0;
+        [ LabelText( "Indices to Play on Start" ) ] public int[] indices_toPlayOnStart;
         
     [ Title( "Tween Data" ) ]
 #if UNITY_EDITOR
@@ -31,19 +30,18 @@ namespace FFStudio
 #endregion
 
 #region Properties
-        [ field: SerializeField, ReadOnly ]
-        public int PlayingIndex { get; private set; }
-		public bool IsPlaying => PlayingIndex > -1;
+        [ ShowInInspector, ReadOnly ]
+		public List< int > PlayingIndices => indices_playing;
+		public bool IsPlaying => indices_playing != null && indices_playing.Count > 0;
 
-		public Tween PlayingTween => PlayingIndex >= 0 ? tweenDatas[ PlayingIndex ].Tween : null;
-		public TweenData PlayingTweenData => PlayingIndex >= 0 ? tweenDatas[ PlayingIndex ] : null;
+		List< int > indices_playing;
 #endregion
 
 #region Unity API
         void Awake()
         {
-			PlayingIndex = -1;
-			
+			indices_playing = new List< int >();
+
 			foreach( var tweenData in tweenDatas )
 				tweenData.Initialize( transform );
 
@@ -56,8 +54,8 @@ namespace FFStudio
             if( !enabled )
                 return;
 
-            if( playOnStart )
-                Play( index_playOnStart );
+            foreach( var index in indices_toPlayOnStart )
+                Play( index );
         }
 #endregion
 
@@ -70,12 +68,12 @@ namespace FFStudio
                 FFLogger.LogError( name + ": Tween data array is null or has no elements! Fix this before build!", this );
             else if( index < 0 || index > tweenDatas.Count - 1 )
 				FFLogger.LogError( name + ": Given index {index} is outside tween data array's range! Fix this before build!", this );
-        #endif
-			PlayingIndex = index;
+#endif
+			indices_playing.Add( index );
 			var tweenData = tweenDatas[ index ];
             
-            if( tweenData.chain )
-			    tweenData.Play( ChainNext );
+            if( tweenData.indices_nextUp.Length > 0 )
+			    tweenData.Play( () => ChainNext( index ) );
             else
 			    tweenData.Play();
 		}
@@ -83,10 +81,14 @@ namespace FFStudio
         [ Button(), EnableIf( "IsPlaying" ) ]
         public void Stop()
         {
-			PlayingTweenData.Stop();
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Stop();
+			}
 
-			PlayingIndex = -1;
-        }
+			indices_playing.Clear();
+		}
 		
 		public void ResetLocalPosition()
 		{
@@ -102,14 +104,20 @@ namespace FFStudio
 #endregion
 
 #region Implementation
-        void ChainNext()
+        void ChainNext( int indexOfPlayingTweenData )
         {
 #if UNITY_EDITOR
-			if( PlayingIndex >= 0 )
+			if( IsPlaying )
 				inPlayMode_currentStartPos = transform.position;
 #endif
-			if( PlayingIndex >= 0 )
-				Play( PlayingTweenData.index_nextTweenToChainInto );
+			if( IsPlaying )
+			{
+				indices_playing.Remove( indexOfPlayingTweenData );
+				var indices_nextUp = tweenDatas[ indexOfPlayingTweenData ].indices_nextUp;
+				for( int i = 0; i < indices_nextUp.Length; i++ )
+					Play( indices_nextUp[ i ] );
+			}
+				
 		}
 #endregion
 
@@ -150,11 +158,15 @@ namespace FFStudio
 			Vector3 lastPos = transform.position;
 			if( Application.isPlaying )
 			{
-				if( PlayingIndex < 0 )
+				if( IsPlaying == false )
 					return;
 
-				if( tweenDatas[ PlayingIndex ] is MovementTweenData )
-					DrawMovementTweenGizmo( tweenDatas[ PlayingIndex ] as MovementTweenData, ref lastPos, Vector3.zero, PlayingIndex + 1 );
+				for( var i = 0; i < indices_playing.Count; i++ )
+				{
+					var index = indices_playing[ i ];
+					if( tweenDatas[ index ] is MovementTweenData )
+						DrawMovementTweenGizmo( tweenDatas[ index ] as MovementTweenData, ref lastPos, Vector3.zero, index + 1 );
+				}
 			}
 			else
 				for( var i = 0; i < tweenDatas.Count; i++ )
