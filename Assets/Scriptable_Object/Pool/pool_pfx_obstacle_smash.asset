@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f445f883023fb94e8362b132fa99c4c, type: 3}
-  m_Name: PlayModeUtilitySettings
+  m_Script: {fileID: 11500000, guid: f2dda4d38786faa47bc9a024540d1517, type: 3}
+  m_Name: pool_pfx_obstacle_smash
   m_EditorClassIdentifier: 
-  useDefaultScene: 1
-  defaultSceneIndex: 0
-  lastSceneIndex: Assets/Scenes/game_3.unity
+  stackSize: 5
+  pool_entity: {fileID: 194941632970057486, guid: 9dcfacf03f3e24593acc18e03dc1ac05, type: 3}
