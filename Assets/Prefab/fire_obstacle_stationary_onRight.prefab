@@ -31,6 +31,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_obstacle_stationary_onRight
       objectReference: {fileID: 0}
+    - target: {fileID: 4232501604074966490, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232501604074966490, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232501604074966490, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 270
+      objectReference: {fileID: 0}
     - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_RootOrder
       value: 0
