@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1062130746}
   - component: {fileID: 733785582598705729}
   - component: {fileID: 8094385292164023745}
+  - component: {fileID: 7866297572338462097}
   m_Layer: 30
   m_Name: collectable
   m_TagString: Untagged
@@ -82,6 +83,9 @@ MonoBehaviour:
         loop: 1
         loopType: 1
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         targetScale: {x: 1.05, y: 1.05, z: 1.05}
         duration: 1
     - rid: 4552418338321727489
@@ -95,6 +99,9 @@ MonoBehaviour:
         loop: 1
         loopType: 1
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         keepCurrentStartColor: 0
         color_start: {r: 1, g: 1, b: 1, a: 1}
         color_end: {r: 1, g: 1, b: 1, a: 0.5882353}
@@ -131,6 +138,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 25
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         targetScale: {x: 1.2, y: 0.1, z: 1.2}
         duration: 1.7
     - rid: 4552418338321727495
@@ -144,6 +154,21 @@ MonoBehaviour:
         loop: 0
         loopType: 1
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 3032442728933468474}
+              m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+              m_MethodName: SetActive
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
         keepCurrentStartColor: 1
         color_start: {r: 1, g: 1, b: 1, a: 0.47058824}
         color_end: {r: 1, g: 1, b: 1, a: 0}
@@ -165,7 +190,79 @@ MonoBehaviour:
   attachedComponent: {fileID: 0}
   unityEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8094385292164023745}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130745}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130745}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: ResetTransform
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130746}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130746}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7866297572338462097}
+        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   directional: 0
   direction: 0
 --- !u!65 &8094385292164023745
@@ -181,6 +278,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7866297572338462097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f753b2c2b78147c181c65650f11a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDatas:
+  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
+    alias: collectable_oncollect
+    parent: 0
+    offset: {x: 0, y: 0, z: 0}
+    size: 1
 --- !u!1001 &617431660
 PrefabInstance:
   m_ObjectHideFlags: 0
