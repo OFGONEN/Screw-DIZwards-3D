@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2898940839799277947}
+  - component: {fileID: 3344542107875142925}
   - component: {fileID: 1062130745}
   - component: {fileID: 1062130746}
-  m_Layer: 0
+  - component: {fileID: 733785582598705729}
+  - component: {fileID: 8094385292164023745}
+  m_Layer: 30
   m_Name: collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +37,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3344542107875142925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8818b7f9928466789ec24ef9b3be6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notif_currency: {fileID: 11400000, guid: afdcffe03cc494eb78a51901914fb668, type: 2}
+  collectable_index: 1
+  collectable_collider: {fileID: 8094385292164023745}
 --- !u!114 &1062130745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +150,37 @@ MonoBehaviour:
         name_colorParameter: _BaseColor
         duration: 1.5
         renderer_target: {fileID: 1347314678682060287}
+--- !u!114 &733785582598705729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5cf41ea274c404ea73899fb5b80769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 0}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  directional: 0
+  direction: 0
+--- !u!65 &8094385292164023745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &617431660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,7 +190,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 214399627939626236, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698730842383541830, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 698730842383541830, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_IsActive
@@ -150,6 +203,10 @@ PrefabInstance:
     - target: {fileID: 2271788288054299817, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_Name
       value: gfx_nut_collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271788288054299817, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_RootOrder
