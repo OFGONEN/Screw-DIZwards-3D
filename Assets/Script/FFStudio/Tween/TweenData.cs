@@ -8,19 +8,18 @@ namespace FFStudio
 {
 	[ System.Serializable ]
 	public abstract class TweenData
-	{
+	{		
 #region Fields (Inspector Interface)
 		[ BoxGroup( "Other", false ) ] public string description;
 		
 	[ Title( "Chain" ) ]
-		[ BoxGroup( "Other", false ),  ] public bool chain = false;
-		[ BoxGroup( "Other", false ), ShowIf( "chain" ), LabelText( "Next Index" ) ] public int index_nextTweenToChainInto = 0;
+		[ BoxGroup( "Other", false ), LabelText( "Next Indices To Play" ) ] public int[] indices_nextUp;
 
 	[ Title( "Start" ) ]
 		[ BoxGroup( "Other", false ), LabelText( "Delay" ) ] public bool hasDelay;
 		[ BoxGroup( "Other", false ), ShowIf( "hasDelay" ) ] public float delayAmount;
 	
-	[ Title( "Events" ) ]
+	[ Title( "Events" ), SerializeReference ]
 		[ BoxGroup( "Other", false ) ] public TweenEventData[] tweenEventDatas;
 		
 		[ BoxGroup( "Tween", false ), DisableIf( "IsPlaying" ) ] public bool loop;
@@ -69,7 +68,7 @@ namespace FFStudio
 			if( tweenEventDatas != null && tweenEventDatas.Length > 0 )
 			{
 				for( int i = 0; i < tweenEventDatas.Length; i++ )
-					tweenEventDatas[ i ].isInvoked = false;
+					tweenEventDatas[ i ].isConsumed = false;
 				Tween.OnUpdate( OnUpdate );
 			}
 		}
@@ -79,14 +78,9 @@ namespace FFStudio
 			for( int i = 0; i < tweenEventDatas.Length; i++ )
 			{
 				TweenEventData tweenEventData = tweenEventDatas[ i ];
-				if( tweenEventData.isInvoked == false &&
-				    ( (  tweenEventData.isPercentage && Tween.ElapsedPercentage() > tweenEventData.delay_percentage.value ) ||
-				      ( !tweenEventData.isPercentage && Tween.Elapsed() >           tweenEventData.delay_seconds          ) ) )
-				{
-					tweenEventData.onElapseComplete.Invoke();
-					tweenEventData.isInvoked = true;
-					tweenEventDatas[ i ] = tweenEventData;
-				}
+				
+				if( tweenEventData.isConsumed == false )
+					tweenEventData.InvokeEventIfThresholdIsPassed( Tween, easing );
 			}
 		}
 #endregion

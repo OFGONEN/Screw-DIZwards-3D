@@ -76,8 +76,7 @@ namespace FFStudio
 #region Implementation
         protected override void InvokeEvent( Collider other )
 		{
-
-			var localPosition = transform.InverseTransformPoint( other.transform.position );
+			var localPosition = other.transform.position - transform.position;
 
 			if( !directional || ( directional && Mathf.Sign( direction ) == Mathf.Sign( localPosition.y ) ) )
 			{

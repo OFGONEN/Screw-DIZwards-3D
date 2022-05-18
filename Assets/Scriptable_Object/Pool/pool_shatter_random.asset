@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409d9e395a9cd460098569dbfde2aeb2, type: 3}
+  m_Name: pool_shatter_random
+  m_EditorClassIdentifier: 
+  pool_component:
+  - {fileID: 11400000, guid: 3729dca098619449a997053a6c67a907, type: 2}
+  - {fileID: 11400000, guid: 40bb81a0da0e44e3ab4a363d94f08ad7, type: 2}
+  - {fileID: 11400000, guid: 4dcaeea5ab3b54e69a2b2ff7c1a3a0a4, type: 2}
