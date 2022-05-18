@@ -28,7 +28,7 @@ namespace FFStudio
 		private Camera camera_main;
 		private LeanTouch leanTouch;
 
-		Vector2Delegate onFingerDown;
+		Vector2Delegate onFingerUpdate;
 #endregion
 
 #region Unity API
@@ -49,7 +49,7 @@ namespace FFStudio
 			leanTouch         = GetComponent< LeanTouch >();
 			leanTouch.enabled = false;
 
-			onFingerDown = OnFingerDown;
+			onFingerUpdate = ExtensionMethods.EmptyMethod;
 			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
@@ -66,14 +66,20 @@ namespace FFStudio
 			event_input_tap.Raise();
 		}
 
+		public void Lean_OnFingerDown()
+		{
+			event_input_fingerDown.Raise();
+			onFingerUpdate = OnFingerUpdate;
+		}
+
 		public void Lean_OnFingerUpdate( Vector2 vector )
 		{
-			onFingerDown( vector );
+			onFingerUpdate( vector );
 		}
 
 		public void Lean_OnFingerUp()
 		{
-			onFingerDown = OnFingerDown;
+			onFingerUpdate = ExtensionMethods.EmptyMethod;
 
 			event_input_fingerUp.Raise();
 			notif_input.SetValue_NotifyAlways( Vector2.zero );
@@ -96,14 +102,6 @@ namespace FFStudio
 				camera_main           = transform_camera_main.GetComponent< Camera >();
 				leanTouch.enabled    = true;
 			}
-		}
-
-		void OnFingerDown( Vector2 vector )
-		{
-			onFingerDown = OnFingerUpdate;
-
-			event_input_fingerDown.Raise();
-			notif_input.SetValue_NotifyAlways( vector );
 		}
 
 		void OnFingerUpdate( Vector2 vector )
