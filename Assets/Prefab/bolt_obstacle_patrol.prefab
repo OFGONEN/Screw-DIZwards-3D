@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924943].onThresholdReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924943].onThresholdReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924945].onThresholdReached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924945].onThresholdReached.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
