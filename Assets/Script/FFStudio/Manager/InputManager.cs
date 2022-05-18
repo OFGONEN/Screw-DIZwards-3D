@@ -106,7 +106,7 @@ namespace FFStudio
 
 		void OnFingerUpdate( Vector2 vector )
 		{
-			notif_input.SetValue_NotifyAlways( vector );
+			notif_input.SetValue_NotifyAlways( vector / Time.deltaTime / 60 );
 		}
 #endregion
 
