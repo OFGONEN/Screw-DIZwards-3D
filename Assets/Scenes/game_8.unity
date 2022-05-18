@@ -2964,6 +2964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: collectable
       objectReference: {fileID: 0}
+    - target: {fileID: 3344542107875142925, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+      propertyPath: collectable_index
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
 --- !u!1001 &818051006
@@ -4440,6 +4444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: collectable
       objectReference: {fileID: 0}
+    - target: {fileID: 3344542107875142925, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+      propertyPath: collectable_index
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
 --- !u!1001 &1236532291
@@ -5075,6 +5083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: collectable
       objectReference: {fileID: 0}
+    - target: {fileID: 3344542107875142925, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+      propertyPath: collectable_index
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
 --- !u!4 &1325325622 stripped
@@ -5679,6 +5691,10 @@ PrefabInstance:
     - target: {fileID: 3032442728933468474, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
       propertyPath: m_Name
       value: collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344542107875142925, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+      propertyPath: collectable_index
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
@@ -7851,6 +7867,10 @@ PrefabInstance:
     - target: {fileID: 3032442728933468474, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
       propertyPath: m_Name
       value: collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344542107875142925, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+      propertyPath: collectable_index
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
