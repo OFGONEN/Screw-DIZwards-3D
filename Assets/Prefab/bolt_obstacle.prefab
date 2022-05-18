@@ -95,14 +95,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 578843496202254001, guid: ff73007047d4c423589820a142c09e2f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884766727674666532, guid: ff73007047d4c423589820a142c09e2f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_Name
       value: bolt_obstacle
@@ -306,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool_pfx: {fileID: 11400000, guid: 0032e1ed05707494aab9a174905f5159, type: 2}
   parent_gfx: {fileID: 2738289260498612035}
+  fixPosition: 0
 --- !u!114 &6211030373824014635
 MonoBehaviour:
   m_ObjectHideFlags: 0
