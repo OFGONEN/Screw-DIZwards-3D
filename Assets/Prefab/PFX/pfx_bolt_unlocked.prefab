@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1953455447
 Transform:
   m_ObjectHideFlags: 0
@@ -134,6 +134,36 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
     - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   alias: bolt_unlocked
+  onParticleSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1953455446}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1257812667}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onParticleSpawn_Stop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1257812667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +193,21 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: -4121086737508922032}
+              m_TargetAssemblyTypeName: FFStudio.ParticleEffect, Assembly-CSharp
+              m_MethodName: OnParticleSystemStopped
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
         keepCurrentStartColor: 0
         color_start: {r: 1, g: 1, b: 1, a: 1}
         color_end: {r: 1, g: 1, b: 1, a: 0}

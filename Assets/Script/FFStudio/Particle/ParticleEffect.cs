@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -11,6 +12,8 @@ namespace FFStudio
 	[ Title( "Setup" ) ]
 		public MultipleEventListenerDelegateResponse level_finish_listener;
 		public string alias;
+		public UnityEvent onParticleSpawn;
+		public UnityEvent onParticleSpawn_Stop;
 
 		// Private Fields \\
 		private ParticleEffectPool particle_pool;
@@ -35,17 +38,20 @@ namespace FFStudio
 		{
 			particles = GetComponentInChildren< ParticleSystem >();
 
-			var mainParticle             = particles.main;
-			    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
-			    mainParticle.playOnAwake = false;
+			if( particles ) 
+			{
+				var mainParticle             = particles.main;
+				    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
+				    mainParticle.playOnAwake = false;
+			}
 
 			level_finish_listener.response = OnParticleSystemStopped;
-
-			particle_start_size = transform.localScale;
+			particle_start_size            = transform.localScale;
 		}
 
-		private void OnParticleSystemStopped()
+		public void OnParticleSystemStopped()
 		{
+			onParticleSpawn_Stop.Invoke();
 			particleEffectStopped( this );
 			particle_pool.ReturnEntity( this );
 			transform.localScale = Vector3.one;
@@ -69,7 +75,22 @@ namespace FFStudio
 			if( particleEvent.particle_spawn_parent != null )
 				transform.SetParent( particleEvent.particle_spawn_parent );
 
-			particles.Play();
+			particles?.Play();
+			onParticleSpawn.Invoke();
+		}
+
+		public void PlayParticle( Vector3 position, Vector3 size, Transform parent = null )
+		{
+			gameObject.SetActive( true );
+			
+			transform.position   = position;
+			transform.localScale = size;
+
+			if( parent != null )
+				transform.SetParent( parent );
+
+			particles?.Play();
+			onParticleSpawn.Invoke();
 		}
 #endregion
 

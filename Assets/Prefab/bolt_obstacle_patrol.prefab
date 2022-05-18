@@ -88,12 +88,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 2650537420494015937}
+      objectReference: {fileID: 2464325774888789183}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: ResetLocalPosition
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
+      value: PFX_BoltUnlock, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5361146579932715429, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -462,6 +478,22 @@ PrefabInstance:
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924939].tweenEventDatas.Array.data[0]
       value: 4552418314796924945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924936].onCompleteEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924937].onCompleteEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924938].onCompleteEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
+      propertyPath: managedReferences[4552418314796924939].onCompleteEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924942].onThresholdReached.m_PersistentCalls.m_Calls.Array.size
@@ -1361,6 +1393,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731af247043564c9586bc423a65aa083, type: 3}
+--- !u!114 &2464325774888789183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5821344205356253269, guid: 731af247043564c9586bc423a65aa083, type: 3}
+  m_PrefabInstance: {fileID: 8285104382343390442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264306996268444acae586b9c370ae64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2636730497624125824 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 6227659015142184298, guid: 731af247043564c9586bc423a65aa083, type: 3}
