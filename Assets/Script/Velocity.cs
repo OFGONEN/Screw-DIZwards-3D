@@ -29,9 +29,9 @@ public class Velocity : ScriptableObject
     }
 
 	// Regardless of the velocity's sign, velocity
-    public void OnDecrease_Zero()
+    public void OnDecrease_Zero( float cofactor = 1f )
     {
-		velocity_current = Mathf.Max( 0, Mathf.Abs( velocity_current ) + GameSettings.Instance.velocity_decelerate * Time.deltaTime ) * Mathf.Sign( velocity_current );
+		velocity_current = Mathf.Max( 0, Mathf.Abs( velocity_current ) + GameSettings.Instance.velocity_decelerate * cofactor * Time.deltaTime ) * Mathf.Sign( velocity_current );
 	}
 
     public void OnDecrease_Min()

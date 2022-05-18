@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
@@ -25,12 +26,14 @@ namespace FFStudio
 		[ BoxGroup( "Tween", false ), DisableIf( "IsPlaying" ) ] public bool loop;
 		[ BoxGroup( "Tween", false ), ShowIf( "loop" ) ] public LoopType loopType = LoopType.Restart;
 		[ BoxGroup( "Tween", false ) ] public Ease easing = Ease.Linear;
+		[ BoxGroup( "Tween", false ) ] public UnityEvent onCompleteEvent;
 
 		public Tween Tween => recycledTween.Tween;
 		
 		protected RecycledTween recycledTween = new RecycledTween();
-		
 		protected Transform transform;
+
+		UnityMessage onComplete;
 #endregion
 
 #region Properties
@@ -65,6 +68,9 @@ namespace FFStudio
 		{
 			IsPlaying = true;
 
+			this.onComplete = onComplete;
+			recycledTween.Tween.OnComplete( OnComplete );
+
 			if( tweenEventDatas != null && tweenEventDatas.Length > 0 )
 			{
 				for( int i = 0; i < tweenEventDatas.Length; i++ )
@@ -82,6 +88,12 @@ namespace FFStudio
 				if( tweenEventData.isConsumed == false )
 					tweenEventData.InvokeEventIfThresholdIsPassed( Tween, easing );
 			}
+		}
+
+		void OnComplete()
+		{
+			onCompleteEvent.Invoke();
+			onComplete?.Invoke();
 		}
 #endregion
 	}

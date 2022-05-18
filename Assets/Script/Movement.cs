@@ -79,7 +79,7 @@ public class Movement : ScriptableObject
     {
 		endPoint_transform = sharedReferenceNotifier.SharedValue as Transform;
 		endBolt_Start      = endPoint_transform.position.y;
-		endBolt_End        = endBolt_Start + GameSettings.Instance.endBolt_height - /*Bolt Height*/0.5f;
+		endBolt_End        = endBolt_Start + GameSettings.Instance.endBolt_height;
 	}
 
     public void Clear()
