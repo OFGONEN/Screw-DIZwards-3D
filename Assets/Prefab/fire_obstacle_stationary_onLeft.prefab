@@ -31,17 +31,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_obstacle_stationary_onLeft
       objectReference: {fileID: 0}
-    - target: {fileID: 2962421356528389100, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,6 +46,14 @@ PrefabInstance:
     - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062613057433944725, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: managedReferences[5854463339029331968].deltaPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062613057433944725, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: managedReferences[5854463339029331969].deltaPosition.x
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336773306f196b147a04c9200de7ad5d, type: 3}

@@ -12,10 +12,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1207277361719201257, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1207277361719201257, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -64,8 +60,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702428411201560504, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Name
@@ -95,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 0}
   indices_toPlayOnStart: 00000000
   tweenDatas:
   - rid: 5854463290785136644
@@ -160,7 +157,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 49189050}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -182,40 +179,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: 33c928d71c9f347e1bd989ed0a6b3254, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
