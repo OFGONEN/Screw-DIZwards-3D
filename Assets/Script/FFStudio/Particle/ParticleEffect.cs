@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -11,6 +12,7 @@ namespace FFStudio
 	[ Title( "Setup" ) ]
 		public MultipleEventListenerDelegateResponse level_finish_listener;
 		public string alias;
+		public UnityEvent onParticleSpawn;
 
 		// Private Fields \\
 		private ParticleEffectPool particle_pool;
@@ -35,13 +37,15 @@ namespace FFStudio
 		{
 			particles = GetComponentInChildren< ParticleSystem >();
 
-			var mainParticle             = particles.main;
-			    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
-			    mainParticle.playOnAwake = false;
+			if( particles ) 
+			{
+				var mainParticle             = particles.main;
+				    mainParticle.stopAction  = ParticleSystemStopAction.Callback;
+				    mainParticle.playOnAwake = false;
+			}
 
 			level_finish_listener.response = OnParticleSystemStopped;
-
-			particle_start_size = transform.localScale;
+			particle_start_size            = transform.localScale;
 		}
 
 		private void OnParticleSystemStopped()
@@ -69,7 +73,8 @@ namespace FFStudio
 			if( particleEvent.particle_spawn_parent != null )
 				transform.SetParent( particleEvent.particle_spawn_parent );
 
-			particles.Play();
+			particles?.Play();
+			onParticleSpawn.Invoke();
 		}
 #endregion
 
