@@ -13,11 +13,16 @@ public class Nut : MonoBehaviour
     [ SerializeField ] RandomShatterPool pool_random_shatter;
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
+    [ SerializeField ] SharedBoolNotifier notif_nut_isOnBolt;
+  [ Title( "Fired Events" ) ]
+    [ SerializeField ] ParticleSpawnEvent event_pfx_nut_input;
     [ SerializeField ] GameEvent event_level_complete;
     [ SerializeField ] GameEvent event_level_failed;
 
-    // Delegates
-    Vector2Delegate onInput;
+	// Private
+
+	// Delegates
+	Vector2Delegate onInput;
     UnityMessage onInput_FingerDown;
     UnityMessage onUpdate;
 #endregion
@@ -113,8 +118,17 @@ public class Nut : MonoBehaviour
 #region Implementation
 	void FingerUp()
 	{
-		onInput  = ExtensionMethods.EmptyMethod;
-		onUpdate = MovementOnBolt;                // buralari delegate ile ayirmam lazim
+		if( nut_velocity.CurrentVelocity >= GameSettings.Instance.velocity_max * GameSettings.Instance.pfx_nut_input_VelocityActivateRatio )
+			event_pfx_nut_input.Raise( "nut_input", transform.position + Vector3.forward * GameSettings.Instance.pfx_nut_input_SpawnOffset );
+
+		onInput          = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp = ExtensionMethods.EmptyMethod;
+		onUpdate         = MovementOnBolt;
+
+		if( notif_nut_isOnBolt.SharedValue  )
+			onInput_FingerDown = FingerDown;
+		else
+			onInput_FingerDown = ExtensionMethods.EmptyMethod;
 	}
 
 	void FingerDown()
