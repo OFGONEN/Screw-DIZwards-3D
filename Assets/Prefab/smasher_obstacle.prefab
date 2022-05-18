@@ -78,6 +78,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         duration: 0
         onDelayComplete:
           m_PersistentCalls:
@@ -93,6 +96,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 26
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         deltaPosition: {x: -1, y: 0, z: 0}
         velocity: 1
         movementMode: 0
@@ -107,6 +113,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 11
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         deltaPosition: {x: 1, y: 0, z: 0}
         velocity: 1
         movementMode: 0
@@ -202,6 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2898940839799277947}
+  - component: {fileID: 9141314555054479905}
   m_Layer: 0
   m_Name: smasher_obstacle
   m_TagString: Untagged
@@ -226,6 +236,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9141314555054479905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+      - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3630977861677798186}
+          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 3570017317956497126}
+          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3641719868005686152
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +358,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         duration: 0
         onDelayComplete:
           m_PersistentCalls:
@@ -319,6 +376,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 26
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         deltaPosition: {x: 1, y: 0, z: 0}
         velocity: 1
         movementMode: 0
@@ -333,6 +393,9 @@ MonoBehaviour:
         loop: 0
         loopType: 0
         easing: 11
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
         deltaPosition: {x: -1, y: 0, z: 0}
         velocity: 1
         movementMode: 0
