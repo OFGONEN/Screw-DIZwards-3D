@@ -2,9 +2,10 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 
 #if UNITY_EDITOR
-using Sirenix.OdinInspector;
 using Shapes;
 using UnityEditor;
 #endif
@@ -18,7 +19,9 @@ namespace FFStudio
         [ LabelText( "Indices to Play on Start" ) ] public int[] indices_toPlayOnStart;
         
     [ Title( "Tween Data" ) ]
+#if UNITY_EDITOR
 	[ TableList( ShowIndexLabels = true ) ]
+#endif
 	[ SerializeReference ]
         public List< TweenData > tweenDatas = new List< TweenData >();
 		

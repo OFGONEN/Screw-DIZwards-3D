@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: behaviour_nut_movement
   m_EditorClassIdentifier: 
   velocity: {fileID: 11400000, guid: 9adebe68322bb498ab797495ca606105, type: 2}
+  notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}

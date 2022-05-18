@@ -14,10 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity_max: 13
   velocity_min: -7
-  velocity_accelerate: 6
+  velocity_accelerate: 2.6
   velocity_decelerate: -10
   velocity_rotate_cofactor: -100
-  velocity_movement_cofactor: 0.1
+  velocity_movement_cofactor: 0.9
+  shatter_force: {x: 6.2, y: 20.3}
+  shatter_force_up: {x: 0, y: 0.1}
+  shatter_torque: {x: 6.7, y: 15.2}
+  shatter_duration: 0.75
+  camera_velocity: 5
+  camera_offset: {x: 0, y: 1, z: -12.5}
+  camera_offset_start: {x: 0, y: 0, z: -7.5}
+  camera_shake_duration: 0.75
+  camera_shake_strength: 0.1
+  ui_PopUp_In_ease: 1
+  ui_PopUp_Out_ease: 1
+  ui_PopUp_duration: 0.63
+  ui_PopUp_wait: 0.15
+  endLevelTexts:
+  - endLevelText_percentage: 100
+    endLevelText_text: spectacular
+  - endLevelText_percentage: 50
+    endLevelText_text: Half Way
+  - endLevelText_percentage: 0
+    endLevelText_text: Failed Miserably
+  notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
+  endBolt_height: 12
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1
@@ -26,8 +48,6 @@ MonoBehaviour:
   ui_Entity_Scale_TweenDuration: 0.5
   ui_Entity_FloatingMove_TweenDuration: 0.5
   ui_Entity_JoyStick_Gap: 50
-  ui_PopUp_height: 1
-  ui_PopUp_duration: 0.75
   swipeThreshold: 2
   debug_ui_text_float_height: 1
   debug_ui_text_float_duration: 1

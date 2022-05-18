@@ -113,13 +113,19 @@ namespace FFStudio
 #endregion
 
 
-#if UNITY_EDITOR
-#region EditorOnly
+// #if UNITY_EDITOR
+// #region EditorOnly
 		void OnGUI()
 		{
-			GUI.Label( new Rect( 25, 25, 100, 50 ), "Input: " + notif_input.sharedValue );
+			GUI.Label( new Rect( 25, 0, 200, 50 ), "FPS: " + 1f / Time.deltaTime );
+			GUI.Label( new Rect( 25, 50, 200, 50 ), "Velocity Max: " + GameSettings.Instance.velocity_max );
+			GUI.Label( new Rect( 25, 100, 200, 50 ), "Velocity Min: " + GameSettings.Instance.velocity_min );
+			GUI.Label( new Rect( 25, 150, 200, 50 ), "Velocity Accelerate: " + GameSettings.Instance.velocity_accelerate );
+			GUI.Label( new Rect( 25, 200, 200, 50 ), "Velocity Decelerate: " + GameSettings.Instance.velocity_decelerate );
+			GUI.Label( new Rect( 25, 250, 200, 50 ), "Velocity Movement Cofactor: " + GameSettings.Instance.velocity_movement_cofactor );
+			GUI.Label( new Rect( 25, 300, 200, 50 ), "Velocity Rotate Cofactor: " + GameSettings.Instance.velocity_rotate_cofactor );		
 		}
-#endregion
-#endif
+// #endregion
+// #endif
     }
 }
