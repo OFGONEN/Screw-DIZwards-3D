@@ -61,6 +61,14 @@ namespace FFStudio
 
 			IsPlaying = false;
 		}
+		
+		public void Pause()
+		{
+			if( IsPlaying )
+				Tween.Pause();
+
+			IsPlaying = false;
+		}
 #endregion
 
 #region Implementation
