@@ -112,6 +112,9 @@ public class LevelCreator : ScriptableObject
 		// Place Collectables
 		PlaceCollectables();
 
+		// Fix Rotate Bolts
+		FixAllRotateBolts();
+
 		// Fix consecutive Bolts
 		FixConsecutiveBolts();
 
@@ -119,17 +122,44 @@ public class LevelCreator : ScriptableObject
 	}
 
 	[ Button() ]	
-	public void FixConsecutiveBoltsOnAllLevels()
+	public void FixThingsOnAllLevels()
 	{
 		for( var x = 1; x <= 20; x++ )
 		{
 			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{x}.unity" );
+			// FixAllRotateBolts();
 			FixConsecutiveBolts();
 		}
 	}
 #endregion
 
 #region Implementation
+	void FixAllRotateBolts()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+		var bolts = GameObject.FindGameObjectsWithTag( "Bolt" );
+
+		for( var x = 0; x < bolts.Length - 1; x++ )
+		{
+			if( bolts[ x ].name == "bolt_obstacle_rotate" )
+			{
+				var parent_gfx    = bolts[ x ].transform.GetChild( 0 );
+				var childCount    = parent_gfx.childCount;
+				var positionDelta = Vector3.up * childCount * 0.5f / 2f;
+
+				parent_gfx.localPosition = positionDelta;
+
+				for( var y = 0; y < childCount; y++ )
+				{
+					var child = parent_gfx.GetChild( y );
+					child.position = child.position - positionDelta;
+				}
+			}
+		}
+
+		EditorSceneManager.SaveOpenScenes();
+	}
+
 	void FixConsecutiveBolts()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
