@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8818b7f9928466789ec24ef9b3be6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool_UIPopUpText: {fileID: 11400000, guid: eaaacbd90b1464ad2b2a3a962a8a84b2, type: 2}
   notif_currency: {fileID: 11400000, guid: afdcffe03cc494eb78a51901914fb668, type: 2}
   collectable_index: 1
-  collectable_collider: {fileID: 8094385292164023745}
 --- !u!114 &1062130745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +195,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3344542107875142925}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: OnCollect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

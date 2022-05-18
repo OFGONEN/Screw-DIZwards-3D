@@ -25,10 +25,15 @@ namespace FFStudio
         public Vector2 shatter_torque;
         public float shatter_duration;
 
-
     [ Title( "PFX" ) ]
         public float pfx_nut_input_VelocityActivateRatio = 0.5f;
         public float pfx_nut_input_SpawnOffset = 0.75f;
+
+    [ Title( "Collectable" ) ]
+        public float collectable_text_offset;
+        public float collectable_text_size;
+        public Color collectable_text_color;
+        public string collectable_text_prefix;
 
     [ Title( "Camera" ) ]
         public float camera_velocity;
