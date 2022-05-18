@@ -64,12 +64,12 @@ namespace FFStudio
 #endregion
 
 #region Implementation
-		protected virtual void CreateAndStartTween( UnityMessage onComplete = null, bool isReversed = false )
+		protected virtual void CreateAndStartTween( UnityMessage onComplete, bool isReversed = false )
 		{
 			IsPlaying = true;
 
 			this.onComplete = onComplete;
-			recycledTween.Tween.OnComplete( OnComplete );
+			recycledTween.OnComplete( OnComplete );
 
 			if( tweenEventDatas != null && tweenEventDatas.Length > 0 )
 			{

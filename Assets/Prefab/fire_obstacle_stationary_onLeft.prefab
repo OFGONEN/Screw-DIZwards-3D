@@ -27,13 +27,13 @@ PrefabInstance:
       propertyPath: managedReferences[5854463290785136641].indices_nextUp.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 552856921838060479, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1812193376070305322, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_Name
       value: fire_obstacle_stationary_onLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962421356528389100, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8152100898340328571, guid: 336773306f196b147a04c9200de7ad5d, type: 3}
       propertyPath: m_RootOrder
