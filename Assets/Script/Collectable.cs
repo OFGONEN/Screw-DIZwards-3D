@@ -8,9 +8,9 @@ using FFStudio;
 public class Collectable : MonoBehaviour
 {
 #region Fields
+	[ SerializeField ] Pool_UIPopUpText pool_UIPopUpText;
     [ SerializeField ] SharedFloatNotifier notif_currency;
     [ SerializeField ] float collectable_index;
-    [ SerializeField ] Collider collectable_collider;
 #endregion
 
 #region Properties
@@ -22,8 +22,15 @@ public class Collectable : MonoBehaviour
 #region API
     public void OnCollect()
     {
-		notif_currency.SharedValue   += CurrentLevelData.Instance.currentLevel_Shown * collectable_index;
-		collectable_collider.enabled  = false;
+		var value = CurrentLevelData.Instance.currentLevel_Shown * collectable_index;
+		notif_currency.SharedValue += value;
+
+		var entity = pool_UIPopUpText.GetEntity();
+
+		entity.Spawn( transform.position + Vector3.forward * GameSettings.Instance.collectable_text_offset,
+        GameSettings.Instance.collectable_text_prefix + value, 
+        GameSettings.Instance.collectable_text_size, 
+        GameSettings.Instance.collectable_text_color );
 	}
 #endregion
 

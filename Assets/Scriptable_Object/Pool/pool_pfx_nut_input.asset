@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f00e84b9378a6418f01836d9495f1a, type: 3}
-  m_Name: notif_string_build
+  m_Script: {fileID: 11500000, guid: f2dda4d38786faa47bc9a024540d1517, type: 3}
+  m_Name: pool_pfx_nut_input
   m_EditorClassIdentifier: 
-  sharedValue: IOS_18/05/22_Build-4
+  stackSize: 3
+  pool_entity: {fileID: -1323730842607725906, guid: b664c7fececaa48bea6116b014ddbe5e, type: 3}

@@ -48,6 +48,9 @@ MonoBehaviour:
   level_finish_listener:
     gameEvents: []
   alias: obstacle_smash
+  onParticleSpawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2818506262085732534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +104,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19866620, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -89,6 +89,12 @@ namespace FFStudio
 
 			indices_playing.Clear();
 		}
+
+		public void ResetTransform()
+		{
+			ResetLocalPosition();
+			ResetLocalRotation();
+		}
 		
 		public void ResetLocalPosition()
 		{
