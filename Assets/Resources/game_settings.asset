@@ -24,8 +24,8 @@ MonoBehaviour:
   shatter_duration: 0.75
   pfx_nut_input_VelocityActivateRatio: 0.5
   pfx_nut_input_SpawnOffset: 0.75
-  collectable_text_offset: -0.5
-  collectable_text_size: 1
+  collectable_text_offset: -1
+  collectable_text_size: 3
   collectable_text_color: {r: 1, g: 1, b: 1, a: 0.8}
   collectable_text_prefix: +
   camera_velocity: 5
