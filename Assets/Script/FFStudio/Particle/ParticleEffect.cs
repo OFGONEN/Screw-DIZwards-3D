@@ -13,6 +13,7 @@ namespace FFStudio
 		public MultipleEventListenerDelegateResponse level_finish_listener;
 		public string alias;
 		public UnityEvent onParticleSpawn;
+		public UnityEvent onParticleSpawn_Stop;
 
 		// Private Fields \\
 		private ParticleEffectPool particle_pool;
@@ -48,8 +49,9 @@ namespace FFStudio
 			particle_start_size            = transform.localScale;
 		}
 
-		private void OnParticleSystemStopped()
+		public void OnParticleSystemStopped()
 		{
+			onParticleSpawn_Stop.Invoke();
 			particleEffectStopped( this );
 			particle_pool.ReturnEntity( this );
 			transform.localScale = Vector3.one;
