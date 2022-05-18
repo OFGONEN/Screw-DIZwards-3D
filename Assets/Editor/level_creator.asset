@@ -16,8 +16,10 @@ MonoBehaviour:
   level_code_collectable: 
   level_start_bolt_length: 8
   level_start_bolt_space: 1
+  level_end_bolt_space: 3
   prefab_bolt: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   prefab_bolt_start: {fileID: 7303843996689885329, guid: e938971f5a85c4916b8223bd5a86aec8, type: 3}
+  prefab_bolt_end: {fileID: 5493781706381768697, guid: 2383ad9a9feea43e7b9c76a5cbbcac13, type: 3}
   prefab_bolt_obstacle_patrol: {fileID: 6091878903222938512, guid: 648a0c3ca90724d3ea7950b3cfd856ff, type: 3}
   prefab_bolt_obstacle_rotate: {fileID: 6091878903222938512, guid: 8e7718cb3b7ce4c66b4bc93391896e85, type: 3}
   prefab_bolt_model: {fileID: 534677404287187449, guid: ced39419f0d814485852d5d2f17cc7e1, type: 3}
