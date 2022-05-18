@@ -112,11 +112,44 @@ public class LevelCreator : ScriptableObject
 		// Place Collectables
 		PlaceCollectables();
 
+		// Fix consecutive Bolts
+		FixConsecutiveBolts();
+
 		EditorSceneManager.SaveOpenScenes();
+	}
+
+	[ Button() ]	
+	public void FixConsecutiveBoltsOnAllLevels()
+	{
+		for( var x = 1; x <= 20; x++ )
+		{
+			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{x}.unity" );
+			FixConsecutiveBolts();
+		}
 	}
 #endregion
 
 #region Implementation
+	void FixConsecutiveBolts()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+
+		var bolts = GameObject.FindGameObjectsWithTag( "Bolt" );
+
+		for( var i = 0; i < bolts.Length - 1; i++ )
+		{
+			var bolt_bottom = bolts[ i ];
+			var bolt_up = bolts[ i + 1 ];
+
+			var bolt_bottom_start = bolt_bottom.transform.position.y;
+			var bolt_bottom_end = bolt_bottom.transform.position.y + bolt_bottom.transform.GetChild( 0 ).childCount * 0.5f;
+
+			if( Mathf.Approximately( bolt_bottom_end, bolt_up.transform.position.y ) ) // Consecutive
+				bolt_bottom.transform.GetChild( 3 ).GetComponent< Collider >().enabled = false; // Disable collider_out object
+		}
+
+		EditorSceneManager.SaveOpenScenes();
+	}
 	void PlaceCollectables()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
