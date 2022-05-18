@@ -31,8 +31,9 @@ namespace FFStudio
 		public Tween Tween => recycledTween.Tween;
 		
 		protected RecycledTween recycledTween = new RecycledTween();
-		
 		protected Transform transform;
+
+		UnityMessage onComplete;
 #endregion
 
 #region Properties
@@ -67,6 +68,9 @@ namespace FFStudio
 		{
 			IsPlaying = true;
 
+			this.onComplete = onComplete;
+			recycledTween.Tween.OnComplete( OnComplete );
+
 			if( tweenEventDatas != null && tweenEventDatas.Length > 0 )
 			{
 				for( int i = 0; i < tweenEventDatas.Length; i++ )
@@ -84,6 +88,12 @@ namespace FFStudio
 				if( tweenEventData.isConsumed == false )
 					tweenEventData.InvokeEventIfThresholdIsPassed( Tween, easing );
 			}
+		}
+
+		void OnComplete()
+		{
+			onCompleteEvent.Invoke();
+			onComplete?.Invoke();
 		}
 #endregion
 	}
