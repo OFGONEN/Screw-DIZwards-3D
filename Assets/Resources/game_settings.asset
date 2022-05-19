@@ -23,14 +23,14 @@ MonoBehaviour:
   shatter_force_up: {x: 0, y: 0.1}
   shatter_torque: {x: 6.7, y: 15.2}
   shatter_duration: 0.75
-  pfx_nut_input_VelocityActivateRatio: 0.5
+  pfx_nut_input_VelocityActivateRatio: 0.3
   pfx_nut_input_SpawnOffset: 0.75
   collectable_text_offset: -1
   collectable_text_size: 3
   collectable_text_color: {r: 1, g: 1, b: 1, a: 0.8}
   collectable_text_prefix: +
   camera_velocity: 5
-  camera_offset: {x: 0, y: 1, z: -9.5}
+  camera_offset: {x: 0, y: 3, z: -9.5}
   camera_offset_start: {x: 0, y: 1, z: -7.5}
   camera_shake_duration: 0.75
   camera_shake_strength: 0.1
