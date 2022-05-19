@@ -145,7 +145,7 @@ MonoBehaviour:
           m_PersistentCalls:
             m_Calls: []
         targetScale: {x: 1.8, y: 0.3, z: 1.8}
-        duration: 0.8
+        duration: 0.65
     - rid: 4552418338321727495
       type: {class: ColorTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
@@ -156,7 +156,7 @@ MonoBehaviour:
         tweenEventDatas: []
         loop: 0
         loopType: 1
-        easing: 1
+        easing: 8
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls:
@@ -176,7 +176,7 @@ MonoBehaviour:
         color_start: {r: 1, g: 1, b: 1, a: 0.47058824}
         color_end: {r: 1, g: 1, b: 1, a: 0.19607843}
         name_colorParameter: _BaseColor
-        duration: 0.8
+        duration: 0.65
         renderer_target: {fileID: 1347314678682060287}
 --- !u!114 &733785582598705729
 MonoBehaviour:
