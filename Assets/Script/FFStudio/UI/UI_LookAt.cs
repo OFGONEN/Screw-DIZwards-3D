@@ -46,6 +46,10 @@ namespace FFStudio
 #endregion
 
 #region API
+		public void Clear()
+		{
+			updateMethod = ExtensionMethods.EmptyMethod;
+		}
 #endregion
 
 #region Implementation
