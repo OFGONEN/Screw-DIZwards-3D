@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: ShapeModule.m_Position.y
-      value: 0.09
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeBySpeedModule.enabled
@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
@@ -320,11 +320,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].time
-      value: 1
+      value: 0.50719535
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].time
-      value: 0.9466553
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].value
@@ -332,11 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].value
-      value: 0.0062553436
+      value: 0.87187505
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].value
-      value: 0.671875
+      value: 0.0062553436
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].inSlope
@@ -344,11 +344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 0
+      value: -0.0975867
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].inSlope
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].time
@@ -368,15 +368,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].outSlope
-      value: 0
+      value: -0.0975867
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].outSlope
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
@@ -396,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].outWeight
-      value: 0
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope

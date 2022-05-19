@@ -99,18 +99,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7368118339395344857}
-        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 9d528643c535a454c9b5e912f5e1b5be, type: 2}
         m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
         m_MethodName: Raise
@@ -266,18 +254,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5666646248412055447}
-        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5184526849226199581}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -319,11 +295,6 @@ MonoBehaviour:
   particleDatas:
   - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
     alias: collectable_oncollect
-    parent: 0
-    offset: {x: 0, y: 0, z: 0}
-    size: 1
-  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
-    alias: nut_attach
     parent: 0
     offset: {x: 0, y: 0, z: 0}
     size: 1
@@ -426,18 +397,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 26597073925359683}
-        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8872244929578234698}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -479,11 +438,6 @@ MonoBehaviour:
   particleDatas:
   - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
     alias: collectable_oncollect
-    parent: 0
-    offset: {x: 0, y: 0, z: 0}
-    size: 1
-  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
-    alias: nut_attach
     parent: 0
     offset: {x: 0, y: 0, z: 0}
     size: 1
@@ -586,18 +540,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7375947422211706380}
-        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8182817435673503214}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -639,11 +581,6 @@ MonoBehaviour:
   particleDatas:
   - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
     alias: collectable_oncollect
-    parent: 0
-    offset: {x: 0, y: 0, z: 0}
-    size: 1
-  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
-    alias: nut_attach
     parent: 0
     offset: {x: 0, y: 0, z: 0}
     size: 1
@@ -2338,15 +2275,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2355,22 +2292,22 @@ PrefabInstance:
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7368118339395344857}
+      objectReference: {fileID: 4326086373202115902}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 4326086373202115902}
+      objectReference: {fileID: 7637691970958702083}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 7637691970958702083}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Spawn
+      value: SetReference
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetReference
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -2378,15 +2315,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FFStudio.ParticleSpawner, Assembly-CSharp
+      value: FFStudio.SharedReferenceSetter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: FFStudio.SharedReferenceSetter, Assembly-CSharp
+      value: UnityEngine.Collider, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
@@ -2464,17 +2405,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2158367994339417667, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   m_PrefabInstance: {fileID: 5888939836510374275}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7368118339395344857 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4033368207768834138, guid: ff73007047d4c423589820a142c09e2f, type: 3}
-  m_PrefabInstance: {fileID: 5888939836510374275}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493781706381768697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f753b2c2b78147c181c65650f11a67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7573270593631847636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4080295271887506775, guid: ff73007047d4c423589820a142c09e2f, type: 3}
