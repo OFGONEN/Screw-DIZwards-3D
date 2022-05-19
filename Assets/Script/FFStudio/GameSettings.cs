@@ -44,10 +44,14 @@ namespace FFStudio
         public float camera_shake_strength = 1f;
 
     [ Title( "Pop Up UI" ) ]
-		[ Tooltip( "Pop Up Text Pop In Ease"   ) ] public Ease ui_PopUp_In_ease;
-		[ Tooltip( "Pop Up Text Pop Out Ease"  ) ] public Ease ui_PopUp_Out_ease;
-		[ Tooltip( "Pop Up Text duration"      ) ] public float ui_PopUp_duration;
-		[ Tooltip( "Pop Up Text wait duration" ) ] public float ui_PopUp_wait;
+		[ Tooltip( "Pop Up Text Pop In Ease"   ) ] public Ease ui_PopUp_size_In_ease;
+		[ Tooltip( "Pop Up Text Pop Out Ease"  ) ] public Ease ui_PopUp_size_Out_ease;
+		[ Tooltip( "Pop Up Text duration"      ) ] public float ui_PopUp_size_In_duration;
+		[ Tooltip( "Pop Up Text duration"      ) ] public float ui_PopUp_size_Out_duration;
+		[ Tooltip( "Pop Up Text wait duration" ) ] public float ui_PopUp_size_wait;
+		[ Tooltip( "Pop Up Text wait duration" ) ] public float ui_PopUp_movement_delta;
+		[ Tooltip( "Pop Up Text wait duration" ) ] public float ui_PopUp_movement_duration;
+		[ Tooltip( "Pop Up Text wait duration" ) ] public Ease ui_PopUp_movement_ease;
 
     [ Title( "Game" ) ]
         public EndLevelText[] endLevelTexts;
