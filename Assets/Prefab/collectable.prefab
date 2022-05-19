@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 5797498786975317476}
   indices_toPlayOnStart: 0000000001000000
   tweenDatas:
   - rid: 4552418338321727488
@@ -87,7 +88,7 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        targetScale: {x: 1.05, y: 1.05, z: 1.05}
+        targetScale: {x: 0.66, y: 0.9, z: 0.66}
         duration: 1
     - rid: 4552418338321727489
       type: {class: ColorTweenData, ns: FFStudio, asm: Assembly-CSharp}
@@ -103,8 +104,8 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        keepCurrentStartColor: 0
-        color_start: {r: 1, g: 1, b: 1, a: 1}
+        keepCurrentStartColor: 1
+        color_start: {r: 1, g: 0.7855395, b: 0, a: 1}
         color_end: {r: 1, g: 1, b: 1, a: 0.5882353}
         name_colorParameter: _BaseColor
         duration: 1
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 0}
   indices_toPlayOnStart: 
   tweenDatas:
   - rid: 4552418338321727492
@@ -142,8 +144,8 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        targetScale: {x: 1.2, y: 0.1, z: 1.2}
-        duration: 1.7
+        targetScale: {x: 1.8, y: 0.3, z: 1.8}
+        duration: 0.8
     - rid: 4552418338321727495
       type: {class: ColorTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
@@ -172,9 +174,9 @@ MonoBehaviour:
               m_CallState: 2
         keepCurrentStartColor: 1
         color_start: {r: 1, g: 1, b: 1, a: 0.47058824}
-        color_end: {r: 1, g: 1, b: 1, a: 0}
+        color_end: {r: 1, g: 1, b: 1, a: 0.19607843}
         name_colorParameter: _BaseColor
-        duration: 1.5
+        duration: 0.8
         renderer_target: {fileID: 1347314678682060287}
 --- !u!114 &733785582598705729
 MonoBehaviour:
@@ -385,6 +387,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -422,6 +436,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
