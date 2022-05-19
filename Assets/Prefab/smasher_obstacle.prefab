@@ -139,7 +139,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9158861431263940533}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: 
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3570017317956497126}
         m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -315,7 +315,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3630977861677798186}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 3570017317956497126}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -518,7 +518,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3630977861677798186}
         m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-        m_MethodName: Stop
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
