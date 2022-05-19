@@ -31,25 +31,25 @@ public class LevelCreatorEnvironment : ScriptableObject
 
 #region API
 	// [ Button() ]
-	void CreateEnvironmentData()
-	{
-		// environmentData = new EnvironmentData[ 20 ];
+	// void CreateEnvironmentData()
+	// {
+	// 	environmentData = new EnvironmentData[ 20 ];
 
-		for( var i = 0; i < 20; i++ )
-		{
-			// var data = new EnvironmentData();
+	// 	for( var i = 0; i < 20; i++ )
+	// 	{
+	// 		var data = new EnvironmentData();
 
-			// data.level_height              = 200;
-			// data.level_material_background = ( Material )AssetDatabase.LoadAssetAtPath( $"Assets/Material/mat_platform_game_{i + 1}.mat", typeof( Material ) );
-			// data.level_material_ground     = ( Material )AssetDatabase.LoadAssetAtPath( $"Assets/Material/mat_ground_game_{i + 1}.mat", typeof( Material ) );
+	// 		data.level_height              = 200;
+	// 		data.level_material_background = ( Material )AssetDatabase.LoadAssetAtPath( $"Assets/Material/mat_platform_game_{i + 1}.mat", typeof( Material ) );
+	// 		data.level_material_ground     = ( Material )AssetDatabase.LoadAssetAtPath( $"Assets/Material/mat_ground_game_{i + 1}.mat", typeof( Material ) );
 
-			// environmentData[ i ] = data;
+	// 		environmentData[ i ] = data;
 
-			var data = environmentData[ i ];
-			data.level_height = 350;
-			environmentData[ i ] = data;
-		}
-	}
+	// 		var data = environmentData[ i ];
+	// 		data.level_height = 160;
+	// 		environmentData[ i ] = data;
+	// 	}
+	// }
 
     [ Button() ]
     public void CreateAllLevelEnvironment()
@@ -72,13 +72,17 @@ public class LevelCreatorEnvironment : ScriptableObject
 		EditorSceneManager.MarkAllScenesDirty();
 
 		var environmentParent = GameObject.Find( "environment" ).transform;
+
+		// Destory Objects
 		environmentParent.DestoryAllChildren();
+		DestroyImmediate( GameObject.Find( prefab_ground.name ) );
 
 		var ground = PrefabUtility.InstantiatePrefab( prefab_ground ) as GameObject;
 		ground.GetComponentInChildren< Renderer >().sharedMaterial = environmentData[ index ].level_material_ground;
-		ground.transform.SetParent( environmentParent );
+		ground.transform.SetParent( null );
 		ground.transform.localPosition    = Vector3.zero;
 		ground.transform.localEulerAngles = Vector3.zero;
+		ground.transform.SetSiblingIndex( environmentParent.GetSiblingIndex() );
 
 		var backgroundCount = environmentData[ index ].level_height / prefab_background_height;
 
@@ -88,7 +92,7 @@ public class LevelCreatorEnvironment : ScriptableObject
             background.GetComponentInChildren< Renderer >().sharedMaterial = environmentData[ index ].level_material_background;
 
 			background.transform.SetParent( environmentParent );
-			background.transform.localPosition = i * Vector3.up + Vector3.forward * prefab_background_depth;
+			background.transform.localPosition    = i * Vector3.up * prefab_background_height + Vector3.forward * prefab_background_depth;
 			background.transform.localEulerAngles = Vector3.zero;
 		}
 
