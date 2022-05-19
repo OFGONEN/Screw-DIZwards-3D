@@ -48,6 +48,14 @@ namespace FFStudio
         float GetStartSpeed() => particleSystem.main.startSpeed.constant;
         void SetStartSpeed( float newValue )
         {
+#if UNITY_EDITOR
+			if( particleSystem == null )
+			{
+				FFLogger.LogError( "PFX (Speed) Tween Data [" + description + "]: No particle system is provided. Will not set start speed." );
+				return;
+			}
+#endif
+
 			var mainModule = particleSystem.main;
 			var startSpeedStruct = mainModule.startSpeed;
 			startSpeedStruct.constant = newValue;
