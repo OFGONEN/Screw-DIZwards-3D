@@ -53,6 +53,7 @@ namespace FFStudio
         public EndLevelText[] endLevelTexts;
         public SharedFloatNotifier notif_level_progress;
         public float endBolt_height;
+        public float game_reference_screenRatio;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
