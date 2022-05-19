@@ -43,6 +43,18 @@ PrefabInstance:
       propertyPath: eventPairs.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735607257211546396, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6435753632966882529, guid: 185d4a0ab92e3f443a0a7c7eae00530d, type: 3}
     - target: {fileID: 8702428411201560504, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Name
       value: fire_obstacle_stationary
@@ -120,15 +132,17 @@ MonoBehaviour:
         description: Fire grows
         indices_nextUp: 0300000004000000
         hasDelay: 1
-        delayAmount: 2
-        tweenEventDatas: []
+        delayAmount: 1.5
+        tweenEventDatas:
+        - rid: 4552418389360377857
+        - rid: 4552418391211376641
         loop: 0
         loopType: 0
         easing: 17
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        value_target: 3
+        value_target: 6
         duration: 0.5
         particleSystem: {fileID: 6059385966616549614}
     - rid: 4552418365239984130
@@ -137,17 +151,93 @@ MonoBehaviour:
         description: Fire shrinks
         indices_nextUp: 0100000002000000
         hasDelay: 1
-        delayAmount: 2
-        tweenEventDatas: []
+        delayAmount: 1.5
+        tweenEventDatas:
+        - rid: 4552418389360377858
         loop: 0
         loopType: 0
         easing: 1
         onCompleteEvent:
           m_PersistentCalls:
-            m_Calls: []
+            m_Calls:
+            - m_Target: {fileID: 1191078192422445406}
+              m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+              m_MethodName: Play
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
         value_target: 1
         duration: 0.5
         particleSystem: {fileID: 6059385966616549614}
+    - rid: 4552418389360377857
+      type: {class: TweenEventData_TweenPercentage, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        onThresholdReached:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1191078192422445406}
+              m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+              m_MethodName: Stop
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        isConsumed: 0
+        threshold:
+          value: 0
+    - rid: 4552418389360377858
+      type: {class: TweenEventData_TweenPercentage, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        onThresholdReached:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6059385966616549614}
+              m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+              m_MethodName: Stop
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        isConsumed: 0
+        threshold:
+          value: 0.6
+    - rid: 4552418391211376641
+      type: {class: TweenEventData_TweenPercentage, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        onThresholdReached:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 6059385966616549614}
+              m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+              m_MethodName: Play
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        isConsumed: 0
+        threshold:
+          value: 0.9
     - rid: 5854463336758640640
       type: {class: DelayedCallTweenData, ns: FFStudio, asm: Assembly-CSharp}
       data:
@@ -172,7 +262,7 @@ MonoBehaviour:
         description: Collider moves closer
         indices_nextUp: 
         hasDelay: 1
-        delayAmount: 2.5
+        delayAmount: 1.875
         tweenEventDatas: []
         loop: 0
         loopType: 0
@@ -189,7 +279,7 @@ MonoBehaviour:
         description: Collider mvoes back
         indices_nextUp: 
         hasDelay: 1
-        delayAmount: 2.5
+        delayAmount: 1.875
         tweenEventDatas: []
         loop: 0
         loopType: 0
@@ -226,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -256,12 +346,121 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].time
+      value: 0.468481
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].value
+      value: 0.7040405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -0.17897303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 0.15347111
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].inSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -0.17897303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0.15347111
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[2].outSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0.24984537
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeModule.y.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+      propertyPath: SizeBySpeedModule.y.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 6415556527684355665, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
       propertyPath: m_Name
       value: pfx_obstacle_fire_idle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+--- !u!198 &1191078192422445406 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8600432621218074774, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+  m_PrefabInstance: {fileID: 7484226841623884232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &6059385966616549614 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3731816982493128998, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}

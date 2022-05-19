@@ -15,7 +15,7 @@ GameObject:
   m_Layer: 29
   m_Name: collider_right
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: f0106cef986be534181a8582cffd29da, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -92,8 +92,8 @@ MonoBehaviour:
       data:
         description: Smash!
         indices_nextUp: 02000000
-        hasDelay: 0
-        delayAmount: 0
+        hasDelay: 1
+        delayAmount: 0.5
         tweenEventDatas: []
         loop: 0
         loopType: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        deltaPosition: {x: -1, y: 0, z: 0}
+        deltaPosition: {x: -0.84, y: 0, z: 0}
         velocity: 1
         movementMode: 0
     - rid: 5854463291346649092
@@ -118,8 +118,8 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        deltaPosition: {x: 1, y: 0, z: 0}
-        velocity: 1
+        deltaPosition: {x: 0.84, y: 0, z: 0}
+        velocity: 0.65
         movementMode: 0
 --- !u!114 &3071939677831425660
 MonoBehaviour:
@@ -139,7 +139,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9158861431263940533}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: 
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3570017317956497126}
         m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 3580112004175167815}
   - component: {fileID: 5521495112582402261}
   m_Layer: 29
-  m_Name: test_gfx
+  m_Name: gfx_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200060598332564528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,7 +215,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200060598332564528}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2673349338501994753, guid: 0bf16e2445d2b524caf3580188ff0686, type: 3}
 --- !u!23 &5521495112582402261
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a2829df0bfae7214390d3aa9dcc77c64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 3630977861677798186}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 3570017317956497126}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   m_Layer: 29
   m_Name: collider_left
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: e194270977977b24da0c6e1c962a5ce9, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -447,8 +447,8 @@ MonoBehaviour:
       data:
         description: Smash!
         indices_nextUp: 02000000
-        hasDelay: 0
-        delayAmount: 0
+        hasDelay: 1
+        delayAmount: 0.5
         tweenEventDatas: []
         loop: 0
         loopType: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-        deltaPosition: {x: 1, y: 0, z: 0}
+        deltaPosition: {x: 0.84, y: 0, z: 0}
         velocity: 1
         movementMode: 0
     - rid: 5854463291346649093
@@ -485,8 +485,8 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        deltaPosition: {x: -1, y: 0, z: 0}
-        velocity: 1
+        deltaPosition: {x: -0.84, y: 0, z: 0}
+        velocity: 0.65
         movementMode: 0
 --- !u!114 &1020487551766993037
 MonoBehaviour:
@@ -518,7 +518,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3630977861677798186}
         m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-        m_MethodName: Stop
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 5116117955667597319}
   - component: {fileID: 1723065001241504976}
   m_Layer: 29
-  m_Name: test_gfx
+  m_Name: gfx_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4446769402148179254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -582,7 +582,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4446769402148179254}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -4363983006219592751, guid: 0bf16e2445d2b524caf3580188ff0686, type: 3}
 --- !u!23 &1723065001241504976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a2829df0bfae7214390d3aa9dcc77c64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

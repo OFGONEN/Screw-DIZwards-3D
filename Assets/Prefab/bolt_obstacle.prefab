@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propertyName: _EmissionColor
-  color_toSet: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+  color_toSet: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
   color_toReset: {r: 0, g: 0, b: 0, a: 0}
   startWithColorSet: 1
 --- !u!114 &4897585873233641678

@@ -32,6 +32,10 @@ namespace FFStudio
 
 		private void Awake()
 		{
+			// Plugings
+			Vibration.Init();
+
+
 			pool_UIPopUpText.InitPool( transform, false );
 
 			for( var i = 0; i < pool_shatter.Length; i++ )
@@ -45,6 +49,28 @@ namespace FFStudio
 		private void Start()
 		{
 			onStartEvent.Invoke();
+		}
+#endregion
+
+
+#region API
+		public void OnVibrate( VibrateEvent vibrateEvent )
+		{
+			switch ( vibrateEvent.vibrateMethod )
+			{
+				case VibrateMethod.Pop:
+					Vibration.VibratePop();
+					break;
+				case VibrateMethod.Peek:
+					Vibration.VibratePeek();
+					break;
+				case VibrateMethod.Nope:
+					Vibration.VibrateNope();
+					break;
+				case VibrateMethod.Big:
+					Vibration.Vibrate();
+					break;
+			}
 		}
 #endregion
 	}
