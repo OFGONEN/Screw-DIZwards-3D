@@ -15,7 +15,7 @@ GameObject:
   m_Layer: 29
   m_Name: collider_right
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: f0106cef986be534181a8582cffd29da, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -370,7 +370,7 @@ GameObject:
   m_Layer: 29
   m_Name: collider_left
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: e194270977977b24da0c6e1c962a5ce9, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
