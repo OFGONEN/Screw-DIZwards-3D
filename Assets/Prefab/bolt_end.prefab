@@ -2449,22 +2449,22 @@ MonoBehaviour:
   pool_UIPopUpText: {fileID: 11400000, guid: eaaacbd90b1464ad2b2a3a962a8a84b2, type: 2}
   popUpTextDatas:
   - text: +100
-    color: {r: 0, g: 0, b: 1, a: 1}
+    color: {r: 0, g: 0.5137255, b: 0.827451, a: 1}
     parent: 0
     offset: {x: 0, y: 0, z: -1.5}
     size: 5
   - text: +250
-    color: {r: 0, g: 1, b: 0, a: 1}
+    color: {r: 0.14509805, g: 0.7294118, b: 0.14509805, a: 1}
     parent: 0
     offset: {x: 0, y: 3.5, z: -1.5}
     size: 5
   - text: +500
-    color: {r: 1, g: 0, b: 0, a: 1}
+    color: {r: 0.84705883, g: 0.21176471, b: 0.63529414, a: 1}
     parent: 0
     offset: {x: 0, y: 7, z: -1.5}
     size: 5
   - text: +1000
-    color: {r: 1, g: 1, b: 0, a: 1}
+    color: {r: 0.9372549, g: 0.69803923, b: 0.023529412, a: 1}
     parent: 0
     offset: {x: 0, y: 10.3, z: -1.5}
     size: 5
