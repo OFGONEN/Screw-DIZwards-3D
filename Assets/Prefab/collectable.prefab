@@ -9,7 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2898940839799277947}
-  m_Layer: 0
+  - component: {fileID: 3344542107875142925}
+  - component: {fileID: 1062130745}
+  - component: {fileID: 1062130746}
+  - component: {fileID: 733785582598705729}
+  - component: {fileID: 8094385292164023745}
+  - component: {fileID: 7866297572338462097}
+  - component: {fileID: -6108209563776596196}
+  m_Layer: 30
   m_Name: collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +34,435 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5797498786975317476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3344542107875142925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8818b7f9928466789ec24ef9b3be6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool_UIPopUpText: {fileID: 11400000, guid: eaaacbd90b1464ad2b2a3a962a8a84b2, type: 2}
+  notif_currency: {fileID: 11400000, guid: afdcffe03cc494eb78a51901914fb668, type: 2}
+  collectable_index: 1
+--- !u!114 &1062130745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform_target: {fileID: 5797498786975317476}
+  indices_toPlayOnStart: 0000000001000000
+  tweenDatas:
+  - rid: 4552418338321727488
+  - rid: 4552418338321727489
+  references:
+    version: 2
+    RefIds:
+    - rid: 4552418338321727488
+      type: {class: ScaleTweenData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        description: Scale Loop
+        indices_nextUp: 
+        hasDelay: 0
+        delayAmount: 0
+        tweenEventDatas: []
+        loop: 1
+        loopType: 1
+        easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        targetScale: {x: 0.66, y: 0.9, z: 0.66}
+        duration: 1
+    - rid: 4552418338321727489
+      type: {class: ColorTweenData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        description: Color Loop
+        indices_nextUp: 
+        hasDelay: 0
+        delayAmount: 0
+        tweenEventDatas: []
+        loop: 1
+        loopType: 1
+        easing: 1
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        keepCurrentStartColor: 1
+        color_start: {r: 1, g: 0.7855395, b: 0, a: 1}
+        color_end: {r: 1, g: 1, b: 1, a: 0.5882353}
+        name_colorParameter: _BaseColor
+        duration: 1
+        renderer_target: {fileID: 1347314678682060287}
+--- !u!114 &1062130746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform_target: {fileID: 0}
+  indices_toPlayOnStart: 
+  tweenDatas:
+  - rid: 4552418338321727492
+  - rid: 4552418338321727495
+  references:
+    version: 2
+    RefIds:
+    - rid: 4552418338321727492
+      type: {class: ScaleTweenData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        description: Punch scale
+        indices_nextUp: 
+        hasDelay: 0
+        delayAmount: 0
+        tweenEventDatas: []
+        loop: 0
+        loopType: 0
+        easing: 25
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        targetScale: {x: 1.8, y: 0.3, z: 1.8}
+        duration: 0.65
+    - rid: 4552418338321727495
+      type: {class: ColorTweenData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        description: Become transparent
+        indices_nextUp: 
+        hasDelay: 0
+        delayAmount: 0
+        tweenEventDatas: []
+        loop: 0
+        loopType: 1
+        easing: 8
+        onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 3032442728933468474}
+              m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+              m_MethodName: SetActive
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        keepCurrentStartColor: 1
+        color_start: {r: 1, g: 1, b: 1, a: 0.47058824}
+        color_end: {r: 1, g: 1, b: 1, a: 0.19607843}
+        name_colorParameter: _BaseColor
+        duration: 0.65
+        renderer_target: {fileID: 1347314678682060287}
+--- !u!114 &733785582598705729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5cf41ea274c404ea73899fb5b80769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 0}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8094385292164023745}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3344542107875142925}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: OnCollect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130745}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130745}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: ResetTransform
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130746}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1062130746}
+        m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7866297572338462097}
+        m_TargetAssemblyTypeName: FFStudio.ParticleSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 9aa4fae1ef07b470287513c49e9a2242, type: 2}
+        m_TargetAssemblyTypeName: VibrateEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  directional: 0
+  direction: 0
+--- !u!65 &8094385292164023745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7866297572338462097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f753b2c2b78147c181c65650f11a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDatas:
+  - particle_event: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
+    alias: collectable_oncollect
+    parent: 0
+    offset: {x: 0, y: 0, z: 0}
+    size: 1
+--- !u!114 &-6108209563776596196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032442728933468474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+      - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1062130745}
+          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1062130746}
+          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &617431660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2898940839799277947}
+    m_Modifications:
+    - target: {fileID: 214399627939626236, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698730842383541830, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 698730842383541830, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271788288054299817, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_Name
+      value: gfx_nut_collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271788288054299817, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+--- !u!23 &1347314678682060287 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1347314679148365715, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+  m_PrefabInstance: {fileID: 617431660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5797498786975317476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5797498786375188360, guid: 3533c09144a0a5847a41dfc3b356ba23, type: 3}
+  m_PrefabInstance: {fileID: 617431660}
+  m_PrefabAsset: {fileID: 0}

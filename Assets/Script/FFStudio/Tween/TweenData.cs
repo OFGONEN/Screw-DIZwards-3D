@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
@@ -13,8 +14,7 @@ namespace FFStudio
 		[ BoxGroup( "Other", false ) ] public string description;
 		
 	[ Title( "Chain" ) ]
-		[ BoxGroup( "Other", false ),  ] public bool chain = false;
-		[ BoxGroup( "Other", false ), ShowIf( "chain" ), LabelText( "Next Index" ) ] public int index_nextTweenToChainInto = 0;
+		[ BoxGroup( "Other", false ), LabelText( "Next Indices To Play" ) ] public int[] indices_nextUp;
 
 	[ Title( "Start" ) ]
 		[ BoxGroup( "Other", false ), LabelText( "Delay" ) ] public bool hasDelay;
@@ -26,12 +26,15 @@ namespace FFStudio
 		[ BoxGroup( "Tween", false ), DisableIf( "IsPlaying" ) ] public bool loop;
 		[ BoxGroup( "Tween", false ), ShowIf( "loop" ) ] public LoopType loopType = LoopType.Restart;
 		[ BoxGroup( "Tween", false ) ] public Ease easing = Ease.Linear;
+		[ BoxGroup( "Tween", false ) ] public UnityEvent onCompleteEvent;
 
 		public Tween Tween => recycledTween.Tween;
 		
 		protected RecycledTween recycledTween = new RecycledTween();
-		
+		protected RecycledTween recycledTween_Delay = new RecycledTween();
 		protected Transform transform;
+
+		UnityMessage onComplete;
 #endregion
 
 #region Properties
@@ -47,24 +50,38 @@ namespace FFStudio
 		public void Play( UnityMessage onComplete = null )
 		{
 			if( hasDelay )
-				DOVirtual.DelayedCall( delayAmount, () => CreateAndStartTween( onComplete ) );
+				recycledTween_Delay.Recycle( DOVirtual.DelayedCall( delayAmount, () => CreateAndStartTween( onComplete ) ) );
 			else
 				CreateAndStartTween( onComplete );
 		}
 		
 		public void Stop()
 		{
+			recycledTween_Delay.Kill();
+
 			if( IsPlaying )
 				Tween.Rewind();
+
+			IsPlaying = false;
+		}
+		
+		// Info: This method name should be _Kill_ and there should also be a separate _Pause_ method.
+		public void Pause()
+		{
+			recycledTween.Kill();
+			recycledTween_Delay.Kill();
 
 			IsPlaying = false;
 		}
 #endregion
 
 #region Implementation
-		protected virtual void CreateAndStartTween( UnityMessage onComplete = null, bool isReversed = false )
+		protected virtual void CreateAndStartTween( UnityMessage onComplete, bool isReversed = false )
 		{
 			IsPlaying = true;
+
+			this.onComplete = onComplete;
+			recycledTween.OnComplete( OnComplete );
 
 			if( tweenEventDatas != null && tweenEventDatas.Length > 0 )
 			{
@@ -83,6 +100,12 @@ namespace FFStudio
 				if( tweenEventData.isConsumed == false )
 					tweenEventData.InvokeEventIfThresholdIsPassed( Tween, easing );
 			}
+		}
+
+		void OnComplete()
+		{
+			onCompleteEvent.Invoke();
+			onComplete?.Invoke();
 		}
 #endregion
 	}

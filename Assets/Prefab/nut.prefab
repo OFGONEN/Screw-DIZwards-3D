@@ -37,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4699500953191704425}
+  - {fileID: 1911958914988112646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,9 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817b8dbfcaabc4817a648992fade489b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool_random_shatter: {fileID: 11400000, guid: 42907d80469ee40ca83cae60a484271f, type: 2}
   nut_velocity: {fileID: 11400000, guid: 9adebe68322bb498ab797495ca606105, type: 2}
   nut_movement: {fileID: 11400000, guid: f65946825251247b99700f1aa18de89f, type: 2}
+  notif_nut_isOnBolt: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
+  event_pfx_nut_input: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
   event_level_complete: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+  event_level_failed: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
 --- !u!54 &1269571494933579819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -255,6 +260,86 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 7a85fe1baead1418da4803df0ed67e2e, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8377810342823971062}
+          m_TargetAssemblyTypeName: Nut, Assembly-CSharp
+          m_MethodName: OnCollisionObstacle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &111505588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1557216619061651203}
+    m_Modifications:
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415556527684355665, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+      propertyPath: m_Name
+      value: pfx_nut_trail
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+--- !u!4 &1911958914988112646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1911958915099429810, guid: 707d42b2fadc2401fb5e9ef7baf84cc4, type: 3}
+  m_PrefabInstance: {fileID: 111505588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1243874591630121185
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,12 +10,19 @@ public class Nut : MonoBehaviour
 {
 #region Fields
   [ Title( "Shared Variables" ) ]
+    [ SerializeField ] RandomShatterPool pool_random_shatter;
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
+    [ SerializeField ] SharedBoolNotifier notif_nut_isOnBolt;
+  [ Title( "Fired Events" ) ]
+    [ SerializeField ] ParticleSpawnEvent event_pfx_nut_input;
     [ SerializeField ] GameEvent event_level_complete;
+    [ SerializeField ] GameEvent event_level_failed;
 
-    // Delegates
-    Vector2Delegate onInput;
+	// Private
+
+	// Delegates
+	Vector2Delegate onInput;
     UnityMessage onInput_FingerDown;
     UnityMessage onUpdate;
 #endregion
@@ -92,13 +99,36 @@ public class Nut : MonoBehaviour
 		EmptyDelegates();
 		onUpdate = MovementOnEndBolt;
 	}
+
+	public void OnCollisionObstacle()
+	{
+		EmptyDelegates();
+
+		gameObject.SetActive( false );
+
+		var shatter = pool_random_shatter.GetRandomEntity();
+
+		shatter.transform.position = transform.position;
+		shatter.DoShatter();
+
+		event_level_failed.Raise();
+	}
 #endregion
 
 #region Implementation
 	void FingerUp()
 	{
-		onInput  = ExtensionMethods.EmptyMethod;
-		onUpdate = MovementOnBolt;                // buralari delegate ile ayirmam lazim
+		if( nut_velocity.CurrentVelocity >= GameSettings.Instance.velocity_max * GameSettings.Instance.pfx_nut_input_VelocityActivateRatio )
+			event_pfx_nut_input.Raise( "nut_input", transform.position + Vector3.forward * GameSettings.Instance.pfx_nut_input_SpawnOffset );
+
+		onInput          = ExtensionMethods.EmptyMethod;
+		onInput_FingerUp = ExtensionMethods.EmptyMethod;
+		onUpdate         = MovementOnBolt;
+
+		if( notif_nut_isOnBolt.SharedValue  )
+			onInput_FingerDown = FingerDown;
+		else
+			onInput_FingerDown = ExtensionMethods.EmptyMethod;
 	}
 
 	void FingerDown()
@@ -135,7 +165,7 @@ public class Nut : MonoBehaviour
 
 	void MovementOnEndBolt()
 	{
-		nut_velocity.OnDecrease_Zero();
+		nut_velocity.OnDecrease_Zero( GameSettings.Instance.velocity_decelerate_endBold );
 		var onEndPoint = nut_movement.OnMovementEndBolt();
 
 		if( onEndPoint || Mathf.Approximately( nut_velocity.CurrentVelocity, 0 ) )

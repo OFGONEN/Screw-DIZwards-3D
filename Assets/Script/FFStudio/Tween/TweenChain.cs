@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using Sirenix.OdinInspector;
 
 #if UNITY_EDITOR
@@ -15,9 +14,12 @@ namespace FFStudio
     public class TweenChain : MonoBehaviour
     {
 #region Fields (Inspector Interface)
+	[ Title( "Setup" ) ]
+		[ InfoBox( "Transform of this GO will be used unless another one is provided.", "TransformIsNull" ) ]
+		[ SerializeField, LabelText( "Target Transform" ) ] Transform transform_target;
+
     [ Title( "Start Options" ) ]
-		public bool playOnStart;
-        [ ShowIf( "playOnStart" ), LabelText( "Index to Play on Start" ) ] public int index_playOnStart = 0;
+        [ LabelText( "Indices to Play on Start" ) ] public int[] indices_toPlayOnStart;
         
     [ Title( "Tween Data" ) ]
 #if UNITY_EDITOR
@@ -28,27 +30,30 @@ namespace FFStudio
 		
 		Vector3 localPosition_original;
 		Vector3 localRotation_original;
+		
+		Transform transform_ToTween;
 #endregion
 
 #region Properties
-        [ field: SerializeField, ReadOnly ]
-        public int PlayingIndex { get; private set; }
-		public bool IsPlaying => PlayingIndex > -1;
+        [ ShowInInspector, ReadOnly ]
+		public List< int > PlayingIndices => indices_playing;
+		public bool IsPlaying => indices_playing != null && indices_playing.Count > 0;
 
-		public Tween PlayingTween => PlayingIndex >= 0 ? tweenDatas[ PlayingIndex ].Tween : null;
-		public TweenData PlayingTweenData => PlayingIndex >= 0 ? tweenDatas[ PlayingIndex ] : null;
+		List< int > indices_playing;
 #endregion
 
 #region Unity API
         void Awake()
         {
-			PlayingIndex = -1;
-			
-			foreach( var tweenData in tweenDatas )
-				tweenData.Initialize( transform );
+			indices_playing = new List< int >();
 
-			localPosition_original = transform.localPosition;
-			localRotation_original = transform.localRotation.eulerAngles;
+			transform_ToTween = transform_target == null ? transform : transform_target;
+
+			foreach( var tweenData in tweenDatas )
+				tweenData.Initialize( transform_ToTween );
+
+			localPosition_original = transform_ToTween.localPosition;
+			localRotation_original = transform_ToTween.localRotation.eulerAngles;
 		}
 
         void Start()
@@ -56,8 +61,8 @@ namespace FFStudio
             if( !enabled )
                 return;
 
-            if( playOnStart )
-                Play( index_playOnStart );
+            foreach( var index in indices_toPlayOnStart )
+                Play( index );
         }
 #endregion
 
@@ -65,17 +70,17 @@ namespace FFStudio
         [ Button() ]
         public void Play( int index )
         {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             if( tweenDatas == null || tweenDatas.Count == 0 )
                 FFLogger.LogError( name + ": Tween data array is null or has no elements! Fix this before build!", this );
             else if( index < 0 || index > tweenDatas.Count - 1 )
 				FFLogger.LogError( name + ": Given index {index} is outside tween data array's range! Fix this before build!", this );
-        #endif
-			PlayingIndex = index;
+#endif
+			indices_playing.Add( index );
 			var tweenData = tweenDatas[ index ];
             
-            if( tweenData.chain )
-			    tweenData.Play( ChainNext );
+            if( tweenData.indices_nextUp.Length > 0 )
+			    tweenData.Play( () => ChainNext( index ) );
             else
 			    tweenData.Play();
 		}
@@ -83,38 +88,81 @@ namespace FFStudio
         [ Button(), EnableIf( "IsPlaying" ) ]
         public void Stop()
         {
-			PlayingTweenData.Stop();
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Stop();
+			}
 
-			PlayingIndex = -1;
-        }
+			indices_playing.Clear();
+		}
+
+        public void StopAndReset()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Stop();
+			}
+
+			indices_playing.Clear();
+			ResetTransform();
+		}
+
+        [ Button(), EnableIf( "IsPlaying" ) ]
+        public void Pause()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Pause();
+			}
+
+			indices_playing.Clear();
+
+		}
+
+		public void ResetTransform()
+		{
+			ResetLocalPosition();
+			ResetLocalRotation();
+		}
 		
 		public void ResetLocalPosition()
 		{
-			transform.localPosition = localPosition_original;
+			transform_ToTween.localPosition = localPosition_original;
 		}
 		
 		public void ResetLocalRotation()
 		{
-			var localRotation		  = transform.localRotation;
+			var localRotation		  = transform_ToTween.localRotation;
 			localRotation.eulerAngles = localRotation_original;
-			transform.localRotation   = localRotation;
+			transform_ToTween.localRotation   = localRotation;
 		}
 #endregion
 
 #region Implementation
-        void ChainNext()
+        void ChainNext( int indexOfPlayingTweenData )
         {
 #if UNITY_EDITOR
-			if( PlayingIndex >= 0 )
-				inPlayMode_currentStartPos = transform.position;
+			if( IsPlaying )
+				inPlayMode_currentStartPos = transform_ToTween.position;
 #endif
-			if( PlayingIndex >= 0 )
-				Play( PlayingTweenData.index_nextTweenToChainInto );
+			if( IsPlaying )
+			{
+				indices_playing.Remove( indexOfPlayingTweenData );
+				var indices_nextUp = tweenDatas[ indexOfPlayingTweenData ].indices_nextUp;
+				for( int i = 0; i < indices_nextUp.Length; i++ )
+					Play( indices_nextUp[ i ] );
+			}
+				
 		}
 #endregion
 
 #region EditorOnly
 #if UNITY_EDITOR
+		bool TransformIsNull => transform_target == null;
+
 		Vector3 inPlayMode_currentStartPos;
 		GUIStyle style;
 
@@ -145,16 +193,22 @@ namespace FFStudio
 
 		void OnDrawGizmosSelected()
 		{
+			var theTransform = transform_target == null ? transform : transform_target;
+
 			style = new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 20 };
 
-			Vector3 lastPos = transform.position;
+			Vector3 lastPos = theTransform.position;
 			if( Application.isPlaying )
 			{
-				if( PlayingIndex < 0 )
+				if( IsPlaying == false )
 					return;
 
-				if( tweenDatas[ PlayingIndex ] is MovementTweenData )
-					DrawMovementTweenGizmo( tweenDatas[ PlayingIndex ] as MovementTweenData, ref lastPos, Vector3.zero, PlayingIndex + 1 );
+				for( var i = 0; i < indices_playing.Count; i++ )
+				{
+					var index = indices_playing[ i ];
+					if( tweenDatas[ index ] is MovementTweenData )
+						DrawMovementTweenGizmo( tweenDatas[ index ] as MovementTweenData, ref lastPos, Vector3.zero, index + 1 );
+				}
 			}
 			else
 				for( var i = 0; i < tweenDatas.Count; i++ )

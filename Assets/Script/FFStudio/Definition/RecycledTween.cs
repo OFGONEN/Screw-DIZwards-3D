@@ -34,6 +34,11 @@ namespace FFStudio
 			tween.SetId( "_ff_RecycledTween" );
 #endif
 		}
+		
+		public void OnComplete( UnityMessage onComplete )
+		{
+			this.onComplete = onComplete;
+		}
 
 		public void Kill()
 		{

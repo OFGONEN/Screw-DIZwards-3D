@@ -28,7 +28,7 @@ namespace FFStudio
 		private Camera camera_main;
 		private LeanTouch leanTouch;
 
-		Vector2Delegate onFingerDown;
+		Vector2Delegate onFingerUpdate;
 #endregion
 
 #region Unity API
@@ -49,7 +49,7 @@ namespace FFStudio
 			leanTouch         = GetComponent< LeanTouch >();
 			leanTouch.enabled = false;
 
-			onFingerDown = OnFingerDown;
+			onFingerUpdate = ExtensionMethods.EmptyMethod;
 			notif_input.SetValue_NotifyAlways( Vector2.zero );
 		}
 #endregion
@@ -66,14 +66,20 @@ namespace FFStudio
 			event_input_tap.Raise();
 		}
 
+		public void Lean_OnFingerDown()
+		{
+			event_input_fingerDown.Raise();
+			onFingerUpdate = OnFingerUpdate;
+		}
+
 		public void Lean_OnFingerUpdate( Vector2 vector )
 		{
-			onFingerDown( vector );
+			onFingerUpdate( vector );
 		}
 
 		public void Lean_OnFingerUp()
 		{
-			onFingerDown = OnFingerDown;
+			onFingerUpdate = ExtensionMethods.EmptyMethod;
 
 			event_input_fingerUp.Raise();
 			notif_input.SetValue_NotifyAlways( Vector2.zero );
@@ -98,34 +104,16 @@ namespace FFStudio
 			}
 		}
 
-		void OnFingerDown( Vector2 vector )
-		{
-			onFingerDown = OnFingerUpdate;
-
-			event_input_fingerDown.Raise();
-			notif_input.SetValue_NotifyAlways( vector );
-		}
-
 		void OnFingerUpdate( Vector2 vector )
 		{
-			notif_input.SetValue_NotifyAlways( vector );
+			notif_input.SetValue_NotifyAlways( vector / Time.deltaTime / 60 );
 		}
 #endregion
 
 
-// #if UNITY_EDITOR
-// #region EditorOnly
-		void OnGUI()
-		{
-			GUI.Label( new Rect( 25, 0, 200, 50 ), "FPS: " + 1f / Time.deltaTime );
-			GUI.Label( new Rect( 25, 50, 200, 50 ), "Velocity Max: " + GameSettings.Instance.velocity_max );
-			GUI.Label( new Rect( 25, 100, 200, 50 ), "Velocity Min: " + GameSettings.Instance.velocity_min );
-			GUI.Label( new Rect( 25, 150, 200, 50 ), "Velocity Accelerate: " + GameSettings.Instance.velocity_accelerate );
-			GUI.Label( new Rect( 25, 200, 200, 50 ), "Velocity Decelerate: " + GameSettings.Instance.velocity_decelerate );
-			GUI.Label( new Rect( 25, 250, 200, 50 ), "Velocity Movement Cofactor: " + GameSettings.Instance.velocity_movement_cofactor );
-			GUI.Label( new Rect( 25, 300, 200, 50 ), "Velocity Rotate Cofactor: " + GameSettings.Instance.velocity_rotate_cofactor );		
-		}
-// #endregion
-// #endif
+#if UNITY_EDITOR
+#region EditorOnly
+#endregion
+#endif
     }
 }

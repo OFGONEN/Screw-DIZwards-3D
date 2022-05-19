@@ -35,9 +35,10 @@ namespace FFStudio
 
 			var sequence = recycledSequence.Recycle( onSequenceComplete.Invoke );
 
-			sequence.Append( transform.DOScale( size * Vector3.one, GameSettings.Instance.ui_PopUp_duration ).SetEase( GameSettings.Instance.ui_PopUp_In_ease ) );
-			sequence.AppendInterval( GameSettings.Instance.ui_PopUp_wait );
-			sequence.Append( transform.DOScale( Vector3.zero, GameSettings.Instance.ui_PopUp_duration ).SetEase( GameSettings.Instance.ui_PopUp_Out_ease ) );
+			sequence.Append( transform.DOMoveY( transform.position.y + GameSettings.Instance.ui_PopUp_movement_delta, GameSettings.Instance.ui_PopUp_movement_duration ).SetEase( GameSettings.Instance.ui_PopUp_movement_ease ) );
+			sequence.Join( transform.DOScale( size * Vector3.one, GameSettings.Instance.ui_PopUp_size_In_duration ).SetEase( GameSettings.Instance.ui_PopUp_size_In_ease ) );
+			sequence.AppendInterval( GameSettings.Instance.ui_PopUp_size_wait );
+			sequence.Append( transform.DOScale( Vector3.zero, GameSettings.Instance.ui_PopUp_size_Out_duration ).SetEase( GameSettings.Instance.ui_PopUp_size_Out_ease ) );
 
 			ui_text.text  = text;
 			ui_text.color = color;

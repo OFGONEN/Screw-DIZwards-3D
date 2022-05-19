@@ -12,20 +12,12 @@ namespace FFStudio
 	[ Title( "Scale Tween" ) ]
     	[ BoxGroup( "Tween" ), PropertyOrder( int.MinValue ) ] public Vector3 targetScale;
 		[ BoxGroup( "Tween" ), PropertyOrder( int.MinValue ) ] public float duration;
-
-		Vector3 startScale;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-		public override void Initialize( Transform transform )
-		{
-			base.Initialize( transform );
-
-            startScale = transform.localScale;
-		}
 #endregion
 
 #region API

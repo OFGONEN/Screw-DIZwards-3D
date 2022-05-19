@@ -120,7 +120,8 @@ namespace FFStudio
             var sequence = DOTween.Sequence();
 
 			// Tween tween = null;
-			level_information_text.text = $"Level Failed\n\n {GameSettings.Instance.ReturnEndLevelText()} (%{GameSettings.Instance.notif_level_progress.sharedValue * 100}) \n\n Tap to Continue";
+			string progress = ( GameSettings.Instance.notif_level_progress.sharedValue * 100 ).ToString( "F" );
+			level_information_text.text = $"Level Failed\n\n\n {GameSettings.Instance.ReturnEndLevelText()} (%{progress}) \n\n\n Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
                     // .Append( tween ) // TODO: UIElements tween.
