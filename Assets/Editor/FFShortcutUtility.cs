@@ -154,6 +154,7 @@ namespace FFEditor
 		{
 			FFLogger.Log( "Kill All Tweens" );
 			DOTween.KillAll();
+			DOTween.ClearCachedTweens();
 		}
 	}
 }
