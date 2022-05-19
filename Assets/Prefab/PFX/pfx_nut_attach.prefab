@@ -50,6 +50,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
     - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   alias: nut_attach
+  onParticleSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  onParticleSpawn_Stop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2854074031330951713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +106,14 @@ PrefabInstance:
     - target: {fileID: 2435782980611029818, guid: ab30ff6e85f249c4d8a45fb923a908b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435782980611029821, guid: ab30ff6e85f249c4d8a45fb923a908b2, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435782980611029821, guid: ab30ff6e85f249c4d8a45fb923a908b2, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2435782980611029823, guid: ab30ff6e85f249c4d8a45fb923a908b2, type: 3}
       propertyPath: m_Name
