@@ -34,14 +34,14 @@ MonoBehaviour:
   camera_offset_start: {x: 0, y: 1, z: -7.5}
   camera_shake_duration: 0.75
   camera_shake_strength: 0.1
-  ui_PopUp_size_In_ease: 1
-  ui_PopUp_size_Out_ease: 1
+  ui_PopUp_size_In_ease: 18
+  ui_PopUp_size_Out_ease: 8
   ui_PopUp_size_In_duration: 0.315
   ui_PopUp_size_Out_duration: 0.55
   ui_PopUp_size_wait: 0.15
   ui_PopUp_movement_delta: 1.35
   ui_PopUp_movement_duration: 0.315
-  ui_PopUp_movement_ease: 1
+  ui_PopUp_movement_ease: 18
   endLevelTexts:
   - endLevelText_percentage: 100
     endLevelText_text: spectacular
