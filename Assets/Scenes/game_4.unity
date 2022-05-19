@@ -6886,6 +6886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1001901334756177060, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}
+      propertyPath: managedReferences[5854463336758640640].duration
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7567627637740793883, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}
       propertyPath: m_Name
       value: fire_obstacle_stationary_onLeft_2
