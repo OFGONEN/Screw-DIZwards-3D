@@ -29,7 +29,7 @@ public class ScreenRatioScaler : MonoBehaviour
             scale = new Vector3( screenRatio / GameSettings.Instance.game_reference_screenRatio, 1, screenRatio / GameSettings.Instance.game_reference_screenRatio );
 
         transform.localScale = scale;
-        FFLogger.Log( $"Screen({screen}) - Ratio:{screenRatio} - GameSetting.Ratio:{GameSettings.Instance.game_reference_screenRatio} - New Scale:{transform.localScale}", transform );
+        // FFLogger.Log( $"Screen({screen}) - Ratio:{screenRatio} - GameSetting.Ratio:{GameSettings.Instance.game_reference_screenRatio} - New Scale:{transform.localScale}", transform );
 	}
 #endregion
 
