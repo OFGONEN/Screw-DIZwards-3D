@@ -6,6 +6,7 @@ using UnityEngine;
 using FFStudio;
 using System.Reflection;
 using UnityEditor.SceneManagement;
+using DG.Tweening;
 
 namespace FFEditor
 {
@@ -146,6 +147,13 @@ namespace FFEditor
 			var type = assembly.GetType( "UnityEditor.LogEntries" );
 			var method = type.GetMethod( "Clear" );
 			method.Invoke( new object(), null );
+		}
+
+		[ MenuItem( "FFShortcut/Kill All Tweens %#t" ) ]
+		private static void ClearTweens()
+		{
+			FFLogger.Log( "Kill All Tweens" );
+			DOTween.KillAll();
 		}
 	}
 }
