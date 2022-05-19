@@ -80,7 +80,7 @@ public class LevelCreatorEnvironment : ScriptableObject
 		var ground = PrefabUtility.InstantiatePrefab( prefab_ground ) as GameObject;
 		ground.GetComponentInChildren< Renderer >().sharedMaterial = environmentData[ index ].level_material_ground;
 		ground.transform.SetParent( null );
-		ground.transform.localPosition    = Vector3.zero;
+		ground.transform.localPosition    = Vector3.up * environment_offset;
 		ground.transform.localEulerAngles = Vector3.zero;
 		ground.transform.SetSiblingIndex( environmentParent.GetSiblingIndex() );
 
