@@ -128,7 +128,7 @@ public class LevelCreator : ScriptableObject
 		{
 			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{x}.unity" );
 			// FixAllRotateBolts();
-			FixConsecutiveBolts();
+			FixConsecutiveObstacleBolts();
 		}
 	}
 #endregion
@@ -160,6 +160,52 @@ public class LevelCreator : ScriptableObject
 		EditorSceneManager.SaveOpenScenes();
 	}
 
+	void FixObstacleBolts()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+
+		var bolts = GameObject.FindGameObjectsWithTag( "Bolt" );
+
+		for( var i = 0; i < bolts.Length - 1; i++ )
+		{
+			var bolt_bottom = bolts[ i ];
+			var bolt_up = bolts[ i + 1 ];
+
+			var bolt_bottom_start = bolt_bottom.transform.position.y;
+			var bolt_bottom_end = bolt_bottom.transform.position.y + bolt_bottom.transform.GetChild( 0 ).childCount * 0.5f;
+
+			if( Mathf.Approximately( bolt_bottom_end, bolt_up.transform.position.y ) && bolt_up.name.Contains( "bolt_obstacle" ) ) // Consecutive
+			{
+				bolt_up.transform.GetChild( 1 ).localPosition = Vector3.zero;
+			}
+		}
+
+		EditorSceneManager.SaveOpenScenes();
+	}
+
+	void FixConsecutiveObstacleBolts()
+	{
+		EditorSceneManager.MarkAllScenesDirty();
+
+		var bolts = GameObject.FindGameObjectsWithTag( "Bolt" );
+
+		for( var i = 0; i < bolts.Length - 1; i++ )
+		{
+			var bolt_bottom = bolts[ i ];
+			var bolt_up = bolts[ i + 1 ];
+
+			var bolt_bottom_start = bolt_bottom.transform.position.y;
+			var bolt_bottom_end = bolt_bottom.transform.position.y + bolt_bottom.transform.GetChild( 0 ).childCount * 0.5f;
+
+			if( bolt_bottom.name.Contains( "bolt_obstacle" ) && Mathf.Approximately( bolt_bottom_end, bolt_up.transform.position.y ) ) // Consecutive
+			{
+				bolt_bottom.transform.GetChild( 3 ).gameObject.SetActive( false ); // Disable collider_out object
+			}
+		}
+
+		EditorSceneManager.SaveOpenScenes();
+	}
+
 	void FixConsecutiveBolts()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
@@ -175,11 +221,15 @@ public class LevelCreator : ScriptableObject
 			var bolt_bottom_end = bolt_bottom.transform.position.y + bolt_bottom.transform.GetChild( 0 ).childCount * 0.5f;
 
 			if( Mathf.Approximately( bolt_bottom_end, bolt_up.transform.position.y ) ) // Consecutive
-				bolt_bottom.transform.GetChild( 3 ).gameObject.SetActive( false ); // Disable collider_out object
+			{
+				bolt_bottom.transform.GetChild( 3 ).GetComponent< Collider >().enabled = true; // Disable collider_out object
+				bolt_bottom.transform.GetChild( 3 ).gameObject.SetActive( true ); // Disable collider_out object
+			}
 		}
 
 		EditorSceneManager.SaveOpenScenes();
 	}
+
 	void PlaceCollectables()
 	{
 		EditorSceneManager.MarkAllScenesDirty();
@@ -258,6 +308,10 @@ public class LevelCreator : ScriptableObject
 			FindLength();
 			var bolt = PlaceBolt( prefab_bolt_obstacle_patrol, false );
 
+			// Collider bottom in
+			var collider_bottom = bolt.transform.GetChild( 1 );
+			collider_bottom.localPosition = Vector3.zero;
+
 			// Place collider upper in
 			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent< BoxCollider >();
 			collider_obstacle.size = new Vector3( 1, bolt_model_height * create_length, 1 );
@@ -268,6 +322,10 @@ public class LevelCreator : ScriptableObject
 			create_index++;
 			FindLength();
 			var bolt = PlaceBolt( prefab_bolt_obstacle_rotate, false );
+
+			// Collider bottom in
+			var collider_bottom = bolt.transform.GetChild( 1 );
+			collider_bottom.localPosition = Vector3.zero;
 
 			// Place collider upper in
 			var collider_obstacle = bolt.transform.GetChild( 4 ).GetComponent<BoxCollider>();
@@ -314,6 +372,7 @@ public class LevelCreator : ScriptableObject
 		PlaceBoltModel( bolt, Mathf.FloorToInt( create_length ), isStatic );
 		create_position += create_length * bolt_model_height;
 
+		// Collider bottom in
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
 		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
 		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height / -2f;
