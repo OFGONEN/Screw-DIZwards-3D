@@ -117,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].easing
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].easing
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].hasDelay
@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].description
-      value: Rotation
+      value: Rotation I (gfx)
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].delayAmount
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].description
-      value: Rotation
+      value: Rotation II (gfx)
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].rotationMode
@@ -205,11 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].angularSpeedInDegrees
-      value: 90
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].angularSpeedInDegrees
-      value: 90
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6211030373824014635, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].rotationAxisMaskVector.x
@@ -1325,11 +1325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].easing
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].easing
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].hasDelay
@@ -1377,7 +1377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].description
-      value: Rotation
+      value: Rotation I (physics)
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].delayAmount
@@ -1385,7 +1385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].description
-      value: Rotation
+      value: Rotation II (physics)
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].rotationMode
@@ -1413,11 +1413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].angularSpeedInDegrees
-      value: 90
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[5854463291346649094].angularSpeedInDegrees
-      value: 90
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8431487788264759646, guid: 731af247043564c9586bc423a65aa083, type: 3}
       propertyPath: managedReferences[4552418314796924946].rotationAxisMaskVector.x
