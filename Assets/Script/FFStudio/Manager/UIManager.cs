@@ -52,7 +52,9 @@ namespace FFStudio
             levelFailResponse.OnDisable();
             levelCompleteResponse.OnDisable();
             tapInputListener.OnDisable();
-        }
+
+			recycledTween.Kill();
+		}
 
         private void Awake()
         {
