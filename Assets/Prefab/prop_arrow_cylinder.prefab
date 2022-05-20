@@ -94,3 +94,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 10778364770504682, guid: 0a4bac045fcdd594d9a9bdad9aac7a0c, type: 3}
   m_PrefabInstance: {fileID: 3151154966544527826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3142787285393604153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 10778364770504683, guid: 0a4bac045fcdd594d9a9bdad9aac7a0c, type: 3}
+  m_PrefabInstance: {fileID: 3151154966544527826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3142787285393604159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3142787285393604159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 10778364770504685, guid: 0a4bac045fcdd594d9a9bdad9aac7a0c, type: 3}
+  m_PrefabInstance: {fileID: 3151154966544527826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6371290349981974896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3142787285393604159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3142787285393604153}
+          m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8781058612102609249}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
