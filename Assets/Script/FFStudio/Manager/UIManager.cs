@@ -110,7 +110,7 @@ namespace FFStudio
 
 			// Tween tween = null;
 
-			level_information_text.text = "Completed \n\n Tap to Continue";
+			level_information_text.text = "Completed\n\n<size=75%>Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
 					// .Append( tween ) // TODO: UIElements tween.
@@ -128,7 +128,7 @@ namespace FFStudio
 
 			// Tween tween = null;
 			string progress = ( Mathf.CeilToInt( GameSettings.Instance.notif_level_progress.sharedValue * 100 ) ).ToString();
-			level_information_text.text = $"Level Failed\n\n\n {GameSettings.Instance.ReturnEndLevelText()} (%{progress}) \n\n\n Tap to Continue";
+			level_information_text.text = $"Level Failed\n\n<size=60%>Failed Miserably (%0)\n\n<size=80%>Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
                     // .Append( tween ) // TODO: UIElements tween.
