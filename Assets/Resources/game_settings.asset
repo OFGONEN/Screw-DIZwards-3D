@@ -52,7 +52,7 @@ MonoBehaviour:
   - endLevelText_percentage: 0
     endLevelText_text: You Can Do It!
   notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
-  endBolt_height: 11.75
+  endBolt_height: 11.8
   game_reference_screenRatio: 0.46205357
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
