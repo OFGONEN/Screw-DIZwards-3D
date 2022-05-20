@@ -25,6 +25,7 @@ namespace FFStudio
         public Image loadingScreenImage;
         public Image foreGroundImage;
         public RectTransform tutorialObjects;
+        public RectTransform tutorial_Hand;
 
         [ Header( "Fired Events" ) ]
         public GameEvent levelRevealedEvent;
@@ -32,10 +33,12 @@ namespace FFStudio
         public GameEvent loadNewLevelEvent;
         public GameEvent resetLevelEvent;
         public ElephantLevelEvent elephantLevelEvent;
-#endregion
 
-#region Unity API
-        private void OnEnable()
+		RecycledTween recycledTween = new RecycledTween();
+		#endregion
+
+		#region Unity API
+		private void OnEnable()
         {
             levelLoadedResponse.OnEnable();
             levelFailResponse.OnEnable();
@@ -59,7 +62,11 @@ namespace FFStudio
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
 
 			level_information_text.text = "Tap to Start";
-        }
+
+			recycledTween.Recycle( tutorial_Hand.DOAnchorPosX( 0, 1f )
+                .SetEase( Ease.OutCubic )
+                .SetLoops( -1, LoopType.Restart ) );
+		}
 #endregion
 
 #region Implementation
@@ -140,6 +147,7 @@ namespace FFStudio
 			level_information_text_Scale.DoScale_Target( Vector3.zero, GameSettings.Instance.ui_Entity_Scale_TweenDuration );
 			level_information_text_Scale.Subscribe_OnComplete( OnLevelRevealed );
 
+			recycledTween.Kill();
 			tutorialObjects.gameObject.SetActive( false );
 
 			tapInputListener.response = ExtensionMethods.EmptyMethod;
