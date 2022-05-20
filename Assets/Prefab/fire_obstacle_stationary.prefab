@@ -181,9 +181,9 @@ MonoBehaviour:
         onThresholdReached:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 1191078192422445406}
-              m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-              m_MethodName: Stop
+            - m_Target: {fileID: 285573508070973031}
+              m_TargetAssemblyTypeName: ParticleSystemInterface, Assembly-CSharp
+              m_MethodName: StopAndClear
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -456,6 +456,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+--- !u!1 &1191078192406976274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8600432621233546970, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
+  m_PrefabInstance: {fileID: 7484226841623884232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &285573508070973031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191078192406976274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b3aa1b1df5c45149cb3e813f8f8e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfx_system: {fileID: 1191078192422445406}
 --- !u!198 &1191078192422445406 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8600432621218074774, guid: d9be5ec6d6cb044d381c69c5efffa0cf, type: 3}
