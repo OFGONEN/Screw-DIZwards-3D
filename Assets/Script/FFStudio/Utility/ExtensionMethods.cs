@@ -10,6 +10,7 @@ namespace FFStudio
 {
 	public static class ExtensionMethods
 	{
+		public static string Key_Currency = "currency";
 		//Static Variables
 		private static List< Transform > baseModelBones = new List< Transform >( 96 );
 		private static List< Transform > targetModelBones = new List< Transform >( 96 );
