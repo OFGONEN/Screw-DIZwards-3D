@@ -9,15 +9,23 @@ namespace FFStudio
     public class LevelManager : MonoBehaviour
     {
 #region Fields
+      [ Title( "Shared Variables" ) ]
+        public PlayerPrefsUtility playerPrefsUtility;
+
       [ Title( "Fired Events" ) ]
         public GameEvent levelFailedEvent;
         public GameEvent levelCompleted;
 
       [ Title( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
+        public SharedFloatNotifier level_currency;
 #endregion
 
 #region UnityAPI
+        private void Awake()
+        {
+			level_currency.SharedValue = playerPrefsUtility.GetFloat( ExtensionMethods.Key_Currency, 0 );
+		}
 #endregion
 
 #region API
@@ -42,6 +50,11 @@ namespace FFStudio
         public void LevelStartedResponse()
         {
         }
+
+        public void LevelFinishedResponse()
+        {
+			playerPrefsUtility.SetFloat( ExtensionMethods.Key_Currency, level_currency.sharedValue );
+		}
 #endregion
 
 #region Implementation
