@@ -80,7 +80,7 @@ public class LevelCreator : ScriptableObject
 		// Place collider bottom
 		var collider_bottom = bolt_start.transform.GetChild( 1 ).GetComponent< BoxCollider >();
 		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
-		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height;
+		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height * 1.5f;
 
 		// Place collider upper in
 		var collider_upper_in = bolt_start.transform.GetChild( 2 ).GetComponent< BoxCollider >();
@@ -293,7 +293,7 @@ public class LevelCreator : ScriptableObject
 		// Collider bottom in
 		var collider_bottom = bolt.transform.GetChild( 1 ).GetComponent< BoxCollider >();
 		collider_bottom.size = new Vector3( 1, bolt_model_height, 1 );
-		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height;
+		collider_bottom.transform.localPosition = Vector3.up * bolt_model_height * 1.5f;
 
 		// Place collider upper in
 		var collider_upper_in = bolt.transform.GetChild( 2 ).GetComponent< BoxCollider >();
