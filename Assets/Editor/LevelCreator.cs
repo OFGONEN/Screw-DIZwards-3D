@@ -133,15 +133,6 @@ public class LevelCreator : ScriptableObject
 
 		EditorSceneManager.SaveOpenScenes();
 	}
-
-	[ Button() ]	
-	public void FixThingsOnAllLevels()
-	{
-		for( var x = 1; x <= 20; x++ )
-		{
-			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{x}.unity" );
-		}
-	}
 #endregion
 
 #region Implementation
