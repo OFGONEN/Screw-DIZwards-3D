@@ -374,7 +374,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6211030373824014635}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Pause
+          m_MethodName: Stop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 8431487788264759646}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Pause
+          m_MethodName: Stop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
