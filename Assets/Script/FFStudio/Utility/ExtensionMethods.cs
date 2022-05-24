@@ -324,6 +324,16 @@ namespace FFStudio
                 {
 				    fieldInfo.SetValue( source, value );
                 }
+                else if( fieldType == typeof( bool ) )
+                {
+				    fieldInfo.SetValue( source, bool.Parse( value ) );
+					FFLogger.Log( "Setting Bool: " + fieldName + " Value: " + value );
+                }
+				else
+				{
+					fieldInfo.SetValue( source, JsonUtility.FromJson( value, fieldType ));
+					FFLogger.Log( "Setting Json: " + fieldName + " Value: " + value );
+				}
 		}
 
 		public static DG.Tweening.Sequence KillProper( this DG.Tweening.Sequence sequence )
