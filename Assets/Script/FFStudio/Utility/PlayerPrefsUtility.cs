@@ -78,8 +78,8 @@ namespace FFStudio
 
 		public void PrevLevel()
 		{
-			CurrentLevelData.Instance.currentLevel_Real = Mathf.Min( 0, CurrentLevelData.Instance.currentLevel_Real-- );
-			CurrentLevelData.Instance.currentLevel_Shown = Mathf.Min( 0, CurrentLevelData.Instance.currentLevel_Shown-- );
+			CurrentLevelData.Instance.currentLevel_Real = Mathf.Max( 1, CurrentLevelData.Instance.currentLevel_Real-- );
+			CurrentLevelData.Instance.currentLevel_Shown = Mathf.Max( 1, CurrentLevelData.Instance.currentLevel_Shown-- );
 			PlayerPrefs.SetInt( "Level", CurrentLevelData.Instance.currentLevel_Real );
 			PlayerPrefs.SetInt( "Consecutive Level", CurrentLevelData.Instance.currentLevel_Shown );
 
