@@ -816,7 +816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Swipe To Move
+  m_text: Swipe To Move\n<size=90%>Tap to Stop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2eadde808a0a74b73956a6ea2f414ab5, type: 2}
   m_sharedMaterial: {fileID: -1410041185942974892, guid: 2eadde808a0a74b73956a6ea2f414ab5, type: 2}
