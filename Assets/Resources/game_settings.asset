@@ -30,8 +30,10 @@ MonoBehaviour:
   collectable_text_color: {r: 1, g: 1, b: 1, a: 0.8}
   collectable_text_prefix: +
   camera_velocity: 5
-  camera_offset: {x: 0, y: 3, z: -9.5}
+  camera_offset: {x: 0, y: 1.25, z: -9.5}
   camera_offset_start: {x: 0, y: 1, z: -7.5}
+  camera_angle: -15
+  camera_angle_duration: 0.2
   camera_shake_duration: 0.75
   camera_shake_strength: 0.1
   ui_PopUp_size_In_ease: 18

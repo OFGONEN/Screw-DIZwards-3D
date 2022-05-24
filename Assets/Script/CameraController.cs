@@ -50,6 +50,9 @@ public class CameraController : MonoBehaviour
 		target_transform = notif_nut_transform.SharedValue as Transform;
 		child_transform  = transform.GetChild( 0 ); // Shake Transform
 		onUpdateMethod   = FollowTargetWithOffset;
+
+		recycledTween.Recycle( transform.DORotate( Vector3.right * GameSettings.Instance.camera_angle,
+			GameSettings.Instance.camera_angle_duration ) );
 	}
 
     // EditorCall
