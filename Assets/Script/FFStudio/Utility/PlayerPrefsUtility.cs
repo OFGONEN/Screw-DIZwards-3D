@@ -9,9 +9,9 @@ namespace FFStudio
 	public class PlayerPrefsUtility : ScriptableObject
     {
 #region Fields
-#if UNITY_EDITOR
 		public GameEvent event_level_complete;
 		public GameEvent event_level_failed;
+#if UNITY_EDITOR
 		PlayerPrefsTracker_Base PlayerPrefsTracker => ( PlayerPrefsTracker_Base )AssetDatabase.LoadAssetAtPath( "Assets/Editor/tracker_playerPrefs.asset",
 																											    typeof( PlayerPrefsTracker_Base ) );
 #endif
