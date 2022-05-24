@@ -95,6 +95,82 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 6211030373824014635}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 8431487788264759646}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 5821344205356253269}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: StopAndReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: StopAndReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: FFStudio.TweenChain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
+      value: FFStudio.TweenChain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_TargetAssemblyTypeName
+      value: PFX_BoltUnlock, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_Name
       value: bolt_obstacle
@@ -298,7 +374,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6211030373824014635}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Pause
+          m_MethodName: Stop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -310,7 +386,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 8431487788264759646}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Pause
+          m_MethodName: Stop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

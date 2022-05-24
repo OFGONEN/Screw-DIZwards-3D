@@ -29,7 +29,12 @@ public class CameraController : MonoBehaviour
 	{
 		onUpdateMethod = ExtensionMethods.EmptyMethod;
 
-		transform.position = GameSettings.Instance.camera_offset_start;
+	}
+
+	private void Start()
+	{
+		target_transform = notif_nut_transform.SharedValue as Transform;
+		transform.position = target_transform.position + GameSettings.Instance.camera_offset_start;
 	}
 
 	private void OnDisable()
@@ -47,7 +52,6 @@ public class CameraController : MonoBehaviour
 #region API
 	public void OnLevelStart()
 	{
-		target_transform = notif_nut_transform.SharedValue as Transform;
 		child_transform  = transform.GetChild( 0 ); // Shake Transform
 		onUpdateMethod   = FollowTargetWithOffset;
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DebugOnly
   - Bolt
+  - Collectable
   layers:
   - Default
   - TransparentFX

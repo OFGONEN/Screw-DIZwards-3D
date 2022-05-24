@@ -21,6 +21,7 @@ namespace FFStudio
         public TextMeshProUGUI level_count_text_start;
         public TextMeshProUGUI level_count_text_end;
         public TextMeshProUGUI level_information_text;
+        public TextMeshProUGUI level_tutorial_text;
         public UI_Patrol_Scale level_information_text_Scale;
         public Image loadingScreenImage;
         public Image foreGroundImage;
@@ -81,8 +82,9 @@ namespace FFStudio
 
 			level_count_text_start.text = CurrentLevelData.Instance.currentLevel_Shown.ToString();
 			level_count_text_end.text   = ( CurrentLevelData.Instance.currentLevel_Shown + 1 ).ToString();
+			level_tutorial_text.text    = CurrentLevelData.Instance.levelData.tutorial_text;
 
-            levelLoadedResponse.response = NewLevelLoaded;
+			levelLoadedResponse.response = NewLevelLoaded;
         }
 
         private void NewLevelLoaded()
