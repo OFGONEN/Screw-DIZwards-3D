@@ -56,6 +56,22 @@ public class LevelCreator : ScriptableObject
 #endregion
 
 #region API
+	[ Button() ]
+	public void ExportCollectableCode()
+	{
+		var stringBuilder = new StringBuilder();
+
+		var collectables = GameObject.FindGameObjectsWithTag( "Collectable" );
+
+		stringBuilder.Append( collectables[ 0 ].transform.position.y.ToString() );
+
+		for( var i = 1; i < collectables.Length; i++ )
+		{
+			stringBuilder.Append( "-" + collectables[ i ].transform.position.y );
+		}
+
+		FFLogger.Log( "Collectable Code:\n" + stringBuilder.ToString() );
+	}
     [ Button() ]
     public void CreateLevel()
     {
@@ -116,15 +132,6 @@ public class LevelCreator : ScriptableObject
 		FixAllRotateBolts();
 
 		EditorSceneManager.SaveOpenScenes();
-	}
-
-	[ Button() ]	
-	public void FixThingsOnAllLevels()
-	{
-		for( var x = 1; x <= 20; x++ )
-		{
-			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{x}.unity" );
-		}
 	}
 #endregion
 
