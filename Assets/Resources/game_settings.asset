@@ -56,7 +56,7 @@ MonoBehaviour:
   notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
   endBolt_height: 11.8
   game_reference_screenRatio: 0.46205357
-  useRemoteConfig_GameSettings: 0
+  useRemoteConfig_GameSettings: 1
   useRemoteConfig_Components: 0
   maxLevelCount: 20
   ui_Entity_Move_TweenDuration: 0.35
