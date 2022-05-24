@@ -40,6 +40,8 @@ namespace FFStudio
         public float camera_velocity;
         public Vector3 camera_offset;
         public Vector3 camera_offset_start;
+        public float camera_angle;
+        public float camera_angle_duration;
         public float camera_shake_duration;
         public float camera_shake_strength = 1f;
 
