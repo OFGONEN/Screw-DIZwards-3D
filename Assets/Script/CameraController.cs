@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
 	[ ShowInInspector, ReadOnly ] Transform child_transform;
 	UnityMessage onUpdateMethod;
 	Vector3 target_offset;
+
+	RecycledTween recycledTween = new RecycledTween();
 #endregion
 
 #region Properties
@@ -32,6 +34,7 @@ public class CameraController : MonoBehaviour
 
 	private void OnDisable()
 	{
+		recycledTween.Kill();
 		onUpdateMethod = ExtensionMethods.EmptyMethod;
 	}
 
@@ -47,12 +50,15 @@ public class CameraController : MonoBehaviour
 		target_transform = notif_nut_transform.SharedValue as Transform;
 		child_transform  = transform.GetChild( 0 ); // Shake Transform
 		onUpdateMethod   = FollowTargetWithOffset;
+
+		recycledTween.Recycle( transform.DORotate( Vector3.right * GameSettings.Instance.camera_angle,
+			GameSettings.Instance.camera_angle_duration ) );
 	}
 
     // EditorCall
     public void OnCameraShake()
     {
-		child_transform.DOShakePosition( GameSettings.Instance.camera_shake_duration, GameSettings.Instance.camera_shake_strength );
+		recycledTween.Recycle( child_transform.DOShakePosition( GameSettings.Instance.camera_shake_duration, GameSettings.Instance.camera_shake_strength ) );
 	}
 #endregion
 

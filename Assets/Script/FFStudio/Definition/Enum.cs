@@ -22,4 +22,12 @@ namespace FFStudio
 		Int,
 		Float
 	}
+
+    public enum VibrateMethod
+    {
+        Pop,
+        Peek,
+        Nope,
+        Big
+    }
 }

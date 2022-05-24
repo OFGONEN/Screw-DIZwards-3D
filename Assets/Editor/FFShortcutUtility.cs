@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using FFStudio;
 using System.Reflection;
+using UnityEditor.SceneManagement;
+using DG.Tweening;
 
 namespace FFEditor
 {
@@ -97,6 +99,7 @@ namespace FFEditor
 		[ MenuItem( "FFShortcut/Select App Scene &3" ) ]
 		static private void SelectAppScene()
 		{
+			EditorSceneManager.OpenScene( "Assets/Scenes/app.unity" );
 			var appScene = AssetDatabase.LoadAssetAtPath( "Assets/Scenes/app.unity", typeof( SceneAsset ) );
 
 			Selection.SetActiveObjectWithContext( appScene, appScene );
@@ -114,6 +117,13 @@ namespace FFEditor
 		static private void SelectLevelCreator()
 		{
 			var levelCreator = AssetDatabase.LoadAssetAtPath( "Assets/Editor/level_creator.asset", typeof( ScriptableObject ) );
+			Selection.SetActiveObjectWithContext( levelCreator, levelCreator );
+		}
+
+		[ MenuItem( "FFShortcut/Select Level Environment Creator &6" ) ]
+		static private void SelectLevelEnvironmentCreator()
+		{
+			var levelCreator = AssetDatabase.LoadAssetAtPath( "Assets/Editor/level_creator_environment.asset", typeof( ScriptableObject ) );
 			Selection.SetActiveObjectWithContext( levelCreator, levelCreator );
 		}
 
@@ -137,6 +147,14 @@ namespace FFEditor
 			var type = assembly.GetType( "UnityEditor.LogEntries" );
 			var method = type.GetMethod( "Clear" );
 			method.Invoke( new object(), null );
+		}
+
+		[ MenuItem( "FFShortcut/Kill All Tweens %#t" ) ]
+		private static void ClearTweens()
+		{
+			FFLogger.Log( "Kill All Tweens" );
+			DOTween.KillAll();
+			DOTween.ClearCachedTweens();
 		}
 	}
 }

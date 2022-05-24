@@ -17,6 +17,10 @@ public class Collectable : MonoBehaviour
 #endregion
 
 #region Unity API
+    private void Awake()
+    {
+		transform.SetParent( transform.parent.GetChild( 0 ) );
+	}
 #endregion
 
 #region API

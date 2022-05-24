@@ -23,37 +23,46 @@ MonoBehaviour:
   shatter_force_up: {x: 0, y: 0.1}
   shatter_torque: {x: 6.7, y: 15.2}
   shatter_duration: 0.75
-  pfx_nut_input_VelocityActivateRatio: 0.5
+  pfx_nut_input_VelocityActivateRatio: 0.3
   pfx_nut_input_SpawnOffset: 0.75
   collectable_text_offset: -1
   collectable_text_size: 3
   collectable_text_color: {r: 1, g: 1, b: 1, a: 0.8}
   collectable_text_prefix: +
   camera_velocity: 5
-  camera_offset: {x: 0, y: 1, z: -12.5}
-  camera_offset_start: {x: 0, y: 0, z: -7.5}
+  camera_offset: {x: 0, y: 1.25, z: -9.5}
+  camera_offset_start: {x: 0, y: 1, z: -7.5}
+  camera_angle: -15
+  camera_angle_duration: 0.2
   camera_shake_duration: 0.75
   camera_shake_strength: 0.1
-  ui_PopUp_In_ease: 1
-  ui_PopUp_Out_ease: 1
-  ui_PopUp_duration: 0.63
-  ui_PopUp_wait: 0.15
+  ui_PopUp_size_In_ease: 18
+  ui_PopUp_size_Out_ease: 8
+  ui_PopUp_size_In_duration: 0.315
+  ui_PopUp_size_Out_duration: 0.55
+  ui_PopUp_size_wait: 0.15
+  ui_PopUp_movement_delta: 1.35
+  ui_PopUp_movement_duration: 0.315
+  ui_PopUp_movement_ease: 18
   endLevelTexts:
   - endLevelText_percentage: 100
-    endLevelText_text: spectacular
+    endLevelText_text: Spectacular
+  - endLevelText_percentage: 75
+    endLevelText_text: Very Close!
   - endLevelText_percentage: 50
-    endLevelText_text: Half Way
+    endLevelText_text: Half Way Through!
   - endLevelText_percentage: 0
-    endLevelText_text: Failed Miserably
+    endLevelText_text: You Can Do It!
   notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
-  endBolt_height: 11.75
+  endBolt_height: 11.8
+  game_reference_screenRatio: 0.46205357
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
-  maxLevelCount: 1
-  ui_Entity_Move_TweenDuration: 0.5
-  ui_Entity_Fade_TweenDuration: 0.5
-  ui_Entity_Scale_TweenDuration: 0.5
-  ui_Entity_FloatingMove_TweenDuration: 0.5
+  maxLevelCount: 20
+  ui_Entity_Move_TweenDuration: 0.35
+  ui_Entity_Fade_TweenDuration: 0.35
+  ui_Entity_Scale_TweenDuration: 0.35
+  ui_Entity_FloatingMove_TweenDuration: 0.35
   ui_Entity_JoyStick_Gap: 50
   swipeThreshold: 2
   debug_ui_text_float_height: 1

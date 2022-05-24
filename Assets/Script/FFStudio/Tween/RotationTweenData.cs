@@ -39,7 +39,7 @@ namespace FFStudio
 #endregion
 
 #region Implementation
-        protected override void CreateAndStartTween( UnityMessage onComplete = null, bool isReversed = false )
+        protected override void CreateAndStartTween( UnityMessage onComplete, bool isReversed = false )
         {
 			if( rotationMode == RotationMode.Local )
 				recycledTween.Recycle( transform.DOLocalRotate( rotationAxisMaskVector * deltaAngle, Duration, RotateMode.LocalAxisAdd ), onComplete );

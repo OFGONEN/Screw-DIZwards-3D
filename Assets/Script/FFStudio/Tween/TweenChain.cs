@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using Sirenix.OdinInspector;
 
 #if UNITY_EDITOR
@@ -15,6 +14,10 @@ namespace FFStudio
     public class TweenChain : MonoBehaviour
     {
 #region Fields (Inspector Interface)
+	[ Title( "Setup" ) ]
+		[ InfoBox( "Transform of this GO will be used unless another one is provided.", "TransformIsNull" ) ]
+		[ SerializeField, LabelText( "Target Transform" ) ] Transform transform_target;
+
     [ Title( "Start Options" ) ]
         [ LabelText( "Indices to Play on Start" ) ] public int[] indices_toPlayOnStart;
         
@@ -27,6 +30,8 @@ namespace FFStudio
 		
 		Vector3 localPosition_original;
 		Vector3 localRotation_original;
+		
+		Transform transform_ToTween;
 #endregion
 
 #region Properties
@@ -42,11 +47,13 @@ namespace FFStudio
         {
 			indices_playing = new List< int >();
 
-			foreach( var tweenData in tweenDatas )
-				tweenData.Initialize( transform );
+			transform_ToTween = transform_target == null ? transform : transform_target;
 
-			localPosition_original = transform.localPosition;
-			localRotation_original = transform.localRotation.eulerAngles;
+			foreach( var tweenData in tweenDatas )
+				tweenData.Initialize( transform_ToTween );
+
+			localPosition_original = transform_ToTween.localPosition;
+			localRotation_original = transform_ToTween.localRotation.eulerAngles;
 		}
 
         void Start()
@@ -63,7 +70,7 @@ namespace FFStudio
         [ Button() ]
         public void Play( int index )
         {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             if( tweenDatas == null || tweenDatas.Count == 0 )
                 FFLogger.LogError( name + ": Tween data array is null or has no elements! Fix this before build!", this );
             else if( index < 0 || index > tweenDatas.Count - 1 )
@@ -90,6 +97,31 @@ namespace FFStudio
 			indices_playing.Clear();
 		}
 
+        public void StopAndReset()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Stop();
+			}
+
+			indices_playing.Clear();
+			ResetTransform();
+		}
+
+        [ Button(), EnableIf( "IsPlaying" ) ]
+        public void Pause()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Pause();
+			}
+
+			indices_playing.Clear();
+
+		}
+
 		public void ResetTransform()
 		{
 			ResetLocalPosition();
@@ -98,14 +130,14 @@ namespace FFStudio
 		
 		public void ResetLocalPosition()
 		{
-			transform.localPosition = localPosition_original;
+			transform_ToTween.localPosition = localPosition_original;
 		}
 		
 		public void ResetLocalRotation()
 		{
-			var localRotation		  = transform.localRotation;
+			var localRotation		  = transform_ToTween.localRotation;
 			localRotation.eulerAngles = localRotation_original;
-			transform.localRotation   = localRotation;
+			transform_ToTween.localRotation   = localRotation;
 		}
 #endregion
 
@@ -114,7 +146,7 @@ namespace FFStudio
         {
 #if UNITY_EDITOR
 			if( IsPlaying )
-				inPlayMode_currentStartPos = transform.position;
+				inPlayMode_currentStartPos = transform_ToTween.position;
 #endif
 			if( IsPlaying )
 			{
@@ -129,6 +161,8 @@ namespace FFStudio
 
 #region EditorOnly
 #if UNITY_EDITOR
+		bool TransformIsNull => transform_target == null;
+
 		Vector3 inPlayMode_currentStartPos;
 		GUIStyle style;
 
@@ -159,9 +193,11 @@ namespace FFStudio
 
 		void OnDrawGizmosSelected()
 		{
+			var theTransform = transform_target == null ? transform : transform_target;
+
 			style = new GUIStyle { normal = new GUIStyleState { textColor = Color.red }, fontSize = 20 };
 
-			Vector3 lastPos = transform.position;
+			Vector3 lastPos = theTransform.position;
 			if( Application.isPlaying )
 			{
 				if( IsPlaying == false )

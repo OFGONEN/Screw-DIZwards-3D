@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5260110121626030718, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6032673415443108338, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: eventPairs.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
@@ -48,6 +52,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Size.y
       value: 0.5
       objectReference: {fileID: 0}
@@ -55,16 +63,37 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_Center.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702428411201560504, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Name
-      value: fire_obstacle_rotating_single
+      value: fire_obstacle_rotating_single_cw
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+--- !u!4 &6459131397021530030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5260110121626030718, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+  m_PrefabInstance: {fileID: 1251116147156100560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7609367073525938792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8702428411201560504, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
@@ -82,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 0}
   indices_toPlayOnStart: 00000000
   tweenDatas:
   - rid: 5854463290785136644
@@ -121,11 +151,11 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        deltaAngle: 360
-        angularSpeedInDegrees: 180
+        deltaAngle: -360
+        angularSpeedInDegrees: 45
         rotationMode: 0
         rotationAxisMaskVector: {x: 0, y: 0, z: 1}
---- !u!114 &1553438461891623962
+--- !u!114 &7401636604397898755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,14 +170,14 @@ MonoBehaviour:
   eventPairs:
   - eventListener:
       gameEvents:
-      - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
       - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+      - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
     unityEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 49189050}
           m_TargetAssemblyTypeName: FFStudio.TweenChain, Assembly-CSharp
-          m_MethodName: Stop
+          m_MethodName: Pause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -157,3 +187,40 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1001 &1780267180380524388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6459131397021530030}
+    m_Modifications:
+    - target: {fileID: 1858531220864762065, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415556527684355665, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
+      propertyPath: m_Name
+      value: pfx_obstacle_fire_fountain_cw
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
