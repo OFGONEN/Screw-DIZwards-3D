@@ -75,6 +75,10 @@ MonoBehaviour:
     level_material_background: {fileID: 2100000, guid: 0622faa1cfa04e5489822a2bf765dffe, type: 2}
   prefab_ground: {fileID: 911374197596660675, guid: 06e7afd65eb0b774e84bed2af5cdde10, type: 3}
   prefab_background: {fileID: 8215630481810138487, guid: 923d4062cbbc0284b935366211312c7b, type: 3}
+  prefab_background_side: {fileID: 8215630481810138487, guid: c67bbd5f612cc431bb52525d13d62b59, type: 3}
   environment_offset: -0.75
   prefab_background_depth: 2.5
   prefab_background_height: 2.4
+  prefab_background_side_depth: 1.4
+  prefab_background_side_rightPosition: 6.02
+  prefab_background_side_leftPosition: -5.95
