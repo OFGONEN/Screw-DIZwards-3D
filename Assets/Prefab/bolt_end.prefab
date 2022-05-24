@@ -2258,13 +2258,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7368118339395344857}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914709756687068041, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FFStudio.ParticleSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2126933562416807546, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_Name
       value: bolt_end
       objectReference: {fileID: 0}
     - target: {fileID: 2947539239775717274, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3097638365311983021, guid: ff73007047d4c423589820a142c09e2f, type: 3}
       propertyPath: m_IsActive
@@ -2398,7 +2418,8 @@ PrefabInstance:
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8183838470827255973, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff73007047d4c423589820a142c09e2f, type: 3}
 --- !u!114 &4326086373202115902 stripped
 MonoBehaviour:
@@ -2470,6 +2491,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2158367994339417667, guid: ff73007047d4c423589820a142c09e2f, type: 3}
   m_PrefabInstance: {fileID: 5888939836510374275}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7368118339395344857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4033368207768834138, guid: ff73007047d4c423589820a142c09e2f, type: 3}
+  m_PrefabInstance: {fileID: 5888939836510374275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493781706381768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f753b2c2b78147c181c65650f11a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7573270593631847636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4080295271887506775, guid: ff73007047d4c423589820a142c09e2f, type: 3}
