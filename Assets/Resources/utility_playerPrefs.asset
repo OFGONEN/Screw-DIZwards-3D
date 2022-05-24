@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7172e59358400fb40a0b17a353671674, type: 3}
   m_Name: utility_playerPrefs
   m_EditorClassIdentifier: 
-  playerPrefsTracker: {fileID: 11400000, guid: d15701f71dd412b45b3f6bb0c2e7f8f0, type: 2}
+  event_level_complete: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+  event_level_failed: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}

@@ -10,6 +10,8 @@ namespace FFStudio
     {
 #region Fields
 #if UNITY_EDITOR
+		public GameEvent event_level_complete;
+		public GameEvent event_level_failed;
 		PlayerPrefsTracker_Base PlayerPrefsTracker => ( PlayerPrefsTracker_Base )AssetDatabase.LoadAssetAtPath( "Assets/Editor/tracker_playerPrefs.asset",
 																											    typeof( PlayerPrefsTracker_Base ) );
 #endif
@@ -67,6 +69,21 @@ namespace FFStudio
 		public string GetString( string key, string defaultValue )
 		{
 			return PlayerPrefs.GetString( key, defaultValue );
+		}
+
+		public void NextLevel()
+		{
+			event_level_complete.Raise();
+		}
+
+		public void PrevLevel()
+		{
+			CurrentLevelData.Instance.currentLevel_Real = Mathf.Min( 0, CurrentLevelData.Instance.currentLevel_Real-- );
+			CurrentLevelData.Instance.currentLevel_Shown = Mathf.Min( 0, CurrentLevelData.Instance.currentLevel_Shown-- );
+			PlayerPrefs.SetInt( "Level", CurrentLevelData.Instance.currentLevel_Real );
+			PlayerPrefs.SetInt( "Consecutive Level", CurrentLevelData.Instance.currentLevel_Shown );
+
+			event_level_failed.Raise();
 		}
 #endregion
 
