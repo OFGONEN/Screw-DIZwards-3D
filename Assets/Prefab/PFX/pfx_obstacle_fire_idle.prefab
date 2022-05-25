@@ -120,7 +120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469488, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469488, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: m_LocalRotation.w
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: ShapeModule.m_Position.y
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 19827018, guid: 33331a8f5f1306140aea733a1211bd14, type: 3}
       propertyPath: SizeBySpeedModule.enabled
