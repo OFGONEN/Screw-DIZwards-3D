@@ -11,7 +11,7 @@ public enum ElephantEvent
 
 namespace FFStudio
 {
-    [ CreateAssetMenu( fileName = "ElephantEvent", menuName = "FF/Event/ElephantEvent" ) ]
+    [ CreateAssetMenu( fileName = "event_elephant_level", menuName = "FF/Event/Elephant Level Event" ) ]
     public class ElephantLevelEvent : GameEvent
     {
         public ElephantEvent elephantEventType;

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace FFStudio
 {
-    [ CreateAssetMenu( fileName = "ElephantConfigEvent", menuName = "FF/Event/ElephantConfigEvent" ) ]
+    [ CreateAssetMenu( fileName = "event_elephant_config", menuName = "FF/Event/Elephant Config Event" ) ]
 	public class ElephantConfigEvent : GameEvent
 	{
 		public object source;
