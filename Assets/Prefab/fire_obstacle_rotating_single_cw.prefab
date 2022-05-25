@@ -52,6 +52,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Size.y
       value: 0.5
       objectReference: {fileID: 0}
@@ -59,13 +63,25 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6412140786338434375, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_Center.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372160311963753005, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702428411201560504, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: m_Name
@@ -95,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb846eb8b7b44f04c844a65e8b5e0b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform_target: {fileID: 0}
   indices_toPlayOnStart: 00000000
   tweenDatas:
   - rid: 5854463290785136644
@@ -134,8 +151,8 @@ MonoBehaviour:
         onCompleteEvent:
           m_PersistentCalls:
             m_Calls: []
-        deltaAngle: 360
-        angularSpeedInDegrees: 180
+        deltaAngle: -360
+        angularSpeedInDegrees: 45
         rotationMode: 0
         rotationAxisMaskVector: {x: 0, y: 0, z: 1}
 --- !u!114 &7401636604397898755
@@ -186,40 +203,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1911958915099429810, guid: 474492141c2762246b3a17d4364f8b0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

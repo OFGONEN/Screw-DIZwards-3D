@@ -21,10 +21,12 @@ namespace FFStudio
         public TextMeshProUGUI level_count_text_start;
         public TextMeshProUGUI level_count_text_end;
         public TextMeshProUGUI level_information_text;
+        public TextMeshProUGUI level_tutorial_text;
         public UI_Patrol_Scale level_information_text_Scale;
         public Image loadingScreenImage;
         public Image foreGroundImage;
         public RectTransform tutorialObjects;
+        public RectTransform tutorial_Hand;
 
         [ Header( "Fired Events" ) ]
         public GameEvent levelRevealedEvent;
@@ -32,10 +34,12 @@ namespace FFStudio
         public GameEvent loadNewLevelEvent;
         public GameEvent resetLevelEvent;
         public ElephantLevelEvent elephantLevelEvent;
-#endregion
 
-#region Unity API
-        private void OnEnable()
+		RecycledTween recycledTween = new RecycledTween();
+		#endregion
+
+		#region Unity API
+		private void OnEnable()
         {
             levelLoadedResponse.OnEnable();
             levelFailResponse.OnEnable();
@@ -49,7 +53,9 @@ namespace FFStudio
             levelFailResponse.OnDisable();
             levelCompleteResponse.OnDisable();
             tapInputListener.OnDisable();
-        }
+
+			recycledTween.Kill();
+		}
 
         private void Awake()
         {
@@ -59,7 +65,11 @@ namespace FFStudio
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
 
 			level_information_text.text = "Tap to Start";
-        }
+
+			recycledTween.Recycle( tutorial_Hand.DOAnchorPosX( 0, 1f )
+                .SetEase( Ease.OutCubic )
+                .SetLoops( -1, LoopType.Restart ) );
+		}
 #endregion
 
 #region Implementation
@@ -72,8 +82,9 @@ namespace FFStudio
 
 			level_count_text_start.text = CurrentLevelData.Instance.currentLevel_Shown.ToString();
 			level_count_text_end.text   = ( CurrentLevelData.Instance.currentLevel_Shown + 1 ).ToString();
+			level_tutorial_text.text    = CurrentLevelData.Instance.levelData.tutorial_text;
 
-            levelLoadedResponse.response = NewLevelLoaded;
+			levelLoadedResponse.response = NewLevelLoaded;
         }
 
         private void NewLevelLoaded()
@@ -103,7 +114,7 @@ namespace FFStudio
 
 			// Tween tween = null;
 
-			level_information_text.text = "Completed \n\n Tap to Continue";
+			level_information_text.text = "Completed\n\n<size=75%>Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
 					// .Append( tween ) // TODO: UIElements tween.
@@ -120,8 +131,8 @@ namespace FFStudio
             var sequence = DOTween.Sequence();
 
 			// Tween tween = null;
-			string progress = ( GameSettings.Instance.notif_level_progress.sharedValue * 100 ).ToString( "F" );
-			level_information_text.text = $"Level Failed\n\n {GameSettings.Instance.ReturnEndLevelText()} (%{progress}) \n\n Tap to Continue";
+			string progress = ( Mathf.CeilToInt( GameSettings.Instance.notif_level_progress.sharedValue * 100 ) ).ToString();
+			level_information_text.text = $"Level Failed\n\n<size=60%>{GameSettings.Instance.ReturnEndLevelText()} (%{progress})\n\n<size=80%>Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
                     // .Append( tween ) // TODO: UIElements tween.
@@ -140,6 +151,7 @@ namespace FFStudio
 			level_information_text_Scale.DoScale_Target( Vector3.zero, GameSettings.Instance.ui_Entity_Scale_TweenDuration );
 			level_information_text_Scale.Subscribe_OnComplete( OnLevelRevealed );
 
+			recycledTween.Kill();
 			tutorialObjects.gameObject.SetActive( false );
 
 			tapInputListener.response = ExtensionMethods.EmptyMethod;

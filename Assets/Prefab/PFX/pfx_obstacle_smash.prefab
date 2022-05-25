@@ -51,6 +51,9 @@ MonoBehaviour:
   onParticleSpawn:
     m_PersistentCalls:
       m_Calls: []
+  onParticleSpawn_Stop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2818506262085732534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,15 +70,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 408764, guid: a8bf4a25660eefe4cba32dc68be4968f, type: 3}

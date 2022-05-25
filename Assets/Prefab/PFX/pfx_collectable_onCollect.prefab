@@ -50,6 +50,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
     - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   alias: collectable_oncollect
+  onParticleSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  onParticleSpawn_Stop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6544120869264260147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,9 +115,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19806904, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 19806904, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 19813732, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19813732, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 19813732, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: InitialModule.startRotationX.minMaxState

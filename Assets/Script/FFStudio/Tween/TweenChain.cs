@@ -97,6 +97,31 @@ namespace FFStudio
 			indices_playing.Clear();
 		}
 
+        public void StopAndReset()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Stop();
+			}
+
+			indices_playing.Clear();
+			ResetTransform();
+		}
+
+        [ Button(), EnableIf( "IsPlaying" ) ]
+        public void Pause()
+        {
+			for( int i = 0; i < indices_playing.Count; i++ )
+			{
+				int index = indices_playing[ i ];
+				tweenDatas[ index ].Pause();
+			}
+
+			indices_playing.Clear();
+
+		}
+
 		public void ResetTransform()
 		{
 			ResetLocalPosition();

@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb82988e3cbf24e4aa1712e2f91629c7, type: 3}
+  m_Name: level_creator_environment
+  m_EditorClassIdentifier: 
+  environmentData:
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: a69f560d9ef24ff43b4d0db1b2f9e8ea, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: c8532e06a3703864391884e438d9a304, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: 8d465a698a4bfdb43b3781ca7ce0da4c, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 9d7673f2ff2ae57418cf2e35846db26b, type: 2}
+    level_material_background: {fileID: 2100000, guid: 57fb337d5757e0f438890c764f76551a, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 62796f2264967da4f9d58bc1dfc5ac79, type: 2}
+    level_material_background: {fileID: 2100000, guid: 5eca1e761c0c58248927b221aded6567, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: fccf662408ec459408a3533189958576, type: 2}
+    level_material_background: {fileID: 2100000, guid: fe83f7ff4d3d8d24b80e0b137b85f273, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: 57186260b91e74d4681b98ad259a6e05, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: 4ed076b41500d4547bd58530b64d756e, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: e82e9d301b5969e4f8b806f012797c45, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 5ce3045d0578e0945b7c92b8ec26aea5, type: 2}
+    level_material_background: {fileID: 2100000, guid: 064383952c1af3042aa0c28b2830f17a, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 3bff8533df2e09d4a8db107eebf574b1, type: 2}
+    level_material_background: {fileID: 2100000, guid: 02f7b8a64c0766a45a00495292f3dfa5, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 65a2b346f13eb4448a86119a008c235b, type: 2}
+    level_material_background: {fileID: 2100000, guid: dcbe174f79862b248adc3918126e7d6d, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: ecf1512450f9686439266a4c186a6eeb, type: 2}
+    level_material_background: {fileID: 2100000, guid: 7b1f60c326570584cb9ca997456ce7f1, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 986f257cc220fec40b9cbf0589339305, type: 2}
+    level_material_background: {fileID: 2100000, guid: aec882b434156404c8a76ee4ef2ebba7, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 0531a7d3c178a2e478af8bb6dead8cec, type: 2}
+    level_material_background: {fileID: 2100000, guid: 188c7904a2dd6f64daa2a5ace583c5a2, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 0531a7d3c178a2e478af8bb6dead8cec, type: 2}
+    level_material_background: {fileID: 2100000, guid: 4a0a86c61f6eb474aa8198022169e8be, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 0531a7d3c178a2e478af8bb6dead8cec, type: 2}
+    level_material_background: {fileID: 2100000, guid: e2861f87cae7ec14cac8468d7dbf8fba, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 5ebb00b4e0de98846b3e6196e1af53be, type: 2}
+    level_material_background: {fileID: 2100000, guid: db7a394deceba64479e90e5210ebabbe, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d9e8b0753ef9eb14f8166b8553afd326, type: 2}
+    level_material_background: {fileID: 2100000, guid: 051c94c8b6738d444ba65d8aeec32313, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: be29ff1375286e5449867d1fc5e03eca, type: 2}
+    level_material_background: {fileID: 2100000, guid: 0622faa1cfa04e5489822a2bf765dffe, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: a69f560d9ef24ff43b4d0db1b2f9e8ea, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: c8532e06a3703864391884e438d9a304, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 7de602d9bbfb90d49bbacdad20dc8a79, type: 2}
+    level_material_background: {fileID: 2100000, guid: 8d465a698a4bfdb43b3781ca7ce0da4c, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: 57186260b91e74d4681b98ad259a6e05, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: 4ed076b41500d4547bd58530b64d756e, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: d342bec434731e2488bf63e93c6fa64d, type: 2}
+    level_material_background: {fileID: 2100000, guid: e82e9d301b5969e4f8b806f012797c45, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 5ce3045d0578e0945b7c92b8ec26aea5, type: 2}
+    level_material_background: {fileID: 2100000, guid: 064383952c1af3042aa0c28b2830f17a, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 3bff8533df2e09d4a8db107eebf574b1, type: 2}
+    level_material_background: {fileID: 2100000, guid: 02f7b8a64c0766a45a00495292f3dfa5, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: be29ff1375286e5449867d1fc5e03eca, type: 2}
+    level_material_background: {fileID: 2100000, guid: 0622faa1cfa04e5489822a2bf765dffe, type: 2}
+  - level_height: 160
+    level_material_ground: {fileID: 2100000, guid: 986f257cc220fec40b9cbf0589339305, type: 2}
+    level_material_background: {fileID: 2100000, guid: aec882b434156404c8a76ee4ef2ebba7, type: 2}
+  prefab_ground: {fileID: 911374197596660675, guid: 06e7afd65eb0b774e84bed2af5cdde10, type: 3}
+  prefab_background: {fileID: 8215630481810138487, guid: 923d4062cbbc0284b935366211312c7b, type: 3}
+  prefab_background_side: {fileID: 8215630481810138487, guid: c67bbd5f612cc431bb52525d13d62b59, type: 3}
+  environment_offset: -0.75
+  prefab_background_depth: 2.5
+  prefab_background_height: 2.4
+  prefab_background_side_depth: 1.4
+  prefab_background_side_rightPosition: 6.02
+  prefab_background_side_leftPosition: -5.95

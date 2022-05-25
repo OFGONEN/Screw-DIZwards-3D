@@ -31,6 +31,7 @@ namespace FFStudio
 		public Tween Tween => recycledTween.Tween;
 		
 		protected RecycledTween recycledTween = new RecycledTween();
+		protected RecycledTween recycledTween_Delay = new RecycledTween();
 		protected Transform transform;
 
 		UnityMessage onComplete;
@@ -49,15 +50,26 @@ namespace FFStudio
 		public void Play( UnityMessage onComplete = null )
 		{
 			if( hasDelay )
-				DOVirtual.DelayedCall( delayAmount, () => CreateAndStartTween( onComplete ) );
+				recycledTween_Delay.Recycle( DOVirtual.DelayedCall( delayAmount, () => CreateAndStartTween( onComplete ) ) );
 			else
 				CreateAndStartTween( onComplete );
 		}
 		
 		public void Stop()
 		{
+			recycledTween_Delay.Kill();
+
 			if( IsPlaying )
-				Tween.Rewind();
+				Tween.KillProper();
+
+			IsPlaying = false;
+		}
+		
+		// Info: This method name should be _Kill_ and there should also be a separate _Pause_ method.
+		public void Pause()
+		{
+			recycledTween.Kill();
+			recycledTween_Delay.Kill();
 
 			IsPlaying = false;
 		}

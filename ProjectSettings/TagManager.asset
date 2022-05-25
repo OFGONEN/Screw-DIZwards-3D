@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DebugOnly
+  - Bolt
+  - Collectable
   layers:
   - Default
   - TransparentFX

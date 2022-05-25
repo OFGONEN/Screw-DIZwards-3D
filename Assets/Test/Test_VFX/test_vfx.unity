@@ -1684,10 +1684,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7376186699771916776, guid: 88acda681107ddd468591f9c69562287, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7567627637740793883, guid: 88acda681107ddd468591f9c69562287, type: 3}
       propertyPath: m_Name
       value: fire_obstacle_stationary_onRight
@@ -2078,14 +2074,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72547876193739338, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1001901334756177060, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}
-      propertyPath: managedReferences[4552418365239984129].delayAmount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376186699771916776, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7567627637740793883, guid: abdaf81cadb2e414fa7d2cebf458c5c8, type: 3}

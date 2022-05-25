@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 961601380926824725}
   - component: {fileID: 961601380926824723}
   - component: {fileID: 961601380926824722}
-  - component: {fileID: 961601380926824720}
   - component: {fileID: 7377613974363096154}
   - component: {fileID: 7164235009327652241}
   - component: {fileID: 8987000112994019509}
@@ -81,55 +80,6 @@ MonoBehaviour:
   recordFingers: 1
   recordThreshold: 5
   recordLimit: 10
---- !u!114 &961601380926824720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961601380926824724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c1c71d8ad5da9438de3b2e5990763f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreStartedOverGui: 1
-  ignoreIsOverGui: 0
-  requiredSelectable: {fileID: 0}
-  requiredTapCount: 0
-  requiredTapInterval: 0
-  onFinger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 961601380926824723}
-        m_TargetAssemblyTypeName: FFStudio.MobileInput, Assembly-CSharp
-        m_MethodName: Tapped
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onCount:
-    m_PersistentCalls:
-      m_Calls: []
-  ScreenDepth:
-    Conversion: 1
-    Camera: {fileID: 0}
-    Object: {fileID: 0}
-    Layers:
-      serializedVersion: 2
-      m_Bits: 4294967291
-    Distance: 0
-  onWorld:
-    m_PersistentCalls:
-      m_Calls: []
-  onScreen:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &7377613974363096154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +101,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: FFStudio.InputManager, Assembly-CSharp
         m_MethodName: Lean_OnFingerDown
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 961601380926824723}
+        m_TargetAssemblyTypeName: FFStudio.InputManager, Assembly-CSharp
+        m_MethodName: Tapped
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
