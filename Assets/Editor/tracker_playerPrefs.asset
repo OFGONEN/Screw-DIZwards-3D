@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: tracker_playerPrefs
   m_EditorClassIdentifier: 
   integers: []
-  floats: []
+  floats:
+  - key: currency
+    value: 2876
   strings: []
