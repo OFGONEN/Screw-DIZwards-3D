@@ -175,7 +175,7 @@ public class Nut : MonoBehaviour
 		}
 	}
 
-	void EmptyDelegates()
+	public void EmptyDelegates()
 	{
 		onUpdate           = ExtensionMethods.EmptyMethod;
 		onInput            = ExtensionMethods.EmptyMethod;

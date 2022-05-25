@@ -60,7 +60,7 @@ namespace FFStudio
 			recycledTween_Delay.Kill();
 
 			if( IsPlaying )
-				Tween.Rewind();
+				Tween.KillProper();
 
 			IsPlaying = false;
 		}

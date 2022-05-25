@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3863505618322163646}
   - component: {fileID: 8036939788194612473}
-  - component: {fileID: 3508912205410135408}
+  - component: {fileID: 7137236973033016709}
   - component: {fileID: 5431543709641452221}
   m_Layer: 30
   m_Name: collider_currency_100
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114416117318561191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,8 +46,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5, z: 1}
-  m_Center: {x: 0, y: -0.25, z: 0}
---- !u!114 &3508912205410135408
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7137236973033016709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 114416117318561191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067d7caa83c818f4dac4b763d4b32ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c5cf41ea274c404ea73899fb5b80769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attachedComponent: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   directional: 1
-  direction: 1
+  direction: -1
 --- !u!114 &5431543709641452221
 MonoBehaviour:
   m_ObjectHideFlags: 0

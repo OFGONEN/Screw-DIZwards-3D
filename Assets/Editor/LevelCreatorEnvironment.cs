@@ -18,9 +18,13 @@ public class LevelCreatorEnvironment : ScriptableObject
 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_ground;
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_background;
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_background_side;
     [ FoldoutGroup( "Setup" ) ] public float environment_offset;
     [ FoldoutGroup( "Setup" ) ] public float prefab_background_depth;
     [ FoldoutGroup( "Setup" ) ] public float prefab_background_height;
+    [ FoldoutGroup( "Setup" ) ] public float prefab_background_side_depth;
+    [ FoldoutGroup( "Setup" ) ] public float prefab_background_side_rightPosition;
+    [ FoldoutGroup( "Setup" ) ] public float prefab_background_side_leftPosition;
 #endregion
 
 #region Properties
@@ -54,15 +58,15 @@ public class LevelCreatorEnvironment : ScriptableObject
     [ Button() ]
     public void CreateAllLevelEnvironment()
     {
-        if( environmentData.Length != GameSettings.Instance.maxLevelCount )
+        if( environmentData.Length > GameSettings.Instance.maxLevelCount )
         {
             FFLogger.LogError( "Environment Data count MUST BE EQUAL to Max Level Count" );
 			return;
 		}
 
-        for( var i = 1; i <= GameSettings.Instance.maxLevelCount; i++ )
+        for( var i = 1; i <= environmentData.Length; i++ )
         {
-			EditorSceneManager.OpenScene( $"Assets/Scenes/game_{i}.unity", OpenSceneMode.Single );
+			EditorSceneManager.OpenScene( $"Assets/Scenes/scene_{i}.unity", OpenSceneMode.Single );
 			CreateLevelEnvironment( i - 1 );
 		}
     }
@@ -94,6 +98,20 @@ public class LevelCreatorEnvironment : ScriptableObject
 			background.transform.SetParent( environmentParent );
 			background.transform.localPosition    = i * Vector3.up * prefab_background_height + Vector3.forward * prefab_background_depth;
 			background.transform.localEulerAngles = Vector3.zero;
+
+			var sideGround_left = PrefabUtility.InstantiatePrefab( prefab_background_side ) as GameObject;
+            sideGround_left.GetComponentInChildren< Renderer >().sharedMaterial = environmentData[ index ].level_material_background;
+
+			sideGround_left.transform.SetParent( environmentParent );
+			sideGround_left.transform.localPosition    = i * Vector3.up * prefab_background_height + Vector3.forward * prefab_background_side_depth + Vector3.right * prefab_background_side_leftPosition;
+			sideGround_left.transform.localEulerAngles = Vector3.zero;
+
+			var sideGround_right = PrefabUtility.InstantiatePrefab( prefab_background_side ) as GameObject;
+            sideGround_right.GetComponentInChildren< Renderer >().sharedMaterial = environmentData[ index ].level_material_background;
+
+			sideGround_right.transform.SetParent( environmentParent );
+			sideGround_right.transform.localPosition    = i * Vector3.up * prefab_background_height + Vector3.forward * prefab_background_side_depth + Vector3.right * prefab_background_side_rightPosition;
+			sideGround_right.transform.localEulerAngles = Vector3.zero;
 		}
 
 		environmentParent.transform.position = Vector3.up * environment_offset;
