@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8939332168275667369}
   - component: {fileID: 1436860115345433105}
+  - component: {fileID: 7234406161204815202}
   m_Layer: 0
   m_Name: manager_analytic
   m_TagString: Untagged
@@ -27,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,8 +45,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d65779f4a6b6489da65a755bf7615d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elephantEventListener:
-    gameEvent: {fileID: 11400000, guid: 33ccf5f609258ea46b63b78483df10f5, type: 2}
-  elephantRemoteConfigListener:
-    gameEvent: {fileID: 11400000, guid: fce0517684d57439aad15342a420da2f, type: 2}
   build_string: {fileID: 11400000, guid: 720da4be9a07ef14f8f97cca01a3b72b, type: 2}
+--- !u!114 &7234406161204815202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750746192651346742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: fce0517684d57439aad15342a420da2f, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1436860115345433105}
+          m_TargetAssemblyTypeName: FFStudio.AnalyticManager, Assembly-CSharp
+          m_MethodName: ElephantRemoteConfigResponse
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: fce0517684d57439aad15342a420da2f, type: 2}
+            m_ObjectArgumentAssemblyTypeName: FFStudio.ElephantConfigEvent, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 33ccf5f609258ea46b63b78483df10f5, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1436860115345433105}
+          m_TargetAssemblyTypeName: FFStudio.AnalyticManager, Assembly-CSharp
+          m_MethodName: ElephantLevelEventResponse
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 33ccf5f609258ea46b63b78483df10f5, type: 2}
+            m_ObjectArgumentAssemblyTypeName: FFStudio.ElephantLevelEvent, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 52c808a02cfc7478c85f6ab88436e370, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1436860115345433105}
+          m_TargetAssemblyTypeName: FFStudio.AnalyticManager, Assembly-CSharp
+          m_MethodName: ElephantBasicEventResponse
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 52c808a02cfc7478c85f6ab88436e370, type: 2}
+            m_ObjectArgumentAssemblyTypeName: FFStudio.ElephantBasicEvent, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

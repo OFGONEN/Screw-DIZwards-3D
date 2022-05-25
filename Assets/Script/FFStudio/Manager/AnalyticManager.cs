@@ -10,32 +10,10 @@ namespace FFStudio
 	public class AnalyticManager : MonoBehaviour
 	{
 #region Fields
-		[ Header( "Event Listeners" ) ]
-		public EventListenerDelegateResponse elephantEventListener;
-		public EventListenerDelegateResponse elephantRemoteConfigListener;
-
 		public SharedStringNotifier build_string;
 #endregion
 
 #region UnityAPI
-		private void OnEnable()
-		{
-			elephantEventListener.OnEnable();
-			elephantRemoteConfigListener.OnEnable();
-		}
-
-		private void OnDisable()
-		{
-			elephantEventListener.OnDisable();
-			elephantRemoteConfigListener.OnDisable();
-		}
-
-		private void Awake()
-		{
-			elephantEventListener.response = ElephantEventResponse;
-			elephantRemoteConfigListener.response = ElephantRemoteConfigResponse;
-		}
-
 		private void Start()
 		{
 			LoadRemoteConfigs();
@@ -48,38 +26,42 @@ namespace FFStudio
 		}
 #endregion
 
-#region Implementation
-		void ElephantRemoteConfigResponse()
+#region API
+		public void ElephantRemoteConfigResponse( ElephantConfigEvent configEvent )
 		{
-			var configEvent = elephantRemoteConfigListener.gameEvent as ElephantConfigEvent;
-
 			var value = RemoteConfig.GetInstance().Get( configEvent.configKeyName );
 
 			if( value != null )
 				configEvent.source.SetFieldValue( configEvent.fieldName, value );
 		}
 
-		void ElephantEventResponse()
+		public void ElephantLevelEventResponse( ElephantLevelEvent levelEvent )
 		{
-			var gameEvent = elephantEventListener.gameEvent as ElephantLevelEvent;
-
-			switch( gameEvent.elephantEventType )
+			switch( levelEvent.elephantEventType )
 			{
 				case ElephantEvent.LevelStarted:
-					Elephant.LevelStarted( gameEvent.level );
-					FFLogger.Log( "FFAnalytic Elephant LevelStarted: " + gameEvent.level );
+					Elephant.LevelStarted( levelEvent.level );
+					FFLogger.Log( "FFAnalytic Elephant LevelStarted: " + levelEvent.level );
 					break;
 				case ElephantEvent.LevelCompleted:
-					Elephant.LevelCompleted( gameEvent.level );
-					FFLogger.Log( "FFAnalytic Elephant LevelFinished: " + gameEvent.level );
+					Elephant.LevelCompleted( levelEvent.level );
+					FFLogger.Log( "FFAnalytic Elephant LevelFinished: " + levelEvent.level );
 					break;
 				case ElephantEvent.LevelFailed:
-					Elephant.LevelFailed( gameEvent.level );
-					FFLogger.Log( "FFAnalytic Elephant LevelFailed: " + gameEvent.level );
+					Elephant.LevelFailed( levelEvent.level );
+					FFLogger.Log( "FFAnalytic Elephant LevelFailed: " + levelEvent.level );
 					break;
 			}
 		}
 
+		public void ElephantBasicEventResponse( ElephantBasicEvent basicEvent )
+		{
+			FFLogger.Log( "Basic Event: " + basicEvent.eventValue_key );
+			Elephant.Event( basicEvent.eventValue_key, CurrentLevelData.Instance.currentLevel_Shown );
+		}
+#endregion
+
+#region Implementation
 		public void LoadRemoteConfigs()
 		{
 			var gameSettings = GameSettings.Instance;
