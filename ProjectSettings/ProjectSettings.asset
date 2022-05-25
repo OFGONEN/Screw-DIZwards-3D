@@ -159,7 +159,7 @@ PlayerSettings:
     iPhone: com.FFStudios.BoltUpwards
   buildNumber:
     Standalone: 0
-    iPhone: 14
+    iPhone: 16
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
