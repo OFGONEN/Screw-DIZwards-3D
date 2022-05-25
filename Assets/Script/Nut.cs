@@ -15,6 +15,7 @@ public class Nut : MonoBehaviour
     [ SerializeField ] Movement nut_movement;
     [ SerializeField ] SharedBoolNotifier notif_nut_isOnBolt;
   [ Title( "Fired Events" ) ]
+    [ SerializeField ] ElephantBasicEvent event_elephant_basic;
     [ SerializeField ] ParticleSpawnEvent event_pfx_nut_input;
     [ SerializeField ] GameEvent event_level_complete;
     [ SerializeField ] GameEvent event_level_failed;
@@ -148,6 +149,11 @@ public class Nut : MonoBehaviour
 		{
 			nut_velocity.OnIncrease();
 			nut_movement.OnMovement( GameSettings.Instance.velocity_movement_cofactor );
+
+			if( vector.x > 0 )
+				event_elephant_basic.Raise( "input_swipe_right" );
+			else
+				event_elephant_basic.Raise( "input_swipe_left" );
 		}
 	}
 
