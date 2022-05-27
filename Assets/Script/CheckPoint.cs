@@ -37,8 +37,8 @@ public class CheckPoint : MonoBehaviour
     [ Button() ]
     public void OnTrigger()
     {
+		checkpoint_text_static.color  = checkpoint_color;
 		checkpoint_text_dynamic.color = Color.white;
-		checkpoint_text_static.color  = Color.white;
 		checkpoint_line.Color         = Color.white;
 
 		var target = checkpoint_text_dynamic.transform;
