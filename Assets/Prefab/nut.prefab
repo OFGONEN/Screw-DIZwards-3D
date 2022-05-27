@@ -58,6 +58,8 @@ MonoBehaviour:
   nut_velocity: {fileID: 11400000, guid: 9adebe68322bb498ab797495ca606105, type: 2}
   nut_movement: {fileID: 11400000, guid: f65946825251247b99700f1aa18de89f, type: 2}
   notif_nut_isOnBolt: {fileID: 11400000, guid: 017c0eb886bfb4965a91717d18a27385, type: 2}
+  shared_checkpoint: {fileID: 11400000, guid: 540306f494887465db0b791e907f256e, type: 2}
+  notif_checkpoint_transform: {fileID: 11400000, guid: a4ad24f48f009470c947b17b3457de85, type: 2}
   event_elephant_basic: {fileID: 11400000, guid: 52c808a02cfc7478c85f6ab88436e370, type: 2}
   event_pfx_nut_input: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
   event_level_complete: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
