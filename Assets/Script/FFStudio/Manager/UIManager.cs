@@ -117,6 +117,7 @@ namespace FFStudio
 
 				var firstSequence = recycledSequence.Recycle();
 				firstSequence.Append( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+				firstSequence.Join( tutorial_text.rectTransform.DOShakeScale( 0.2f, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
 
 				firstSequence.AppendInterval( 0.5f );
 				firstSequence.Append( tutorial_text.rectTransform.DOMove( tutorial_text_target.position, GameSettings.Instance.ui_Entity_Move_TweenDuration ) );
@@ -130,6 +131,7 @@ namespace FFStudio
 
 			var sequence = recycledSequence.Recycle();
 			sequence.Append( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+			sequence.Join( tutorial_text.rectTransform.DOShakeScale( 0.2f, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
         }
 
         public void OnTutorialWrong()
