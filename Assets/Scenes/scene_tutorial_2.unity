@@ -11250,7 +11250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 733785582598705729, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_StringArgument
-      value: Swipe Right\n<size=80%>Move Up
+      value: Swipe Right-<size=80%>Move Up
       objectReference: {fileID: 0}
     - target: {fileID: 733785582598705729, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -22390,7 +22390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6275929011336678793, guid: d8f9c9c7fbfb144579d67a6e5f40b7e6, type: 3}
       propertyPath: eventPairs.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Swipe Left\n<size=80%>Move Down
+      value: Swipe Left-<size=80%>Move Down
       objectReference: {fileID: 0}
     - target: {fileID: 6275929011336678794, guid: d8f9c9c7fbfb144579d67a6e5f40b7e6, type: 3}
       propertyPath: m_RootOrder

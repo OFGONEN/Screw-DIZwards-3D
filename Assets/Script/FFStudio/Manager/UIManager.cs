@@ -90,7 +90,7 @@ namespace FFStudio
         {
 			tutorial_text.gameObject.SetActive( true );
 			tutorial_text.fontSize = 144;
-			tutorial_text.text     = gameEvent.eventValue;
+			tutorial_text.text     = gameEvent.eventValue.Replace( "-", "\n" );
 			tutorial_text.color    = Color.white;
 
 			tutorialOnCenter = true;

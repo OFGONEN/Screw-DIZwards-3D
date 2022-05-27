@@ -72,6 +72,6 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Swipe Right\n<size=80%>Move Up
+            m_StringArgument: Swipe Right-<size=80%>Move Up
             m_BoolArgument: 0
           m_CallState: 2
