@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3946209594022938461, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6032673415443108338, guid: 4a4b98961ab64466ab05e49ed7bcf1bd, type: 3}
       propertyPath: eventPairs.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
