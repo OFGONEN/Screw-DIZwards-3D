@@ -22,6 +22,7 @@ public class Nut : MonoBehaviour
     [ SerializeField ] ParticleSpawnEvent event_pfx_nut_input;
     [ SerializeField ] GameEvent event_level_complete;
     [ SerializeField ] GameEvent event_level_failed;
+    [ SerializeField ] GameEvent event_respawn;
 
 	// Private
 
@@ -126,8 +127,9 @@ public class Nut : MonoBehaviour
 	void OnRespawn()
 	{
 		transform.position = Vector3.up * ( notif_checkpoint_transform.SharedValue as Transform ).position.y;
-
 		gameObject.SetActive( true );
+
+		event_respawn.Raise();
 		OnLevelStarted();
 	}
 
