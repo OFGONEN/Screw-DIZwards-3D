@@ -13,10 +13,7 @@ EditorBuildSettings:
     guid: fb8c74178c22b4e37af1ef815fe4f9c3
   - enabled: 1
     path: Assets/Scenes/scene_tutorial_2.unity
-    guid: 4131d592084004b638e7b62af827abdc
-  - enabled: 1
-    path: Assets/Scenes/scene_tutorial_3.unity
-    guid: d74ffd062373b4a5599700b737029d74
+    guid: 62492931110364d92936e6fc21d09cf0
   - enabled: 1
     path: Assets/Scenes/scene_1.unity
     guid: f4b8973c461cc454f918110b387bb5e7
