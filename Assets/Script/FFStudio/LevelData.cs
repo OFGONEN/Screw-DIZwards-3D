@@ -15,6 +15,8 @@ namespace FFStudio
 		[ ValueDropdown( "SceneList" ), LabelText( "Scene Index" ) ] public int scene_index;
         [ LabelText( "Override As Active Scene" ) ] public bool scene_overrideAsActiveScene;
         [ LabelText( "Tutorial Text" ) ] public string tutorial_text = string.Empty;
+        [ LabelText( "Tutorial Override Camera Angle" ) ] public bool tutorial_override_cameraAngle = false;
+        [ LabelText( "Tutorial Level Start Camera Angle" ), ShowIf( "tutorial_override_cameraAngle" ) ] public Vector3 tutorial_cameraAngle;
 
 #if UNITY_EDITOR
 		private static IEnumerable SceneList()
