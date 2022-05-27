@@ -15,3 +15,5 @@ MonoBehaviour:
   scene_index: 19
   scene_overrideAsActiveScene: 0
   tutorial_text: 
+  tutorial_override_cameraAngle: 0
+  tutorial_cameraAngle: {x: 0, y: 0, z: 0}
