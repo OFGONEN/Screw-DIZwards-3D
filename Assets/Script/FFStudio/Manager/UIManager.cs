@@ -86,12 +86,11 @@ namespace FFStudio
 #endregion
 
 #region TutorialText
-        [ Button() ]
-        public void SpawnTutorialText( string text )
+        public void SpawnTutorialText( StringGameEvent gameEvent )
         {
 			tutorial_text.gameObject.SetActive( true );
 			tutorial_text.fontSize = 144;
-			tutorial_text.text     = text;
+			tutorial_text.text     = gameEvent.eventValue;
 			tutorial_text.color    = Color.white;
 
 			tutorialOnCenter = true;
@@ -108,8 +107,7 @@ namespace FFStudio
 			onTutorialWrong   = OnTutorialWrong;
 		}
 
-        [ Button() ]
-        void OnTutorialCorrect()
+        public void OnTutorialCorrect()
         {
             if( recycledSequence.IsPlaying() ) return;
 
@@ -134,8 +132,7 @@ namespace FFStudio
 			sequence.Append( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
         }
 
-        [ Button() ]
-        void OnTutorialWrong()
+        public void OnTutorialWrong()
         {
             if( recycledSequence.IsPlaying() ) return;
 

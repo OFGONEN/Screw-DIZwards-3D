@@ -8,5 +8,10 @@ namespace FFStudio
     public class StringGameEvent : GameEvent
     {
         public string eventValue;
+
+        public void Raise( string value )
+        {
+            eventValue = value;
+        }
     }
 }
