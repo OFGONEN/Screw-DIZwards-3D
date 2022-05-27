@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 public class Nut : MonoBehaviour
@@ -14,6 +15,8 @@ public class Nut : MonoBehaviour
     [ SerializeField ] Velocity nut_velocity;
     [ SerializeField ] Movement nut_movement;
     [ SerializeField ] SharedBoolNotifier notif_nut_isOnBolt;
+    [ SerializeField ] SharedBool shared_checkpoint;
+    [ SerializeField ] SharedReferenceNotifier notif_checkpoint_transform;
   [ Title( "Fired Events" ) ]
     [ SerializeField ] ElephantBasicEvent event_elephant_basic;
     [ SerializeField ] ParticleSpawnEvent event_pfx_nut_input;
@@ -104,19 +107,30 @@ public class Nut : MonoBehaviour
 	public void OnCollisionObstacle()
 	{
 		EmptyDelegates();
-
 		gameObject.SetActive( false );
+		nut_velocity.Clear();
 
 		var shatter = pool_random_shatter.GetRandomEntity();
 
 		shatter.transform.position = transform.position;
 		shatter.DoShatter();
 
-		event_level_failed.Raise();
+		if( shared_checkpoint.sharedValue )
+			DOVirtual.DelayedCall( GameSettings.Instance.shatter_duration, OnRespawn );
+		else
+			event_level_failed.Raise();
 	}
 #endregion
 
 #region Implementation
+	void OnRespawn()
+	{
+		transform.position = Vector3.up * ( notif_checkpoint_transform.SharedValue as Transform ).position.y;
+
+		gameObject.SetActive( true );
+		OnLevelStarted();
+	}
+
 	void FingerUp()
 	{
 		if( nut_velocity.CurrentVelocity >= GameSettings.Instance.velocity_max * GameSettings.Instance.pfx_nut_input_VelocityActivateRatio )

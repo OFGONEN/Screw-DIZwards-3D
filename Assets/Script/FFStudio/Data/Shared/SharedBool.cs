@@ -7,5 +7,17 @@ namespace FFStudio
 	[ CreateAssetMenu( fileName = "shared_", menuName = "FF/Data/Shared/Bool" ) ]
 	public class SharedBool : SharedData< bool >
 	{
+		public bool SharedValue 
+		{
+			get
+			{
+				return sharedValue;
+			}
+
+			set
+			{
+				sharedValue = value;
+			}
+		}
 	}
 }
