@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene_index: 2
   scene_overrideAsActiveScene: 0
-  tutorial_text: 
+  tutorial_text: Tutorial 1
+  tutorial_override_cameraAngle: 0
+  tutorial_cameraAngle: {x: 0, y: -2, z: -7.5}

@@ -25,5 +25,7 @@ MonoBehaviour:
   prefab_bolt_model: {fileID: 534677404287187449, guid: ced39419f0d814485852d5d2f17cc7e1, type: 3}
   prefab_smasher_obstacle: {fileID: 3032442728933468474, guid: 7a7392f225f9a4dd18372269af544d7f, type: 3}
   prefab_collectable: {fileID: 3032442728933468474, guid: 75e10bfecbca941668f7a0271bda8395, type: 3}
+  prefab_checkpoint: {fileID: 917546553748594253, guid: 94ff2a8eebce24ca4b32c222965598be, type: 3}
   bolt_model_height: 0.5
   smasher_model_height: 1
+  bolt_create_data: []

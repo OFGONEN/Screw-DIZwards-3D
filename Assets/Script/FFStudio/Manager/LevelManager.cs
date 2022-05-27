@@ -11,20 +11,27 @@ namespace FFStudio
 #region Fields
       [ Title( "Shared Variables" ) ]
         public PlayerPrefsUtility playerPrefsUtility;
+        public SharedVector2Notifier notif_input;
 
       [ Title( "Fired Events" ) ]
         public GameEvent levelFailedEvent;
         public GameEvent levelCompleted;
+        public GameEvent level_tutorial_correct;
+        public GameEvent level_tutorial_wrong;
 
       [ Title( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
         public SharedFloatNotifier level_currency;
+
+		// Private
+		UnityMessage onInputChange;
 #endregion
 
 #region UnityAPI
         private void Awake()
         {
 			level_currency.SharedValue = playerPrefsUtility.GetFloat( ExtensionMethods.Key_Currency, 0 );
+			onInputChange = ExtensionMethods.EmptyMethod;
 		}
 #endregion
 
@@ -53,11 +60,46 @@ namespace FFStudio
 
         public void LevelFinishedResponse()
         {
+			onInputChange = ExtensionMethods.EmptyMethod;
 			playerPrefsUtility.SetFloat( ExtensionMethods.Key_Currency, level_currency.sharedValue );
+		}
+
+		public void OnInputChange()
+		{
+			onInputChange();
+		}
+
+		public void ClampInputUpwards()
+		{
+			onInputChange = OnClampInput_Upwards;
+		}
+
+		public void ClampInputDownwards()
+		{
+			onInputChange = OnClampInput_Downwards;
 		}
 #endregion
 
 #region Implementation
+		void OnClampInput_Downwards()
+		{
+			if( notif_input.sharedValue.x < 0 )
+				level_tutorial_correct.Raise();
+			else if( notif_input.sharedValue.x > 0 )
+				level_tutorial_wrong.Raise();
+
+			notif_input.sharedValue.x = Mathf.Min( notif_input.sharedValue.x, 0 );
+		}
+
+		void OnClampInput_Upwards()
+		{
+			if( notif_input.sharedValue.x > 0 )
+				level_tutorial_correct.Raise();
+			else if( notif_input.sharedValue.x < 0 )
+				level_tutorial_wrong.Raise();
+
+			notif_input.sharedValue.x = Mathf.Max( notif_input.sharedValue.x, 0 );
+		}
 #endregion
     }
 }

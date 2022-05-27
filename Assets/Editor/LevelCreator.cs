@@ -32,6 +32,7 @@ public class LevelCreator : ScriptableObject
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_bolt_model; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_smasher_obstacle; 
     [ FoldoutGroup( "Setup" ) ] public GameObject prefab_collectable; 
+    [ FoldoutGroup( "Setup" ) ] public GameObject prefab_checkpoint; 
     [ FoldoutGroup( "Setup" ) ] public float bolt_model_height; 
     [ FoldoutGroup( "Setup" ) ] public float smasher_model_height; 
     [ FoldoutGroup( "Setup" ) ] public List< BoltData > bolt_create_data; 
@@ -57,6 +58,24 @@ public class LevelCreator : ScriptableObject
 
 #region API
 	[ Button() ]
+	public void CreateCheckpointOnAllLevels()
+	{
+        for( var i = 1; i <= GameSettings.Instance.maxLevelCount; i++ )
+        {
+			EditorSceneManager.OpenScene( $"Assets/Scenes/scene_{i}.unity", OpenSceneMode.Single );
+
+			EditorSceneManager.MarkAllScenesDirty();
+			var position = GameObject.Find( "bolt_end" ).transform.position.y / 2f;
+
+			var checkpoint = PrefabUtility.InstantiatePrefab( prefab_checkpoint ) as GameObject;
+			checkpoint.transform.position = Vector3.up * position;
+
+			EditorSceneManager.SaveOpenScenes();
+		}
+
+	}
+
+	[ Button() ]
 	public void ExportCollectableCode()
 	{
 		var stringBuilder = new StringBuilder();
@@ -72,6 +91,7 @@ public class LevelCreator : ScriptableObject
 
 		FFLogger.Log( "Collectable Code:\n" + stringBuilder.ToString() );
 	}
+
     [ Button() ]
     public void CreateLevel()
     {

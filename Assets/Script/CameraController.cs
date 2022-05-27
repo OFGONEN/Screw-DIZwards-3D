@@ -34,7 +34,11 @@ public class CameraController : MonoBehaviour
 	private void Start()
 	{
 		target_transform = notif_nut_transform.SharedValue as Transform;
-		transform.position = target_transform.position + GameSettings.Instance.camera_offset_start;
+
+		if( CurrentLevelData.Instance.levelData.tutorial_override_cameraAngle )
+			transform.position = target_transform.position + CurrentLevelData.Instance.levelData.tutorial_cameraAngle;
+		else
+			transform.position = target_transform.position + GameSettings.Instance.camera_offset_start;
 	}
 
 	private void OnDisable()

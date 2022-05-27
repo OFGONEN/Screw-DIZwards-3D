@@ -9,6 +9,10 @@ namespace FFStudio
 
 		public Sequence Sequence => sequence;
 
+		public bool IsPlaying()
+		{
+			return sequence != null ? sequence.IsPlaying() : false;
+		}
 		public Sequence Recycle( UnityMessage onComplete )
 		{
 			sequence = sequence.KillProper();
