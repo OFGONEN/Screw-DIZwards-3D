@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
@@ -27,6 +28,8 @@ namespace FFStudio
         public Image foreGroundImage;
         public RectTransform tutorialObjects;
         public RectTransform tutorial_Hand;
+        public RectTransform tutorial_text_target;
+        public TextMeshProUGUI tutorial_text;
 
         [ Header( "Fired Events" ) ]
         public GameEvent levelRevealedEvent;
@@ -36,9 +39,16 @@ namespace FFStudio
         public ElephantLevelEvent elephantLevelEvent;
 
 		RecycledTween recycledTween = new RecycledTween();
-		#endregion
+        RecycledSequence recycledSequence = new RecycledSequence(); // Tutorial Text
 
-		#region Unity API
+		bool tutorialOnCenter = false;
+
+		// Delegates
+		UnityMessage onTutorialCorrect;
+        UnityMessage onTutorialWrong;
+#endregion
+
+#region Unity API
 		private void OnEnable()
         {
             levelLoadedResponse.OnEnable();
@@ -59,7 +69,10 @@ namespace FFStudio
 
         private void Awake()
         {
-            levelLoadedResponse.response   = LevelLoadedResponse;
+			onTutorialCorrect = ExtensionMethods.EmptyMethod;
+			onTutorialWrong   = ExtensionMethods.EmptyMethod;
+
+			levelLoadedResponse.response   = LevelLoadedResponse;
             levelFailResponse.response     = LevelFailResponse;
             levelCompleteResponse.response = LevelCompleteResponse;
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
@@ -69,6 +82,70 @@ namespace FFStudio
 			recycledTween.Recycle( tutorial_Hand.DOAnchorPosX( 0, 1f )
                 .SetEase( Ease.OutCubic )
                 .SetLoops( -1, LoopType.Restart ) );
+		}
+#endregion
+
+#region TutorialText
+        [ Button() ]
+        public void SpawnTutorialText( string text )
+        {
+			tutorial_text.gameObject.SetActive( true );
+			tutorial_text.fontSize = 144;
+			tutorial_text.text     = text;
+			tutorial_text.color    = Color.white;
+
+			tutorialOnCenter = true;
+
+			tutorial_text.rectTransform.anchoredPosition3D = Vector3.zero;
+
+			var sequence = recycledSequence.Recycle( OnSpawnTutorialComplete );
+			sequence.Append( tutorial_text.DOFontSize( 108, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+		}
+
+        void OnSpawnTutorialComplete()
+        {
+			onTutorialCorrect = OnTutorialCorrect;
+			onTutorialWrong   = OnTutorialWrong;
+		}
+
+        [ Button() ]
+        void OnTutorialCorrect()
+        {
+            if( recycledSequence.IsPlaying() ) return;
+
+            if( tutorialOnCenter )
+            {
+			    tutorial_text.color = Color.green;
+
+				var firstSequence = recycledSequence.Recycle();
+				firstSequence.Append( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+
+				firstSequence.AppendInterval( 0.5f );
+				firstSequence.Append( tutorial_text.rectTransform.DOMove( tutorial_text_target.position, GameSettings.Instance.ui_Entity_Move_TweenDuration ) );
+				firstSequence.Join( tutorial_text.DOFontSize( 72, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+
+				tutorialOnCenter = false;
+				return;
+			}
+
+			tutorial_text.color = Color.green;
+
+			var sequence = recycledSequence.Recycle();
+			sequence.Append( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
+        }
+
+        [ Button() ]
+        void OnTutorialWrong()
+        {
+            if( recycledSequence.IsPlaying() ) return;
+
+			tutorial_text.color = Color.red;
+
+			var sequence = recycledSequence.Recycle();
+			sequence.Append( tutorial_text.rectTransform.DOShakeRotation(
+				GameSettings.Instance.ui_Entity_Scale_TweenDuration
+			) )
+				.Join( tutorial_text.DOColor( Color.white, GameSettings.Instance.ui_Entity_Scale_TweenDuration ) );
 		}
 #endregion
 
@@ -121,7 +198,9 @@ namespace FFStudio
 					.Append( level_information_text_Scale.DoScale_Start( GameSettings.Instance.ui_Entity_Scale_TweenDuration ) )
 					.AppendCallback( () => tapInputListener.response = LoadNewLevel );
 
-            elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
+			OnLevelFinished();
+
+			elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
             elephantLevelEvent.elephantEventType = ElephantEvent.LevelCompleted;
             elephantLevelEvent.Raise();
         }
@@ -139,7 +218,9 @@ namespace FFStudio
 					.Append( level_information_text_Scale.DoScale_Start( GameSettings.Instance.ui_Entity_Scale_TweenDuration ) )
 					.AppendCallback( () => tapInputListener.response = Resetlevel );
 
-            elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
+			OnLevelFinished();
+
+			elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
             elephantLevelEvent.elephantEventType = ElephantEvent.LevelFailed;
             elephantLevelEvent.Raise();
         }
@@ -187,6 +268,15 @@ namespace FFStudio
         {
 			levelRevealedEvent.Raise();
 			levelStartedEvent.Raise();
+		}
+
+        void OnLevelFinished()
+        {
+			recycledSequence.Kill();
+			tutorial_text.gameObject.SetActive( false );
+
+			onTutorialCorrect = ExtensionMethods.EmptyMethod;
+			onTutorialWrong   = ExtensionMethods.EmptyMethod;
 		}
 #endregion
     }
