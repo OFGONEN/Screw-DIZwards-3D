@@ -16,6 +16,8 @@ namespace FFStudio
       [ Title( "Fired Events" ) ]
         public GameEvent levelFailedEvent;
         public GameEvent levelCompleted;
+        public GameEvent level_tutorial_correct;
+        public GameEvent level_tutorial_wrong;
 
       [ Title( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
@@ -81,11 +83,21 @@ namespace FFStudio
 #region Implementation
 		void OnClampInput_Downwards()
 		{
+			if( notif_input.sharedValue.x < 0 )
+				level_tutorial_correct.Raise();
+			else if( notif_input.sharedValue.x > 0 )
+				level_tutorial_wrong.Raise();
+
 			notif_input.sharedValue.x = Mathf.Min( notif_input.sharedValue.x, 0 );
 		}
 
 		void OnClampInput_Upwards()
 		{
+			if( notif_input.sharedValue.x > 0 )
+				level_tutorial_correct.Raise();
+			else if( notif_input.sharedValue.x < 0 )
+				level_tutorial_wrong.Raise();
+
 			notif_input.sharedValue.x = Mathf.Max( notif_input.sharedValue.x, 0 );
 		}
 #endregion

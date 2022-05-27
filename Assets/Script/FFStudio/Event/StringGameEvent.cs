@@ -12,6 +12,7 @@ namespace FFStudio
         public void Raise( string value )
         {
             eventValue = value;
-        }
+			Raise();
+		}
     }
 }
