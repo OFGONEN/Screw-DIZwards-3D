@@ -167,6 +167,7 @@ namespace FFStudio
         {
 			level_count_text_start.text = CurrentLevelData.Instance.currentLevel_Shown.ToString();
 			level_count_text_end.text   = ( CurrentLevelData.Instance.currentLevel_Shown + 1 ).ToString();
+			level_tutorial_text.text    = CurrentLevelData.Instance.levelData.tutorial_text;
 
 			level_information_text.text = "Tap to Start";
 
